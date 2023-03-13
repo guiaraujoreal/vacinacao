@@ -7,6 +7,7 @@ body{
     background-image: url("img/back_register.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 #cabecalho_register{
     background-color: #33cccc;
@@ -23,6 +24,13 @@ body{
     position: absolute;
     top: 10px;
     left: 35%;
+}
+.frase{
+    position: absolute;
+    top: 5%;
+    right: 2%;
+    font-size: 25px;
+    color: white;
 }
 #form_register{
     backdrop-filter: blur(20px);
@@ -182,4 +190,19 @@ body{
     top: 40% ;
     right: 2%;
     text-align: right;
+}
+
+#rodape{
+    background-color: #33cccc;
+    width: 100%;
+    height: 110px;
+    position: absolute;
+    top: 100%;
+}
+.copyright{
+    color: white;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 45%;
 }
