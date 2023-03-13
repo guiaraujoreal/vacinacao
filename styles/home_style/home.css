@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+}
+body{
+    background-image: url("img/backg_main.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#cabecalho_main{
+    background-color: #33cccc;
+    width: 100%;
+    height: 110px;
+}
+.logotipo{
+    position: absolute;
+    top: 10px;
+    width: auto;
+    height: 90px;
+}
+.texto_logo{
+    position: absolute;
+    top: 10px;
+    left: 35%;
+}
+.form_main{
+    backdrop-filter: blur(20px);
+    position: absolute;
+    top: 30%;
+    left:70%;
+    width: 350px;
+    height: 400px;
+    white-space: nowrap;
+    border-radius: 12px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #33cccc;
+    box-shadow: 10px 5px 5px black;
+}
+.titulo_form{
+    font-size: 30px;
+    position: absolute;
+    top: 3%;
+    left: 25%;
+    color: #5dfaf3;
+    text-shadow: black 0.1em 0.1em 0.2em
+}
+.text_cpf_main{
+    font-size: 28px;
+    color: white;
+    position: absolute;
+    top: 70px;
+    left:5px;
+    text-shadow: black 0.1em 0.1em 0.2em
+}
+.box_cpf_main{
+    position: absolute;
+    top: 110px;
+    left:5px;
+    width: 250px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #33cccc;
+    background-color: #bdf8de;
+    
+}
+.text_senha_main{
+    position: absolute;
+    top: 170px;
+    left:5px;
+    font-size: 28px;
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em
+}
+.box_senha_main{
+    width: 250px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #33cccc;
+    background-color: #bdf8de;
+    position: absolute;
+    top: 210px;
+    left:5px;
+}
+.botao_login{
+    position: absolute;
+    top: 260px;
+    left: 120px;
+    font-size: 20px;
+    width: 120px;
+    height: 40px;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 0;
+    color: white;
+    background-color: #33cc87;
+}
+.acesso_singin{
+    position: absolute;
+    top: 80%;
+    left: 27%;
+    color: white;
+}
+.link_singin{
+    position: absolute;
+    top: 87%;
+    left: 35%;
+    width: 120px;
+    height: 25px;
+    color: black;
+    background-color: #33cccc;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 0;
+}
+#comentarios{
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em
+}
+.coment01{
+    font-size: 60px;
+    position: absolute;
+    top: 50% ;
+}
+#rodape{
+    background-color: #33cccc;
+    width: 100%;
+    height: 110px;
+    position: absolute;
+    top: 100%;
+}
+.copyright{
+    color: white;
+    text-align: center;
+}

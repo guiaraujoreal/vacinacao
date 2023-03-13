@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" lang="pt">
+        <link rel="stylesheet" type="text/css" href="styles/register_style/register.css" media="screen" />
+        <title>
+            VacinaCão - Registro
+        </title>
+        <link rel="icon" type="image/png" href="icons/logo.png"/>
+    </head>
+    <bory>
+        <div id="cabecalho_register">
+            <img src="icons/logo.png" class="logotipo"></div>
+            <img src="icons/text_logo.png" class="texto_logo"></div>
+
+        <div id="form_register">
+            <form action="php/register_php/script_register.php" method="post">
+
+                <p class="titulo_register"><b>Solicitar acesso</b></p>
+
+                <p class="text_nome_register">Nome completo:</p> 
+                <input type="text" name="nome" class="box_nome_register" required/>
+
+                <p class="text_cpf_register">CPF:</p>
+                <input type="text" name="cpf" class="box_cpf_register" />
+
+                <p class="text_senha_register">Crie uma senha:</p> 
+                <input type="text" name="senha" class="box_senha_register"/>
+
+                <p class="text_confirmsenha_register">Confirme a senha: </p>
+                <input type="text" name="confirmsenha" class="box_confirmsenha_register" />
+
+                <p class="text_telefone_register">Telefone/Celular:</p>
+                <input type="text" name="telefone" class="box_telefone_register"/>
+
+                <p class="text_email_register">Email: </p>
+                <input type="text" name="email" class="box_email_register" />
+
+                <button type="submit" class="botao_register">Enviar Dados</button></p>
+            </form>
+        </div>
+        <div id="comentarios"><h1 class="coment01"><b>Uma conta:</b> <br> um passo para ter o controle <br> fundamental da saúde <br>
+            dos nossos pet's .</h1> 
+        </div>
+        <div class="rodape">
+            <p>Copyright 2023</p>
+        </div>
+    </bory>
+</html>
