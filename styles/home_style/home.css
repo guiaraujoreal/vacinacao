@@ -62,6 +62,7 @@ body{
     text-shadow: black 0.1em 0.1em 0.2em
 }
 .box_cpf_main{
+    font-size: 18px;
     position: absolute;
     top: 110px;
     left:5px;
@@ -82,6 +83,7 @@ body{
     text-shadow: black 0.1em 0.1em 0.2em
 }
 .box_senha_main{
+    font-size: 18px;
     width: 250px;
     height: 30px;
     border-style: solid;

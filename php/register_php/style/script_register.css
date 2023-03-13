@@ -19,3 +19,37 @@
     top: 10px;
     left: 35%;
 }
+#msgs_confirm{
+    text-align: center;
+    position: absolute;
+    top:50%;
+    left: 30%;
+}
+.msg_confirm01{
+    font-size: 40px;
+}
+.msg_confirm02{
+    position: absolute;
+    top: 170%;
+    left: 5%;
+}
+.icon_confirm{
+    position: absolute;
+    left: 45%;
+    width: 220px;
+    height: auto;
+}
+#rodape{
+    background-color: #33cccc;
+    width: 100%;
+    height: 110px;
+    position: absolute;
+    top: 100%;
+}
+.copyright{
+    color: white;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+}
