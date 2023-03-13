@@ -53,3 +53,8 @@
     top: 50%;
     left: 45%;
 }
+.animation_email{
+    width: 15px;
+    position: absolute;
+    left: 40%;
+}

@@ -54,7 +54,7 @@ try {
 	$mail->addAddress($email);
 	$mail->isHTML(true);
 	$mail->Subject = 'VacinaCão - Confirmacao de solicitacao de acesso';
-	$mail->Body = '<html><meta charset="utf-8"> <font size="9" face="arial"><b>✅Solicitação de Acesso enviada com sucesso!
+	$mail->Body = '<html><meta charset="utf-8"> <font size="9" face="arial"><b>✅Solicitacao de Acesso enviada com sucesso!
 	Aguarde o administrador liberar seu acesso.</b></font></html>';
 	$mail->AltBody = 'Chegou o email teste do Canal TI';
 
