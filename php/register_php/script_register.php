@@ -51,15 +51,15 @@ try {
 	$mail->Port = 587;
 
 	$mail->setFrom('porqueseraoficial2020@gmail.com');
-	$mail->addAddress('joaoguilhermearaujo1617@gmail.com');
-
+	$mail->addAddress($email);
 	$mail->isHTML(true);
-	$mail->Subject = 'Confirmacao de solicitacao de acesso';
-	$mail->Body = 'Chegou o email teste do <strong>Canal TI</strong>';
+	$mail->Subject = 'VacinaCão - Confirmacao de solicitacao de acesso';
+	$mail->Body = '<html><meta charset="utf-8"> <font size="9" face="arial"><b>✅Solicitação de Acesso enviada com sucesso!
+	Aguarde o administrador liberar seu acesso.</b></font></html>';
 	$mail->AltBody = 'Chegou o email teste do Canal TI';
 
 	if($mail->send()) {
-		header ("location: confirm_email_register.html");
+		echo "<script>window.location.assign('confirm_email_register.html')</script>";
 	} else {
 		echo 'Email nao enviado';
 	}

@@ -25,11 +25,25 @@ body{
     top: 10px;
     left: 35%;
 }
-.frase{
+.menu_home{
     position: absolute;
-    top: 5%;
+    top: 7%;
+    right: 25%;
+    font-size: 20px;
+    color: white;
+}
+.menu_contato{
+    position: absolute;
+    top: 7%;
+    right: 15%;
+    font-size: 20px;
+    color: white;
+}
+.menu_quemsomos{
+    position: absolute;
+    top: 7%;
     right: 2%;
-    font-size: 25px;
+    font-size: 20px;
     color: white;
 }
 #form_register{
@@ -179,18 +193,27 @@ body{
     border-color: #33cccc;
     background-color: #bdf8de;
 }
-.botao_register{
+
+.botao_register {
     position: absolute;
-    top: 480px;
-    left: 210px;
-    font-size: 20px;
-    width: 150px;
-    height: 40px;
-    border-style: solid;
-    border-radius: 5px;
-    border-width: 0;
+    top: 83%;
+    left: 35%;
+    width: 170px;
+    height: 45px;
+    border: 3px solid #33cccc;
+    border-radius: 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 1.2em;
+    font-weight: 550;
+    font-family: 'Montserrat', sans-serif;
+}
+  
+.botao_register:hover {
+    background: #33cccc;
     color: white;
-    background-color: #33cc87;
+    font-size: 1.5em;
 }
 #comentarios{
     color: white;

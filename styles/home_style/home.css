@@ -24,11 +24,25 @@ body{
     top: 10px;
     left: 35%;
 }
-.frase{
+.menu_home{
     position: absolute;
-    top: 5%;
+    top: 7%;
+    right: 25%;
+    font-size: 20px;
+    color: white;
+}
+.menu_contato{
+    position: absolute;
+    top: 7%;
+    right: 15%;
+    font-size: 20px;
+    color: white;
+}
+.menu_quemsomos{
+    position: absolute;
+    top: 7%;
     right: 2%;
-    font-size: 25px;
+    font-size: 20px;
     color: white;
 }
 .form_main{
@@ -61,6 +75,7 @@ body{
     left:5px;
     text-shadow: black 0.1em 0.1em 0.2em
 }
+
 .box_cpf_main{
     font-size: 18px;
     position: absolute;
@@ -74,6 +89,7 @@ body{
     background-color: #bdf8de;
     
 }
+
 .text_senha_main{
     position: absolute;
     top: 170px;
@@ -94,19 +110,30 @@ body{
     top: 210px;
     left:5px;
 }
-.botao_login{
+
+
+.botao_login {
     position: absolute;
-    top: 260px;
-    left: 120px;
-    font-size: 20px;
-    width: 120px;
-    height: 40px;
-    border-style: solid;
-    border-radius: 5px;
-    border-width: 0;
-    color: white;
-    background-color: #33cc87;
+    top: 65%;
+    left: 35%;
+    width: 110px;
+    height: 45px;
+    border: 3px solid #33cccc;
+    border-radius: 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 1.2em;
+    font-weight: 550;
+    font-family: 'Montserrat', sans-serif;
 }
+  
+.botao_login:hover {
+    background: #33cccc;
+    color: white;
+    font-size: 1.5em;
+}
+
 .acesso_singin{
     position: absolute;
     top: 80%;
