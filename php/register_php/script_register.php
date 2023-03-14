@@ -31,9 +31,9 @@ $stmt->execute();
  
 //Enviar email de confirmação
 
-require_once('PHP_Mail/PHPMailer.php');
-require_once('PHP_Mail/SMTP.php');
-require_once('PHP_Mail/Exception.php');
+require_once('../mail/PHPMailer.php');
+require_once('../mail/SMTP.php');
+require_once('../mail/Exception.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -59,7 +59,7 @@ try {
 	$mail->AltBody = 'Chegou o email teste do Canal TI';
 
 	if($mail->send()) {
-		echo "<script>window.location.assign('confirm_email_register.html')</script>";
+		echo "<script>window.location.assign('../../pages/confirm_email_register.html')</script>";
 	} else {
 		echo 'Email nao enviado';
 	}

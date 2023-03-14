@@ -4,7 +4,7 @@
     font-family: Helvetica, sans-serif;
 }
 body{
-    background-image: url("img/back_register.png");
+    background-image: url("../imgs/back_register.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
