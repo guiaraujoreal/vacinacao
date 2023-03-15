@@ -18,8 +18,8 @@
             <a href="#" class="menu_quemsomos"><b>QUEM SOMOS</b></a>
         </div>
         <div class="form_main">
-            
-            <form action="" method="">
+
+            <form action="efetuar_login.php" method="post">
                 <p class="titulo_form"><b>Faça o Login</b></p>
                 <p class="text_cpf_main"><b>Digite seu CPF:</b></p> 
                 <input type="text" name="cpf" class="box_cpf_main" placeholder="Somente os números"/> 
