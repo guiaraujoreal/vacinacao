@@ -1,11 +1,7 @@
 <?php
 
-
-// Dados do servidor 
-$usuario = 'noite01';
-$password = 'Noite123456';
-$banco = 'academia';
-$hostname = '127.0.0.1';
+include_once('funcoes.php');
+$mysqli = query_db();
 
 $cpf = $_POST['cpf'];
 $nome = $_POST['nome'];
@@ -13,14 +9,9 @@ $senha = $_POST['senha'];
 $telefone = $_POST['telefone'];
 $email = $_POST['email'];
 
-// tenta conectar na base de dados
-$mysqli = new mysqli($hostname,$usuario,$password,$banco);
-//caso não funcione exibe a mensagem de erro
-if (mysqli_connect_errno()) trigger_error(mysqli_connect_error());
-
-$sql = 'INSERT INTO plogin (cpf,nome,senha,telefone,email,status_user,e_cliente) values (?,?,?,?,?,?,?)';
+$sql = 'INSERT INTO plogin (cpf,nome,senha1,telefone,email,ativo,e_cliente) values (?,?,?,?,?,?,?)';
 $stmt = $mysqli->prepare($sql);
-$stmt->bind_param("sssssii",$cpf, $nome, $senha,$telefone,$email,$status_user,$e_cliente);
+$stmt->bind_param("sssssii",$cpf, $nome, $senha1,$telefone,$email,$ativo,$e_cliente);
 
 // s: para 'string'
 // i: para 'inteiro'
@@ -31,9 +22,9 @@ $stmt->execute();
  
 //Enviar email de confirmação
 
-require_once('../mail/PHPMailer.php');
-require_once('../mail/SMTP.php');
-require_once('../mail/Exception.php');
+require_once('mail/PHPMailer.php');
+require_once('mail/SMTP.php');
+require_once('mail/Exception.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -59,7 +50,7 @@ try {
 	$mail->AltBody = 'Chegou o email teste do Canal TI';
 
 	if($mail->send()) {
-		echo "<script>window.location.assign('../../pages/confirm_email_register.html')</script>";
+		echo "<script>window.location.assign('../../html/confirm_email_register.html')</script>";
 	} else {
 		echo 'Email nao enviado';
 	}

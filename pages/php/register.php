@@ -1,24 +1,35 @@
+<?php
+include('functions/funcoes.php');
+if (esta_logado()==1) {
+	header("location:register.php");
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" lang="pt">
-        <link rel="stylesheet" type="text/css" href="../styles/register.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../styles/register.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../styles/cabecalho_e_rodape.css" media="screen" />
         <title>
             VacinaCão - Registro
         </title>
-        <link rel="icon" type="image/png" href="../icons/logo.png"/>
+        <link rel="icon" type="image/png" href="../../icons/logo.png"/>
     </head>
     <bory>
-        <div id="cabecalho_register">
-            <a href="home.html"><img src="../icons/logo.png" class="logotipo"></a>
-            <img src="../icons/text_logo.png" class="texto_logo">
+        <div id="cabecalho">
+            <a href="index.php"><img src="../../icons/logo.png" class="logotipo"></a>
+            <img src="../../icons/text_logo.png" class="texto_logo">
             <a href="home.html" class="menu_home"><b>HOME</b></a>
             <a href="#" class="menu_contato"><b>CONTATO</b></a>
             <a href="#" class="menu_quemsomos"><b>QUEM SOMOS</b></a>
         </div>
 
         <div id="form_register">
-            <form action="../php/register_php/script_register.php" method="post">
+            <form action="functions/script_register.php" method="post">
 
                 <p class="titulo_register"><b>Solicitar acesso</b></p>
 
