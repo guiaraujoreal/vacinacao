@@ -1,7 +1,7 @@
 <?php
 include('functions/funcoes.php');
 	if (esta_logado()==1) {
-		header("location:index.php");
+		header("location:home_admin.php");
         exit();
 	}
 ?>

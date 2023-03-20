@@ -19,7 +19,6 @@ $sql = "select * from plogin where senha1 ='" .$senha1. "'
 
 $consulta = $mysqli->query($sql);
 	
-	
 if ($consulta->num_rows > 0) {
 	while ($user = $consulta->fetch_assoc()) {
 		$_SESSION['user']=$user['nome'];
@@ -28,7 +27,7 @@ if ($consulta->num_rows > 0) {
 		header("location:../home_admin.php");
 		
 	} else {
-		echo "Cadastra-se";
+		header("location:../index.php?login=incorreto");
 	}
 }
 ?>

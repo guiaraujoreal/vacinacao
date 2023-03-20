@@ -3,9 +3,10 @@ include('functions/funcoes.php');
 if (esta_logado()==1) {
 	header("location:home_admin.php");
 }
-
-
 ?>
+<?php if(isset($_GET['login']) && $_GET['login'] == 'incorreto'): ?>
+    <p>Login incorreto. Tente novamente.</p>
+<?php endif; ?>
 
 <!DOCTYPE html>
 <html lang="pt">

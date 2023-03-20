@@ -72,7 +72,7 @@ if (esta_logado()==1) {
                 </select>
 
                 <p class="text_raca">Raça Espécie: </p>
-                <input type="text" name="raca" class="box_raca" placeholder="Na dúvida, não preencher."/>
+                <input type="text" name="raca" class="box_raca" placeholder="Na dúvida, não preencher." />
 
                 <p class="text_seletor03">Estimativa de idade:</p>
                 <select name="idade" class="seletor03">
@@ -91,7 +91,7 @@ if (esta_logado()==1) {
 
                     while($row = $result->fetch_assoc()) {
                         $row['email']; 
-                        echo "<input type='checkbox' name='email' value=" ?> <?php echo $row["email"] ?> <?php echo "class='bt_email />'"; }?>
+                        echo "<input type='checkbox' name='email' value=" ?> <?php echo $row["email"] ?> <?php echo "class='bt_email'/>"; }?>
 
                 <p class="text_seletor01">Selecione o cliente/dono:</p>
                 <select name="dono" class="seletor01">
