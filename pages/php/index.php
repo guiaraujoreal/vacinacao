@@ -42,10 +42,9 @@ if (esta_logado()==1) {
         </div>
         <div id="comentarios"><h1 class="coment01">Proteja quem o <br> protege e está sempre <br> com você.</h1> 
         </div>
-        <div id="rodape">
-            
-            <p class="copyright"><b> © Copyright 2023</b></p>
-        </div>
+        <footer>
+            <p>&copy; 2023 Meu Site</p>
+        </footer>
     </bory>
     <script>  
         function formatar(mascara, documento) {
@@ -58,5 +57,5 @@ if (esta_logado()==1) {
             texto = mascara.substring(i);
           }
         }
-      </script>
+    </script>
 </html>

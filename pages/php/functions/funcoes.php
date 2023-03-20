@@ -24,5 +24,12 @@ function query_db(){
 	if (mysqli_connect_errno()) trigger_error(mysqli_connect_error());
 	return $mysqli;
 }
+
+function logout(){
+   session_start();
+   session_destroy();
+   exit();
+
+}
 	
 	

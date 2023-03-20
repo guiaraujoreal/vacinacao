@@ -1,0 +1,206 @@
+body{
+    background: rgb(0,255,183);
+    background: -moz-linear-gradient(90deg, rgba(0,255,183,1) 0%, rgba(0,98,215,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(0,255,183,1) 0%, rgba(0,98,215,1) 100%);
+    background: linear-gradient(90deg, rgba(0,255,183,1) 0%, rgba(0,98,215,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffb7",endColorstr="#0062d7",GradientType=1);
+}
+#form_register{
+    background-color: #caf3f3;
+    position: absolute;
+    top: 22%;
+    right: 2%;
+    border-radius: 12px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #33cccc;
+    width: 600px;
+    height: 550px;
+    white-space: nowrap;
+}
+.titulo_register{
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    color: black;
+    background-color: #5dfaf3;
+    width: 100%;
+    height: 8%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.text_nome_register{
+    font-size: 23px;
+    position: absolute;
+    top: 60px;
+    left:5px;
+    color: black
+}
+.box_nome_register{
+    font-size: 18px;
+    position: absolute;
+    top: 100px;
+    left:5px;
+    width: 550px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #33cccc;
+    background-color: #bdf8de;
+}
+.text_cpf_register{
+    font-size: 23px;
+    position: absolute;
+    top: 160px;
+    left:5px;
+    color: black
+}
+.box_cpf_register{
+    font-size: 18px;
+    position: absolute;
+    top: 200px;
+    left:5px;
+    width: 190px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #33cccc;
+    background-color: #bdf8de;
+}
+.text_senha_register{
+    font-size: 23px;
+    position: absolute;
+    top: 260px;
+    left:5px;
+    color: black
+}
+.box_senha_register{
+    font-size: 18px;
+    position: absolute;
+    top: 300px;
+    left:5px;
+    width: 200px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #33cccc;
+    background-color: #bdf8de;
+}
+.text_telefone_register{
+    font-size: 23px;
+    position: absolute;
+    top: 260px;
+    left:300px;
+    color: black
+}
+.box_telefone_register{
+    font-size: 18px;
+    position: absolute;
+    top: 300px;
+    left:300px;
+    width: 200px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #33cccc;
+    background-color: #bdf8de;
+}
+.text_email_register{
+    font-size: 23px;
+    position: absolute;
+    top: 360px;
+    left:300px;
+    color: black
+}
+.box_email_register{
+    font-size: 18px;
+    position: absolute;
+    top: 400px;
+    left:300px;
+    width: 270px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #33cccc;
+    background-color: #bdf8de;
+}
+.text_confirmsenha_register{
+    font-size: 23px;
+    position: absolute;
+    top: 360px;
+    left:5px;
+    color: black
+}
+.box_confirmsenha_register{
+    font-size: 18px;
+    position: absolute;
+    top: 400px;
+    left:5px;
+    width: 200px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #33cccc;
+    background-color: #bdf8de;
+}
+
+.botao_register {
+    position: absolute;
+    top: 83%;
+    left: 35%;
+    width: 170px;
+    height: 45px;
+    border: solid #33cccc;
+    border-radius: 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 1.2em;
+    font-weight: 550;
+    font-family: 'Montserrat', sans-serif;
+}
+  
+.botao_register:hover {
+    background: #33cccc;
+    color: black;
+    font-size: 1.5em;
+}
+#comentarios{
+    color: black;
+}
+#coment01{
+    font-size: 50px;
+    position: absolute;
+    top: 25% ;
+    left: 2%;
+    text-align: left;
+}
+.seletor01{
+    position: absolute;
+    top: 200px;
+    left: 1%;
+    width: 500px;
+    height: 35px;
+    border: 3px solid #33cccc;
+    border-radius: 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background-color: #bdf8de;
+    font-size: 1.2em;
+    font-weight: 550;
+    font-family: 'Montserrat', sans-serif;
+}
+.text_seletor01{
+    font-size: 23px;
+    position: absolute;
+    top: 160px;
+    left:1%;
+    color: black
+}
+#animation{
+    position: absolute;
+    top: 40%;
+    left: 10%;
+}

@@ -2,11 +2,12 @@
 include('functions/funcoes.php');
 	if (esta_logado()==1) {
 		header("location:index.php");
+        exit();
 	}
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,14 +19,35 @@ include('functions/funcoes.php');
     <link rel="icon" type="image/png" href="../../icons/logo.png"/>
 </head>
 <body>
+
         <div id="cabecalho">    
             <img src="../../icons/logo.png" class="logotipo">
             <img src="../../icons/text_logo.png" class="texto_logo">
+            <div id="user_menu">
+                 <h1 class="user">
+                    <?php 
+                    $user = $_SESSION['user'];
+                    $primeiro_nome = explode(' ', $user);
+                    //user_fname equilave a "user first name" - primeiro nome do usuário
+                    $user_fname = $primeiro_nome[0];
+                    $_SESSION['user_fname'] = $user_fname;
+                    echo "Olá " . $_SESSION['user_fname'] . "!" ?> </h1>
+                <h2 class="category_a">Adminstrador</h2> 
+            </div>
+            <button id="botao_logout" onclick="logout()">
+                <div class="text">
+                    <span>Log</span>
+                    <span>Out</span>
+                </div>
+                <div class="clone">
+                    <span>Log</span>
+                    <span>Out</span>
+                </div>
+                <svg width="20px" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+            </button>
         </div>
-        <div id="user_menu">
-			<h1 class="user"><?php echo "Olá " . $_SESSION['user'] . "!" ?> </h1>
-            <h2 class="category_a">Adminstrador</h2> 
-		</div>
         <div id="table_users">
             <table class="table table-bordered table-hover table-sm table-striped">
                 <thead class="thead-dark">
@@ -33,13 +55,14 @@ include('functions/funcoes.php');
                         <th scope="col">Nome</th>
                         <th scope="col">CPF</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Data de Inscrição</th>
+                        <th scope="col">Data/Hora de Inscrição</th>
+                        <th scope="col">Telefone de Contato</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     $mysqli = query_db();
-                    $sql = "SELECT nome,cpf,email,data_criacao FROM plogin order by nome";
+                    $sql = "SELECT nome,cpf,email,data_criacao,telefone FROM plogin order by nome";
                     $query = $mysqli->query($sql);
                     while ($dados = mysqli_fetch_assoc($query)){
                         echo "<tr>";
@@ -47,6 +70,7 @@ include('functions/funcoes.php');
                         echo '<td> ' . $dados['cpf'] . '';
                         echo '<td> ' . $dados['email'] . '';
                         echo '<td> ' . $dados['data_criacao'] . '';
+                        echo '<td> ' . $dados['telefone'] . '';
                         echo "</tr>";
                     }
                     ?>
@@ -57,9 +81,21 @@ include('functions/funcoes.php');
         <div class="inf_box">
             d
         </div>
-        <div id="rodape">
-            
-            <p class="copyright"><b> © Copyright 2023</b></p>
-        </div>
+
+        <footer>
+            <p>&copy; 2023 Meu Site</p>
+        </footer>
+
 </body>
+<script>
+   function logout() {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "functions/funcoes.php", true);
+      xhr.send();
+      window.location = "index.php";
+   }
+</script>
+
+
+
 </html>

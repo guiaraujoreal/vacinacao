@@ -12,14 +12,19 @@ if (esta_logado()==1) {
 <html>
     <head>
         <meta charset="utf-8" lang="pt">
-        <link rel="stylesheet" type="text/css" href="../../styles/register.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../styles/register_users.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../../styles/cabecalho_e_rodape.css" media="screen" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <title>
             VacinaCão - Registro
         </title>
         <link rel="icon" type="image/png" href="../../icons/logo.png"/>
     </head>
     <bory>
+        
         <div id="cabecalho">
             <a href="index.php"><img src="../../icons/logo.png" class="logotipo"></a>
             <img src="../../icons/text_logo.png" class="texto_logo">
@@ -27,11 +32,10 @@ if (esta_logado()==1) {
             <a href="#" class="menu_contato"><b>CONTATO</b></a>
             <a href="#" class="menu_quemsomos"><b>QUEM SOMOS</b></a>
         </div>
-
         <div id="form_register">
-            <form action="functions/script_register.php" method="post">
+            <form action="functions/query_register_user.php" method="post">
 
-                <p class="titulo_register"><b>Solicitar acesso</b></p>
+                <p class="titulo_register"><b>Cadastrar Usuário</b></p>
 
                 <p class="text_nome_register">Nome completo:</p> 
                 <input type="text" name="nome" class="box_nome_register" placeholder="Ex: Heitor Miguel dos Santos" required/>
@@ -46,20 +50,35 @@ if (esta_logado()==1) {
                 <input type="password" name="confirmsenha" class="box_confirmsenha_register" placeholder="Confirme sua senha"/>
 
                 <p class="text_telefone_register">Telefone/Celular:</p>
-                <input type="tel" name="telefone" class="box_telefone_register" placeholder="Ex: 38999999999" minlength="14" maxlength="15" OnKeyPress="formatar('(##)#####-####',this)" required/>
+                <input type="tel" name="telefone" class="box_telefone_register" placeholder="Ex: 38999999999" minlength="13" maxlength="14" OnKeyPress="formatar('(##)#####-####',this)" required/>
 
                 <p class="text_email_register">Email: </p>
                 <input type="email" name="email" class="box_email_register" placeholder="Ex: heitor@dominio.com" required/>
 
+                <p class="text_seletor01">Status:</p>
+                <select class="seletor01" name="seletor01">
+                    <option value="1" >Ativo</option>
+                    <option value="0" >Inativo</option>
+                </select>
+
+                <p class="text_seletor02">Função:</p>
+                <select class="seletor02" name="seletor02">
+                    <option value="0">Cliente</option>
+                    <option value="1" >Administrador</option>
+                </select>
+
                 <button type="submit" class="botao_register">Enviar Dados</button></p>
             </form>
         </div>
-        <div id="comentarios"><h1 class="coment01"><b>Uma conta:</b> <br> um passo para ter o controle <br> fundamental da saúde <br>
-            dos nossos pet's .</h1> 
+        <div id="comentarios"><h1 id="coment01" class="animate__animated animate__bounceInRight"><b>Vamos criar uma conta!</b></h1> </div>
+
+        <div id="animation">
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_z9ed2jna.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop  autoplay></lottie-player>
         </div>
-        <div id="rodape">
-            <p class="copyright"><b> © Copyright 2023</b></p>
-        </div>
+        <footer>
+            <p>&copy; 2023 Meu Site</p>
+        </footer>
     </bory>
     <script>  
         function formatar(mascara, documento) {
@@ -72,5 +91,5 @@ if (esta_logado()==1) {
             texto = mascara.substring(i);
           }
         }
-      </script>
+    </script>
 </html>

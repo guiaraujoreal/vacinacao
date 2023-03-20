@@ -5,9 +5,11 @@ $mysqli = query_db();
 
 $cpf = $_POST['cpf'];
 $nome = $_POST['nome'];
-$senha = $_POST['senha'];
+$senha1 = $_POST['senha'];
 $telefone = $_POST['telefone'];
 $email = $_POST['email'];
+$ativo = $_POST['seletor01'];
+$e_cliente = $_POST['seletor02'];
 
 $sql = 'INSERT INTO plogin (cpf,nome,senha1,telefone,email,ativo,e_cliente) values (?,?,?,?,?,?,?)';
 $stmt = $mysqli->prepare($sql);
@@ -50,7 +52,7 @@ try {
 	$mail->AltBody = 'Chegou o email teste do Canal TI';
 
 	if($mail->send()) {
-		echo "<script>window.location.assign('../../html/confirm_email_register.html')</script>";
+		echo "<script>window.location.assign('../register_pets.php')</script>";
 	} else {
 		echo 'Email nao enviado';
 	}

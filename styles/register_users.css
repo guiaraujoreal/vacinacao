@@ -1,18 +1,18 @@
 body{
-    background-image: url("../imgs/back_register.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    background: rgb(148,233,223);
+    background: -moz-linear-gradient(90deg, rgba(148,233,223,1) 0%, rgba(206,233,150,1) 50%, rgba(148,233,223,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(148,233,223,1) 0%, rgba(206,233,150,1) 50%, rgba(148,233,223,1) 100%);
+    background: linear-gradient(90deg, rgba(148,233,223,1) 0%, rgba(206,233,150,1) 50%, rgba(148,233,223,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#94e9df",endColorstr="#94e9df",GradientType=1);
 }
-
 #form_register{
-    backdrop-filter: blur(20px);
+    background-color: #caf3f3;
     position: absolute;
     top: 22%;
     left: 2%;
     border-radius: 12px;
     border-style: solid;
-    border-width: 1px;
+    border-width: 2px;
     border-color: #33cccc;
     width: 600px;
     height: 550px;
@@ -24,21 +24,19 @@ body{
     top: 0;
     left: 0;
     text-align: center;
-    color: white;
+    color: black;
     background-color: #5dfaf3;
     width: 100%;
     height: 8%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    text-shadow: black 0em 0em 0.1em;
 }
 .text_nome_register{
     font-size: 23px;
     position: absolute;
     top: 60px;
     left:5px;
-    text-shadow: black 0.1em 0.1em 0.2em;
-    color: white
+    color: black
 }
 .box_nome_register{
     font-size: 18px;
@@ -57,8 +55,7 @@ body{
     position: absolute;
     top: 160px;
     left:5px;
-    text-shadow: black 0.1em 0.1em 0.2em;
-    color: white
+    color: black
 }
 .box_cpf_register{
     font-size: 18px;
@@ -77,8 +74,7 @@ body{
     position: absolute;
     top: 260px;
     left:5px;
-    text-shadow: black 0.1em 0.1em 0.2em;
-    color: white
+    color: black
 }
 .box_senha_register{
     font-size: 18px;
@@ -97,8 +93,7 @@ body{
     position: absolute;
     top: 260px;
     left:300px;
-    text-shadow: black 0.1em 0.1em 0.2em;
-    color: white
+    color: black
 }
 .box_telefone_register{
     font-size: 18px;
@@ -117,8 +112,7 @@ body{
     position: absolute;
     top: 360px;
     left:300px;
-    text-shadow: black 0.1em 0.1em 0.2em;
-    color: white
+    color: black
 }
 .box_email_register{
     font-size: 18px;
@@ -137,8 +131,7 @@ body{
     position: absolute;
     top: 360px;
     left:5px;
-    text-shadow: black 0.1em 0.1em 0.2em;
-    color: white
+    color: black
 }
 .box_confirmsenha_register{
     font-size: 18px;
@@ -159,7 +152,7 @@ body{
     left: 35%;
     width: 170px;
     height: 45px;
-    border: 3px solid #33cccc;
+    border: solid #33cccc;
     border-radius: 10px;
     transition: all 0.3s;
     cursor: pointer;
@@ -171,17 +164,65 @@ body{
   
 .botao_register:hover {
     background: #33cccc;
-    color: white;
+    color: black;
     font-size: 1.5em;
 }
 #comentarios{
-    color: white;
-    text-shadow: black 0.1em 0.1em 0.2em
+    color: black;
 }
-.coment01{
+#coment01{
     font-size: 50px;
     position: absolute;
-    top: 40% ;
+    top: 25% ;
     right: 2%;
     text-align: right;
+}
+.seletor01{
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    width: 100px;
+    height: 35px;
+    border: 3px solid #33cccc;
+    border-radius: 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background-color: #bdf8de;
+    font-size: 1.2em;
+    font-weight: 550;
+    font-family: 'Montserrat', sans-serif;
+}
+.text_seletor01{
+    font-size: 23px;
+    position: absolute;
+    top: 160px;
+    left:50%;
+    color: black
+}
+.seletor02{
+    position: absolute;
+    top: 200px;
+    left: 70%;
+    width: 160px;
+    height: 35px;
+    border: 3px solid #33cccc;
+    border-radius: 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background-color: #bdf8de;
+    font-size: 1.2em;
+    font-weight: 550;
+    font-family: 'Montserrat', sans-serif;
+}
+.text_seletor02{
+    font-size: 23px;
+    position: absolute;
+    top: 160px;
+    left:70%;
+    color: black
+}
+#animation{
+    position: absolute;
+    top: 25%;
+    right: 8%;
 }
