@@ -28,9 +28,30 @@ if (esta_logado()==1) {
         <div id="cabecalho">
             <a href="index.php"><img src="../../icons/logo.png" class="logotipo"></a>
             <img src="../../icons/text_logo.png" class="texto_logo">
-            <a href="home.html" class="menu_home"><b>HOME</b></a>
-            <a href="#" class="menu_contato"><b>CONTATO</b></a>
-            <a href="#" class="menu_quemsomos"><b>QUEM SOMOS</b></a>
+            <div id="user_menu">
+                 <h1 class="user">
+                    <?php 
+                    $user = $_SESSION['user'];
+                    $primeiro_nome = explode(' ', $user);
+                    //user_fname equilave a "user first name" - primeiro nome do usuário
+                    $user_fname = $primeiro_nome[0];
+                    $_SESSION['user_fname'] = $user_fname;
+                    echo "Olá " . $_SESSION['user_fname'] . "!" ?> </h1>
+                <h2 class="category_a">Adminstrador</h2> 
+            </div>
+            <button id="botao_logout" onclick="logout()">
+                <div class="text">
+                    <span>Log</span>
+                    <span>Out</span>
+                </div>
+                <div class="clone">
+                    <span>Log</span>
+                    <span>Out</span>
+                </div>
+                <svg width="20px" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+            </button>
         </div>
         <div id="form_register">
             <form action="functions/query_register_user.php" method="post">
@@ -90,6 +111,14 @@ if (esta_logado()==1) {
             i++;
             texto = mascara.substring(i);
           }
+        }
+    </script>
+    <script>
+        function logout() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "functions/funcoes.php", true);
+            xhr.send();
+            window.location = "index.php";
         }
     </script>
 </html>

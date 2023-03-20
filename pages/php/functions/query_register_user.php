@@ -11,6 +11,8 @@ $email = $_POST['email'];
 $ativo = $_POST['seletor01'];
 $e_cliente = $_POST['seletor02'];
 
+global $cpf;
+
 $sql = 'INSERT INTO plogin (cpf,nome,senha1,telefone,email,ativo,e_cliente) values (?,?,?,?,?,?,?)';
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("sssssii",$cpf, $nome, $senha1,$telefone,$email,$ativo,$e_cliente);
@@ -20,43 +22,9 @@ $stmt->bind_param("sssssii",$cpf, $nome, $senha1,$telefone,$email,$ativo,$e_clie
 // d: para 'double'
 // b: para 'blob'
 
-$stmt->execute();
- 
-//Enviar email de confirmação
-
-require_once('mail/PHPMailer.php');
-require_once('mail/SMTP.php');
-require_once('mail/Exception.php');
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
-$mail = new PHPMailer(true);
-
-try {
-	$mail->SMTPDebug = SMTP::DEBUG_SERVER;
-	$mail->isSMTP();
-	$mail->Host = 'smtp.gmail.com';
-	$mail->SMTPAuth = true;
-	$mail->Username = 'porqueseraoficial2020@gmail.com';
-	$mail->Password = 'dpvlpwpiqiuiconc';
-	$mail->Port = 587;
-
-	$mail->setFrom('porqueseraoficial2020@gmail.com');
-	$mail->addAddress($email);
-	$mail->isHTML(true);
-	$mail->Subject = 'VacinaCão - Confirmacao de solicitacao de acesso';
-	$mail->Body = '<html><meta charset="utf-8"> <font size="9" face="arial"><b>✅Solicitacao de Acesso enviada com sucesso!
-	Aguarde o administrador liberar seu acesso.</b></font></html>';
-	$mail->AltBody = 'Chegou o email teste do Canal TI';
-
-	if($mail->send()) {
-		echo "<script>window.location.assign('../register_pets.php')</script>";
-	} else {
-		echo 'Email nao enviado';
-	}
-} catch (Exception $e) {
-	echo "Erro ao enviar mensagem: {$mail->ErrorInfo}";
+if($stmt->execute()){
+ 	header('location:../register_pets.php');
+}else{
+	echo "erro de db";
 }
 ?>

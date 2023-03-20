@@ -26,42 +26,86 @@ if (esta_logado()==1) {
         <div id="cabecalho">
             <a href="index.php"><img src="../../icons/logo.png" class="logotipo"></a>
             <img src="../../icons/text_logo.png" class="texto_logo">
-            <a href="home.html" class="menu_home"><b>HOME</b></a>
-            <a href="#" class="menu_contato"><b>CONTATO</b></a>
-            <a href="#" class="menu_quemsomos"><b>QUEM SOMOS</b></a>
+            <div id="user_menu">
+                 <h1 class="user">
+                    <?php 
+                    $user = $_SESSION['user'];
+                    $primeiro_nome = explode(' ', $user);
+                    //user_fname equilave a "user first name" - primeiro nome do usuário
+                    $user_fname = $primeiro_nome[0];
+                    $_SESSION['user_fname'] = $user_fname;
+                    echo "Olá " . $_SESSION['user_fname'] . "!" ?> </h1>
+                <h2 class="category_a">Adminstrador</h2> 
+            </div>
+            <button id="botao_logout" onclick="logout()">
+                <div class="text">
+                    <span>Log</span>
+                    <span>Out</span>
+                </div>
+                <div class="clone">
+                    <span>Log</span>
+                    <span>Out</span>
+                </div>
+                <svg width="20px" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+            </button>
         </div>
         <div id="form_register">
-            <form action="functions/query_register_user.php" method="post">
+            <form action="functions/query_register_pets.php" method="post">
 
                 <p class="titulo_register"><b>Cadastrar Animal(Pet)</b></p>
 
                 <p class="text_nome_register">Nome do animal:</p> 
                 <input type="text" name="nome" class="box_nome_register" placeholder="Ex: Bob" required/>
 
-                <p class="text_senha_register">Crie uma senha:</p> 
-                <input type="password" name="senha" class="box_senha_register" minlength="3" maxlength="8" placeholder="Senha entre 3 a 8 caract." required/>
+                <p class="text_seletor02">Tipagem animal:</p>
+                <select name="tipagem" class="seletor02">
+                    <option>Selecione</option>
+                    <option value="cachorro">Cachorro</option>
+                    <option value="gato">Gato</option>
+                    <option value="ave">Ave</option>
+                    <option value="reptil">Réptil</option>
+                    <option value="artropode">Artrópode</option>
+                    <option value="d_vertebrados">Demais vertebrados</option>
+                    <option value="d_invertebrados">Demais invertebrados</option>
+                </select>
 
-                <p class="text_confirmsenha_register">Confirme a senha: </p>
-                <input type="password" name="confirmsenha" class="box_confirmsenha_register" placeholder="Confirme sua senha"/>
+                <p class="text_raca">Raça Espécie: </p>
+                <input type="text" name="raca" class="box_raca" placeholder="Na dúvida, não preencher."/>
 
-                <p class="text_telefone_register">Telefone/Celular:</p>
-                <input type="tel" name="telefone" class="box_telefone_register" placeholder="Ex: 38999999999" minlength="13" maxlength="14" OnKeyPress="formatar('(##)#####-####',this)" required/>
+                <p class="text_seletor03">Estimativa de idade:</p>
+                <select name="idade" class="seletor03">
+                    <option>Slecione</option>
+                    <option value="menor_1">menor que 1 ano</option>
+                    <option value="1e3">entre 1 e 3 anos</option>
+                    <option value="3e5">entre 3 e 5 anos</option>
+                    <option value="manoir_5">Maior que 5 anos</option>
+                </select>
 
-                <p class="text_email_register">Email: </p>
-                <input type="email" name="email" class="box_email_register" placeholder="Ex: heitor@dominio.com" required/>
+                <p class="text_email">Email de confirmação</p>
+                <?php $mysqli = query_db();
+
+                $sql = "SELECT email FROM plogin order by nome";
+                $result = $mysqli->query($sql);
+
+                    while($row = $result->fetch_assoc()) {
+                        $row['email']; 
+                        echo "<input type='checkbox' name='email' value=" ?> <?php echo $row["email"] ?> <?php echo "class='bt_email />'"; }?>
 
                 <p class="text_seletor01">Selecione o cliente/dono:</p>
-                <select name="select[]" class="seletor01">
+                <select name="dono" class="seletor01">
                     <option>Selecione</option>
                     <?php
                     $mysqli = query_db();
 
-                    $sql = "SELECT nome FROM plogin order by nome";
+                    $sql = "SELECT cpf,nome FROM plogin order by nome";
                     $result = $mysqli->query($sql);
 
                         while($row = $result->fetch_assoc()) { 
-                            $row['nome']?>
-                            <option value="<?php echo $row['nome']; ?>"><?php echo $row['nome'] ?></option>
+                            $row['cpf'];
+                            $row['nome'];?>
+                            <option value="<?php echo $row['cpf']; ?>"><?php echo $row['nome'] ?></option>
                         <?php
                     }
                     ?>
@@ -95,6 +139,14 @@ if (esta_logado()==1) {
             i++;
             texto = mascara.substring(i);
           }
+        }
+    </script>
+    <script>
+        function logout() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "functions/funcoes.php", true);
+            xhr.send();
+            window.location = "index.php";
         }
     </script>
 </html>

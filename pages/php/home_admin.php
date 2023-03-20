@@ -15,6 +15,9 @@ include('functions/funcoes.php');
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../../styles/cabecalho_e_rodape.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="../../styles/home_admin.css" media="screen" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
     <title>Página do admin.</title>
     <link rel="icon" type="image/png" href="../../icons/logo.png"/>
 </head>
@@ -79,7 +82,7 @@ include('functions/funcoes.php');
         </div>
 
         <div class="inf_box">
-            d
+            <button class="button_user" onclick="window.location.href='register_users.php'"> Adicionar usuário</button>       
         </div>
 
         <footer>
