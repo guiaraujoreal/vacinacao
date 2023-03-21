@@ -1,3 +1,11 @@
+body{
+    background: rgb(240,100,255);
+    background: -moz-linear-gradient(90deg, rgba(240,100,255,1) 0%, rgba(139,89,252,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(240,100,255,1) 0%, rgba(139,89,252,1) 100%);
+    background: linear-gradient(90deg, rgba(240,100,255,1) 0%, rgba(139,89,252,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f064ff",endColorstr="#8b59fc",GradientType=1);
+}
+
 #msgs_confirm{
     text-align: center;
     position: absolute;

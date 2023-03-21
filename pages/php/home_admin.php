@@ -52,7 +52,7 @@ include('functions/funcoes.php');
             </button>
         </div>
         <div id="table_users">
-            <table class="table table-bordered table-hover table-sm table-striped">
+            <table class="table table-bordered table-hover table-sm table-striped table-responsive">
                 <thead class="thead-dark">
                     <tr class="table_cabec">
                         <th scope="col">Nome</th>
