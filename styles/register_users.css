@@ -274,7 +274,7 @@ body{
     left: 35%;
     width: 170px;
     height: 45px;
-    border: solid #33cccc;
+    border: solid #db7ef2;
     border-radius: 10px;
     transition: all 0.3s;
     cursor: pointer;
@@ -285,7 +285,7 @@ body{
 }
   
 .botao_register:hover {
-    background: #33cccc;
+    background: #db7ef2;
     color: black;
     font-size: 1.5em;
 }
@@ -306,14 +306,14 @@ body{
     left: 50%;
     width: 100px;
     height: 35px;
-    border: 3px solid #33cccc;
+    border-color: #db7ef2;
+    border-style: solid ;
+    border-width: 2px;
     border-radius: 10px;
     transition: all 0.3s;
     cursor: pointer;
-    background-color: #bdf8de;
+    background-color: #f3eaf5;
     font-size: 1.2em;
-    font-weight: 550;
-    font-family: 'Montserrat', sans-serif;
 }
 .text_seletor01{
     font-size: 23px;
@@ -328,14 +328,14 @@ body{
     left: 70%;
     width: 160px;
     height: 35px;
-    border: 3px solid #33cccc;
+    border-color: #db7ef2;
+    border-style: solid;
+    border-width: 2px;
     border-radius: 10px;
     transition: all 0.3s;
     cursor: pointer;
-    background-color: #bdf8de;
+    background-color: #f3eaf5;
     font-size: 1.2em;
-    font-weight: 550;
-    font-family: 'Montserrat', sans-serif;
 }
 .text_seletor02{
     font-size: 23px;

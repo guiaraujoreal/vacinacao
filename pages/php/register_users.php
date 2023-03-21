@@ -53,7 +53,7 @@ if (esta_logado()==1) {
                 </svg>
             </button>
         </div>
-        <div id="form_register">
+        <div id="form_register" class="animate__animated animate__bounceInLeft">
             <form action="functions/query_register_user.php" method="post">
 
                 <p class="titulo_register"><b>Cadastrar Usuário</b></p>
@@ -88,7 +88,8 @@ if (esta_logado()==1) {
                     <option value="1" >Administrador</option>
                 </select>
 
-                <button type="submit" class="botao_register">Enviar Dados</button></p>
+                <p><button type="submit" class="botao_register">Enviar Dados</button></p>
+                <p><button class="botao_pularss" onclick="">Pular sessão</button></p>
             </form>
         </div>
         <div id="comentarios"><h1 id="coment01" class="animate__animated animate__bounceInRight"><b>Vamos criar uma conta!</b></h1> </div>
