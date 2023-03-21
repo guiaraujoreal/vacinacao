@@ -51,7 +51,7 @@ if (esta_logado()==1) {
                 </svg>
             </button>
         </div>
-        <div id="form_register">
+        <div id="form_register" class="animate__animated animate__bounceInRight">
             <form action="functions/query_register_pets.php" method="post">
 
                 <p class="titulo_register"><b>Cadastrar Animal(Pet)</b></p>
