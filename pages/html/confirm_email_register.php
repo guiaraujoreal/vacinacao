@@ -1,3 +1,10 @@
+<?php
+include('../php/functions/funcoes.php');
+if (esta_logado()==1) {
+	header("location:register.php");
+}
+?>
+
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../../styles/confirm_email_register.css" media="screen" />
@@ -16,6 +23,16 @@
         <div id="cabecalho">
             <a href="../php/index.php"><img src="../../icons/logo.png" class="logotipo"></a>
             <img src="../../icons/text_logo.png" class="texto_logo">
+            <div id="user_menu">
+                <h1 class="user">
+                    <?php 
+                    $user = $_SESSION['user'];
+                    $primeiro_nome = explode(' ', $user);
+                    //user_fname equilave a "user first name" - primeiro nome do usuário
+                    $user_fname = $primeiro_nome[0];
+                    $_SESSION['user_fname'] = $user_fname;
+                    echo "Olá " . $_SESSION['user_fname'] . "!" ?> </h1> </div>
+                    <h2 class="category_a">Adminstrador</h2>
             
         </div>
         <div id="msgs_confirm">
@@ -32,4 +49,16 @@
             <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_y9qOnk.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
         </div>
     </body>
+    <script>  
+        function formatar(mascara, documento) {
+          let i = documento.value.length;
+          let saida = '#';
+          let texto = mascara.substring(i);
+          while (texto.substring(0, 1) != saida && texto.length ) {
+            documento.value += texto.substring(0, 1);
+            i++;
+            texto = mascara.substring(i);
+          }
+        }
+    </script>
 </html>
