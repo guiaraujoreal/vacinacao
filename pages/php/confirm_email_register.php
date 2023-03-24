@@ -1,7 +1,7 @@
 <?php
-include('../php/functions/funcoes.php');
+include('functions/funcoes.php');
 if (esta_logado()==1) {
-	header("location:register.php");
+	header("location:index.php");
 }
 ?>
 
@@ -15,7 +15,7 @@ if (esta_logado()==1) {
         <meta charset="utf-8">
         <meta lang="pt">
         <title>
-            VacinaCão - Solicitação encaminhada
+            VacinaCão - Confirmação de cadastro
         </title>
         <link rel="icon" type="image/png" href="../../icons/logo.png"/>
     </head>
@@ -36,7 +36,7 @@ if (esta_logado()==1) {
             
         </div>
         <div id="msgs_confirm">
-            <p class="msg_confirm01"><b>Solicitacao de Acesso enviada com êxito!</b></p>
+            <p class="msg_confirm01"><b>Confirmação de Cadastro enviada com êxito!</b></p>
             <p class="msg_confirm02"><b>Uma mensagem de confirmação foi enviada ao seu email. Verifique sua caixa de entrada.</b></p>
         </div>
 

@@ -48,7 +48,7 @@ try {
 	$mail->AltBody = 'Chegou o email teste do Canal TI';
 
 	if($mail->send()) {
-		echo "<script>window.location.assign('../../html/confirm_email_register.html')</script>";
+		echo "<script>window.location.assign('../../php/confirm_email_register.php')</script>";
 	} else {
 		echo 'Email nao enviado';
 	}
