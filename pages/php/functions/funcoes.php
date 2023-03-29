@@ -12,7 +12,7 @@ function esta_logado() {
 			return 0;
 		}
 	}
-};
+}
 
 function query_db(){
 	$usuario = 'noite01';
@@ -30,6 +30,27 @@ function logout(){
    session_destroy();
    exit();
 
+}
+
+function user_cabec(){
+	$user = $_SESSION['user'];
+    $primeiro_nome = explode(' ', $user);
+    //user_fname equilave a "user first name" - primeiro nome do usuário
+    $user_fname = $primeiro_nome[0];
+    $_SESSION['user_fname'] = $user_fname;
+    echo "Olá " . $_SESSION['user_fname'] . "!";
+}
+
+function categoria_user(){
+	esta_logado();
+	$mysqli = query_db();
+	$user = $_SESSION['user'];
+    $sql = "SELECT e_cliente FROM plogin WHERE nome= '".$user."'";
+    $result = $mysqli->query($sql);
+    while($row = $result->fetch_assoc()) {
+        $cat_user = $row['e_cliente'];
+        }
+	return $cat_user;
 }
 
 

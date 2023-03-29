@@ -28,25 +28,16 @@ if (esta_logado()==1) {
             <img src="../../icons/text_logo.png" class="texto_logo">
             <div id="user_menu">
                  <h1 class="user">
-                    <?php 
-                    $user = $_SESSION['user'];
-                    $primeiro_nome = explode(' ', $user);
-                    //user_fname equilave a "user first name" - primeiro nome do usuário
-                    $user_fname = $primeiro_nome[0];
-                    $_SESSION['user_fname'] = $user_fname;
-                    echo "Olá " . $_SESSION['user_fname'] . "!" ?> </h1>
+                    <?php user_cabec() ?> </h1>
                 <h2 class="category_a"><?php
-                $mysqli = query_db();
-
-                $sql = "SELECT e_cliente FROM plogin";
-                $result = $mysqli->query($sql);
-                if($result == 0){
+                categoria_user();
+                if(categoria_user() == 0){
                     $cat = 'Cliente';
-                }
+                    }
                 else{
                     $cat = 'Administrador';
-                }
-                echo $cat
+                    }
+                echo $cat;
                 ?></h2> 
             </div>
             <button id="botao_logout" onclick="logout()">

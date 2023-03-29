@@ -84,8 +84,8 @@ if (esta_logado()==1) {
 
                 <p class="text_seletor02">Função:</p>
                 <select class="seletor02" name="seletor02">
-                    <option value="0">Cliente</option>
-                    <option value="1" >Administrador</option>
+                    <option value="1">Cliente</option>
+                    <option value="0" >Administrador</option>
                 </select>
 
                 <p><button type="submit" class="botao_register">Enviar Dados</button></p>

@@ -27,15 +27,19 @@ include('functions/funcoes.php');
             <img src="../../icons/logo.png" class="logotipo">
             <img src="../../icons/text_logo.png" class="texto_logo">
             <div id="user_menu">
-                 <h1 class="user">
-                    <?php 
-                    $user = $_SESSION['user'];
-                    $primeiro_nome = explode(' ', $user);
-                    //user_fname equilave a "user first name" - primeiro nome do usuário
-                    $user_fname = $primeiro_nome[0];
-                    $_SESSION['user_fname'] = $user_fname;
-                    echo "Olá " . $_SESSION['user_fname'] . "!" ?> </h1>
-                <h2 class="category_a">Adminstrador</h2> 
+                 <h1 class="user"> <?php user_cabec() ?> </h1>
+                <h2 class="category_a">
+                <?php
+                categoria_user();
+                if(categoria_user() == 0){
+                    $cat = 'Administrador';
+                    }
+                else{
+                    $cat = 'Cliente';
+                    }
+                echo $cat;
+                ?>
+                </h2> 
             </div>
             <button id="botao_logout" onclick="logout()">
                 <div class="text">

@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 
 //valida se a pagina anterior enviou alguma informação com o methodo post
@@ -19,16 +19,23 @@ $sql = "select * from plogin where senha1 ='" .$senha1. "'
 
 $consulta = $mysqli->query($sql);
 	
-if ($consulta->num_rows > 0) {
-	while ($user = $consulta->fetch_assoc()) {
-		$_SESSION['user']=$user['nome'];
-			
+	if ($consulta->num_rows > 0) {
+		while ($user = $consulta->fetch_assoc()) {
+			$_SESSION['user']=$user['nome'];
 		}
-		header("location:../home_admin.php");
-		
-	} else {
-		header("location:../index.php?login=incorreto");
-	}
+			$cat = categoria_user();
+			if($cat==0){
+				header("location:../home_admin.php");
+			}
+			else{
+				echo "Ainda não há um página para clientes";
+			}
+						
+		} 
+	else {
+			header("location:../index.php?login=incorreto");
+		}
+
 }
 ?>
 	
