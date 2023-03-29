@@ -12,7 +12,7 @@ if (esta_logado()==1) {
 <html>
     <head>
         <meta charset="utf-8" lang="pt">
-        <link rel="stylesheet" type="text/css" href="../../styles/register_users.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../styles/info_users.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../../styles/cabecalho_e_rodape.css" media="screen" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,67 +53,14 @@ if (esta_logado()==1) {
                 </svg>
             </button>
         </div>
-        <div id="form_register" class="animate__animated animate__bounceInLeft">
-            <form action="functions/query_register_user.php" method="post">
+    
 
-                <p class="titulo_register"><b>Cadastrar Usuário</b></p>
 
-                <p class="text_nome_register">Nome completo:</p> 
-                <input type="text" name="nome" class="box_nome_register" placeholder="Ex: Heitor Miguel dos Santos" required/>
-
-                <p class="text_cpf_register">CPF:</p>
-                <input type="text" name="cpf" class="box_cpf_register" placeholder="Ex: 12345678900" maxlength="14" OnKeyPress="formatar('###.###.###-##',this)" required/>
-
-                <p class="text_senha_register">Crie uma senha:</p> 
-                <input type="password" name="senha" class="box_senha_register" minlength="3" maxlength="8" placeholder="Senha entre 3 a 8 caract." required/>
-
-                <p class="text_confirmsenha_register">Confirme a senha: </p>
-                <input type="password" name="confirmsenha" class="box_confirmsenha_register" placeholder="Confirme sua senha"/>
-
-                <p class="text_telefone_register">Telefone/Celular:</p>
-                <input type="tel" name="telefone" class="box_telefone_register" placeholder="Ex: 38999999999" minlength="13" maxlength="14" OnKeyPress="formatar('(##)#####-####',this)" required/>
-
-                <p class="text_email_register">Email: </p>
-                <input type="email" name="email" class="box_email_register" placeholder="Ex: heitor@dominio.com" required/>
-
-                <p class="text_seletor01">Status:</p>
-                <select class="seletor01" name="seletor01">
-                    <option value="1" >Ativo</option>
-                    <option value="0" >Inativo</option>
-                </select>
-
-                <p class="text_seletor02">Função:</p>
-                <select class="seletor02" name="seletor02">
-                    <option value="0">Cliente</option>
-                    <option value="1" >Administrador</option>
-                </select>
-
-                <p><button type="submit" class="botao_register">Enviar Dados</button></p>
-                <p><button class="botao_pularss" onclick="">Pular sessão</button></p>
-            </form>
-        </div>
-        <div id="comentarios"><h1 id="coment01" class="animate__animated animate__bounceInRight"><b>Vamos criar uma conta!</b></h1> </div>
-
-        <div id="animation">
-            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-            <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_z9ed2jna.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop  autoplay></lottie-player>
-        </div>
         <footer>
             <p>&copy; 2023 Meu Site</p>
         </footer>
     </bory>
-    <script>  
-        function formatar(mascara, documento) {
-          let i = documento.value.length;
-          let saida = '#';
-          let texto = mascara.substring(i);
-          while (texto.substring(0, 1) != saida && texto.length ) {
-            documento.value += texto.substring(0, 1);
-            i++;
-            texto = mascara.substring(i);
-          }
-        }
-    </script>
+    
     <script>
         function logout() {
             var xhr = new XMLHttpRequest();

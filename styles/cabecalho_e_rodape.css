@@ -19,6 +19,19 @@ footer{
     width: 100%;
     height: 110px;
 }
+#user_menu{
+    position: absolute;
+    top: 5%;
+    right: 1%;
+    color: white;
+    text-align: center;
+}
+.user{
+    font-size: 25px;
+}
+.category_a{
+    font-size: 15px;
+}
 .logotipo{
     position: absolute;
     top: 10px;
@@ -30,6 +43,8 @@ footer{
     top: 10px;
     left: 35%;
 }
+
+/*Pagina Index* - inicio*/
 .menu_home{
     position: absolute;
     top: 7%;
@@ -51,3 +66,98 @@ footer{
     font-size: 20px;
     color: white;
 }
+
+/*Fim*/
+
+/*botao de logout*/
+
+#botao_logout {
+    width: 120px;
+    height: 56px;
+    overflow: hidden;
+    border: none;
+    color: #fff;
+    background: none;
+    position: relative;
+    padding-bottom: 2em;
+    cursor: pointer;
+    position: absolute;
+    top: 5%;
+    left: 8%;
+  }
+  
+  #botao_logout > div,#botao_logout > svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+  
+  #botao_logout:before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    background: currentColor;
+    transition: transform 0.25s ease-out;
+  }
+  
+  #botao_logout:hover:before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  #botao_logout .clone > *,#botao_logout .text > * {
+    opacity: 1;
+    font-size: 1.3rem;
+    transition: 0.2s;
+    margin-left: 4px;
+  }
+  
+  #botao_logout .clone > * {
+    transform: translateY(60px);
+  }
+  
+  #botao_logout:hover .clone > * {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  }
+  
+  #botao_logout:hover .text > * {
+    opacity: 1;
+    transform: translateY(-60px);
+    transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  }
+  
+  #botao_logout:hover .clone > :nth-child(1) {
+    transition-delay: 0.15s;
+  }
+  
+  #botao_logout:hover .clone > :nth-child(2) {
+    transition-delay: 0.2s;
+  }
+  
+  #botao_logout:hover .clone > :nth-child(3) {
+    transition-delay: 0.25s;
+  }
+  
+  #botao_logout:hover .clone > :nth-child(4) {
+    transition-delay: 0.3s;
+  }
+  /* icon style and hover */
+  #botao_logout svg {
+    width: 20px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(-50deg);
+    transition: 0.2s ease-out;
+  }
+  
+  #botao_logout:hover svg {
+    transform: translateY(-50%) rotate(-90deg);
+  }
