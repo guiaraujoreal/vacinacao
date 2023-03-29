@@ -53,6 +53,18 @@ function categoria_user(){
 	return $cat_user;
 }
 
+function send_email(){
+	esta_logado();
+	$mysqli = query_db();
+	$user = $_SESSION['user'];
+    $sql = "SELECT email FROM plogin WHERE nome= '".$user."'";
+    $result = $mysqli->query($sql);
+    while($row = $result->fetch_assoc()) {
+        $email = $row['email'];
+        }
+	return $email;
+}
+
 
 	
 	

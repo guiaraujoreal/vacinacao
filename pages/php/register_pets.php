@@ -93,16 +93,6 @@ if (esta_logado()==1) {
                     <option value="femea">Fêmea</option>
                 </select>
 
-                <p class="text_email">Email de confirmação</p>
-                <?php $mysqli = query_db();
-
-                $sql = "SELECT email FROM plogin order by nome";
-                $result = $mysqli->query($sql);
-
-                    while($row = $result->fetch_assoc()) {
-                        $row['email']; 
-                        echo "<input type='checkbox' name='email' value=" ?> <?php echo $row["email"] ?> <?php echo "class='bt_email'/>"; }?>
-
                 <p class="text_seletor01">Selecione o cliente/dono:</p>
                 <select name="dono" class="seletor01">
                     <option>Selecione</option>

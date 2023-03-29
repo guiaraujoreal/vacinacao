@@ -1,4 +1,4 @@
 <?php
 include('funcoes.php');
-echo categoria_user();
+echo send_email();
 ?>
