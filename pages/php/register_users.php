@@ -89,7 +89,6 @@ if (esta_logado()==1) {
                 </select>
 
                 <p><button type="submit" class="botao_register">Enviar Dados</button></p>
-                <p><button class="botao_pularss" onclick="">Pular sessão</button></p>
             </form>
         </div>
         <div id="comentarios"><h1 id="coment01" class="animate__animated animate__bounceInRight"><b>Vamos criar uma conta!</b></h1> </div>

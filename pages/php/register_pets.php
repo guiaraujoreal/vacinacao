@@ -35,7 +35,19 @@ if (esta_logado()==1) {
                     $user_fname = $primeiro_nome[0];
                     $_SESSION['user_fname'] = $user_fname;
                     echo "Olá " . $_SESSION['user_fname'] . "!" ?> </h1>
-                <h2 class="category_a">Adminstrador</h2> 
+                <h2 class="category_a"><?php
+                $mysqli = query_db();
+
+                $sql = "SELECT e_cliente FROM plogin";
+                $result = $mysqli->query($sql);
+                if($result == 0){
+                    $cat = 'Cliente';
+                }
+                else{
+                    $cat = 'Administrador';
+                }
+                echo $cat
+                ?></h2> 
             </div>
             <button id="botao_logout" onclick="logout()">
                 <div class="text">
@@ -83,6 +95,13 @@ if (esta_logado()==1) {
                     <option value="manoir_5">Maior que 5 anos</option>
                 </select>
 
+                <p class="text_seletor04">Gênero:</p>
+                <select name="genero" class="seletor04">
+                    <option name="n_definido">Não definido</option>
+                    <option value="macho">Macho</option>
+                    <option value="femea">Fêmea</option>
+                </select>
+
                 <p class="text_email">Email de confirmação</p>
                 <?php $mysqli = query_db();
 
@@ -111,7 +130,8 @@ if (esta_logado()==1) {
                     ?>
                 </select>
 
-                <button type="submit" class="botao_register">Enviar Dados</button></p>
+                <button type="submit" class="botao_register">Enviar Dados</button>
+                <p><button class="botao_pularss" onclick="window.location.href='info_users.php'">Pular sessão</button></p>
             </form>
         </div>
         <div id="comentarios"><h1 id="coment01" class="animate__animated animate__bounceInLeft"><b>Vamos adicionar algumas <br>
