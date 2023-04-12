@@ -4,7 +4,6 @@ if (esta_logado()==1) {
 	header("location:register.php");
 }
 
-
 ?>
 
 
@@ -88,7 +87,7 @@ if (esta_logado()==1) {
                     <option value="0" >Administrador</option>
                 </select>
 
-                <p><button type="submit" class="botao_register" onclick="send_email()">Enviar Dados</button></p>
+                <p><button type="submit" class="botao_register" onclick="window.location.href='functions/send_email_page.php'">Enviar Dados</button></p>
             </form>
         </div>
         <div id="comentarios"><h1 id="coment01" class="animate__animated animate__bounceInRight"><b>Vamos criar uma conta!</b></h1> </div>

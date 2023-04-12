@@ -16,7 +16,9 @@ $sql = 'INSERT INTO pets (cpf_dono,nome,raca,tipagem,idade_est,genero) values (?
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("isssss",$cpf, $nome, $raca, $tipagem, $idade, $genero);
 
-$stmt->execute();
+if($stmt->execute()){
+	header(location)
+};
 
 
 //email de confirmação

@@ -32,10 +32,10 @@ if (esta_logado()==1) {
                 <h2 class="category_a"><?php
                 categoria_user();
                 if(categoria_user() == 0){
-                    $cat = 'Cliente';
+                    $cat = 'Administrador';
                     }
                 else{
-                    $cat = 'Administrador';
+                    $cat = 'Cliente';
                     }
                 echo $cat;
                 ?></h2> 

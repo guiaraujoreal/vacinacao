@@ -59,12 +59,18 @@ function send_email(){
 	$user = $_SESSION['user'];
     $sql = "SELECT email FROM plogin WHERE nome= '".$user."'";
     $result = $mysqli->query($sql);
-    while($row = $result->fetch_assoc()) {
+    while($row = $result->fetch_assoc()){
         $email = $row['email'];
         }
 	return $email;
 }
 
+function atributte_value_emailUser(){
+	$id = 0;
+	return $id;
+}
+
+?>
 
 	
 	
