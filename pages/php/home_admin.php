@@ -56,7 +56,7 @@ include('functions/funcoes.php');
             </button>
         </div>
         <div id="table_users">
-            <table class="table table-bordered table-hover table-sm table-striped table-responsive">
+            <table class="table table-bordered table-hover table-striped ">
                 <thead class="thead-dark">
                     <tr class="table_cabec">
                         <th scope="col">Nome</th>
@@ -64,6 +64,7 @@ include('functions/funcoes.php');
                         <th scope="col">Email</th>
                         <th scope="col">Data/Hora de Inscrição</th>
                         <th scope="col">Telefone de Contato</th>
+                        <th scope="col">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -73,11 +74,13 @@ include('functions/funcoes.php');
                     $query = $mysqli->query($sql);
                     while ($dados = mysqli_fetch_assoc($query)){
                         echo "<tr>";
-                        echo '<td>: ' . $dados['nome'] . '';
-                        echo '<td> ' . $dados['cpf'] . '';
-                        echo '<td> ' . $dados['email'] . '';
-                        echo '<td> ' . $dados['data_criacao'] . '';
-                        echo '<td> ' . $dados['telefone'] . '';
+                        echo '<td><input type="text" class="campo_form" value="' . $dados['nome'] . '" name="id"></td>';
+                        echo '<td><input type="text" value="' . $dados['cpf'] . '" name="id"></td>';
+                        echo '<td><input type="text" class="campo_form" value="' . $dados['email'] . '" name="id"></td>';
+                        echo '<td> '. $dados['data_criacao'] . '</td>';
+                        echo '<td><input type="text" value="' . $dados['telefone'] . '" name="id"></td>';
+                        echo "<td><button class='btn btn-danger' formaction='excluir_dados.php' id='" . $dados['cpf'] . "'>Excluir</button>
+                        <button class='btn btn-success' type='submit' id='" . $dados['cpf'] . "'>Alterar Dados</button></td>";
                         echo "</tr>";
                     }
                     ?>
@@ -86,7 +89,8 @@ include('functions/funcoes.php');
         </div>
 
         <div class="inf_box">
-            <button class="button_user" onclick="window.location.href='register_users.php'"> Adicionar usuário</button>       
+            <button class="button_user" onclick="window.location.href='register_users.php'"> Adicionar usuário</button>
+            <button class="button_pet" onclick="window.location.href='register_pets.php'"> Adicionar animal</button>       
         </div>
 
         <footer>

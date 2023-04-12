@@ -17,6 +17,9 @@
 .table_cabec{
     text-align: center;
 }
+.campo_form{
+  width: 300px;
+}
 .inf_box{
     text-align: center;
     background-color: rgb(181, 218, 251);
@@ -150,7 +153,7 @@
     height: 100%;
     width: 0;
     border-radius: 15px;
-    background-color: #1f1fff;
+    background-color: rgba(255,182,244,1);
     z-index: -1;
     -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
     box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
@@ -158,9 +161,51 @@
    }
    
    .button_user:hover {
-    color: #ffffff;
+    color: rgb(128, 58, 208);
    }
    
    .button_user:hover::before {
+    width: 100%;
+   }
+
+   .button_pet {
+    padding: 10px 10px;
+    border: solid;
+    border-width: 1px;
+    border-radius: 15px;
+    color: #0060de;
+    z-index: 1;
+    background: #fffefe;
+    position: relative;
+    font-weight: 1000;
+    font-size: 15px;
+    transition: all 250ms;
+    overflow: hidden;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    cursor: pointer;
+   }
+   
+   .button_pet::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: rgba(0,255,183);
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms
+   }
+   
+   .button_pet:hover {
+    color: #0060de;
+   }
+   
+   .button_pet:hover::before {
     width: 100%;
    }
