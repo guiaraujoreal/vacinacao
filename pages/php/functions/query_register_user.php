@@ -10,16 +10,29 @@ $telefone = $_POST['telefone'];
 $email = $_POST['email'];
 $ativo = $_POST['seletor01'];
 $e_cliente = $_POST['seletor02'];
+$confirmsenha = $_POST['confirmsenha'];
 
+<<<<<<< HEAD
 $sql = 'INSERT INTO plogin (cpf,nome,senha1,telefone,email,ativo,e_cliente) values (?,?,?,?,?,?,?)';
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("sssssii",$cpf, $nome, $senha1,$telefone,$email,$ativo,$e_cliente);
+=======
+if($senha1 != $confirmsenha){
 
-// s: para 'string'
-// i: para 'inteiro'
-// d: para 'double'
-// b: para 'blob'
+	echo "As senhas não correspondem";
+}
+else{
+	$sql = 'INSERT INTO plogin (cpf,nome,senha1,telefone,email,ativo,e_cliente) values (?,?,?,?,?,?,?)';
+	$stmt = $mysqli->prepare($sql);
+	$stmt->bind_param("sssssii",$cpf, $nome, $senha1,$telefone,$email,$ativo,$e_cliente);
+>>>>>>> f15078b61d2d1c814ecda4f16caee070e9098692
 
+	// s: para 'string'
+	// i: para 'inteiro'
+	// d: para 'double'
+	// b: para 'blob'
+
+<<<<<<< HEAD
 $stmt->execute();
 
 $subject = 'VacinaCao - Confirmacao de cadastro de usuario';
@@ -61,6 +74,13 @@ try {
 	}
 } catch (Exception $e) {
 	echo "Erro ao enviar mensagem: {$mail->ErrorInfo}";
+=======
+	if($stmt->execute()){
+		header('location:../register_pets.php');
+	}else{
+		echo "erro de db";
+	}
+>>>>>>> f15078b61d2d1c814ecda4f16caee070e9098692
 }
 
 ?>

@@ -105,7 +105,7 @@ if (esta_logado()==1) {
                         while($row = $result->fetch_assoc()) { 
                             $row['cpf'];
                             $row['nome'];?>
-                            <option value="<?php echo $row['cpf']; ?>"><?php echo $row['nome'] ?></option>
+                            <option value="<?php echo $row['cpf']; ?>"><?php echo $row['nome'] . ' ' . '(' . $row['cpf'] . ')' ?></option>
                         <?php
                     }
                     ?>
