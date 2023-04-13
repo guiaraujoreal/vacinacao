@@ -73,7 +73,7 @@ include('functions/funcoes.php');
                     $sql = "SELECT nome,cpf,email,data_criacao,telefone FROM plogin order by nome";
                     $query = $mysqli->query($sql);
                     while ($dados = mysqli_fetch_assoc($query)){
-                        echo '<form action="function/alterar_dados.php">';
+                        
                         echo "<tr>";
                         echo '<td><input type="text" class="campo_form" value="' . $dados['nome'] . '" name="nome"></td>';
                         echo '<td><input type="text" value="' . $dados['cpf'] . '" name="cpf"></td>';
