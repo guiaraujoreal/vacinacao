@@ -94,22 +94,7 @@ if (esta_logado()==1) {
                 </select>
 
                 <p class="text_seletor01">Selecione o cliente/dono:</p>
-                <select name="dono" class="seletor01">
-                    <option>Selecione</option>
-                    <?php
-                    $mysqli = query_db();
-
-                    $sql = "SELECT cpf,nome FROM plogin order by nome";
-                    $result = $mysqli->query($sql);
-
-                        while($row = $result->fetch_assoc()) { 
-                            $row['cpf'];
-                            $row['nome'];?>
-                            <option value="<?php echo $row['cpf']; ?>"><?php echo $row['nome'] . ' ' . '(' . $row['cpf'] . ')' ?></option>
-                        <?php
-                    }
-                    ?>
-                </select>
+                
 
                 <button type="submit" class="botao_register">Enviar Dados</button>
                 <p><button class="botao_pularss" onclick="window.location.href='info_users.php'">Pular sessão</button></p>

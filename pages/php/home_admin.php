@@ -73,14 +73,15 @@ include('functions/funcoes.php');
                     $sql = "SELECT nome,cpf,email,data_criacao,telefone FROM plogin order by nome";
                     $query = $mysqli->query($sql);
                     while ($dados = mysqli_fetch_assoc($query)){
+                        echo '<form action="function/alterar_dados.php">';
                         echo "<tr>";
-                        echo '<td><input type="text" class="campo_form" value="' . $dados['nome'] . '" name="id"></td>';
-                        echo '<td><input type="text" value="' . $dados['cpf'] . '" name="id"></td>';
-                        echo '<td><input type="text" class="campo_form" value="' . $dados['email'] . '" name="id"></td>';
+                        echo '<td><input type="text" class="campo_form" value="' . $dados['nome'] . '" name="nome"></td>';
+                        echo '<td><input type="text" value="' . $dados['cpf'] . '" name="cpf"></td>';
+                        echo '<td><input type="text" class="campo_form" value="' . $dados['email'] . '" name="email"></td>';
                         echo '<td> '. $dados['data_criacao'] . '</td>';
-                        echo '<td><input type="text" value="' . $dados['telefone'] . '" name="id"></td>';
-                        echo "<td><button class='btn btn-danger' formaction='excluir_dados.php' id='" . $dados['cpf'] . "'>Excluir</button>
-                        <button class='btn btn-success' type='submit' id='" . $dados['cpf'] . "'>Alterar Dados</button></td>";
+                        echo '<td><input type="text" value="' . $dados['telefone'] . '" name="telefone"></td>';
+                        echo "<td><button class='btn btn-danger' formaction='excluir_dados.php' cpf='" . $dados['cpf'] . "'>Excluir</button>
+                        <button class='btn btn-success' type='submit' cpf='" . $dados['cpf'] . "'>Alterar Dados</button></td>";
                         echo "</tr>";
                     }
                     ?>

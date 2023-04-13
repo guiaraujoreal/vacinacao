@@ -1,7 +1,6 @@
 <?php
 include_once('funcoes.php');
 $email = send_email();
-$ret_email = 
 if($ret_email==0){
 	$subject = 'VacinaCao - Confirmacao de cadastro de usuario';
 	$body = '<html><meta charset="utf-8"> <font size="9" face="arial"><b>✅👤Você foi cadastrado no nosso sistema! Seu acesso ja está
