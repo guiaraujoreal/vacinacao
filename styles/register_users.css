@@ -18,6 +18,9 @@ body{
 .category_a{
     font-size: 15px;
 }
+.modal{
+  display: none;
+}
 
 /*botao de logout*/
 

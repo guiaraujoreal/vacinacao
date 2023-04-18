@@ -17,7 +17,6 @@ $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("sssssii",$cpf, $nome, $senha1,$telefone,$email,$ativo,$e_cliente);
 
 if($senha1 != $confirmsenha){
-
 	echo "As senhas não correspondem";
 }
 else{
@@ -30,6 +29,8 @@ else{
 	// d: para 'double'
 	// b: para 'blob'
 
-$stmt->execute();
+if($stmt->execute()){
+	header('location:../home_admin.php');
+}
 }
 ?>

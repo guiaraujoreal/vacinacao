@@ -69,6 +69,17 @@ function atributte_value_emailUser(){
 	$id = 0;
 	return $id;
 }
+function id_atribute(){
+	esta_logado();
+	$mysqli = query_db();
+	$user = $_SESSION['user'];
+    $sql = "SELECT id FROM plogin WHERE nome= '".$user."'";
+    $result = $mysqli->query($sql);
+    while($row = $result->fetch_assoc()){
+        $id = $row['id'];
+        }
+	return $id;
+}
 
 ?>
 

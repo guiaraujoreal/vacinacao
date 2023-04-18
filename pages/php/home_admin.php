@@ -69,8 +69,9 @@ include('functions/funcoes.php');
                 </thead>
                 <tbody>
                     <?php
+                    $id_user = id_atribute();
                     $mysqli = query_db();
-                    $sql = "SELECT id,nome,cpf,email,data_criacao,telefone FROM plogin order by nome";
+                    $sql = "SELECT id,nome,cpf,email,data_criacao,telefone FROM plogin WHERE id != '". $id_user . "' order by nome" ;
                     $query = $mysqli->query($sql);
                     while ($dados = mysqli_fetch_assoc($query)){
                         echo "<form action='functions/alterar_dados.php' method='post'>";
@@ -81,7 +82,9 @@ include('functions/funcoes.php');
                         echo '<td><input type="text" class="campo_form" value="' . $dados['email'] . '" name="email"></td>';
                         echo '<td> '. $dados['data_criacao'] . '</td>';
                         echo '<td><input type="text" value="' . $dados['telefone'] . '" name="telefone"></td>';
+                        
                         echo "<td><button class='btn btn-danger' formaction='functions/excluir_dados_home.php' id='" . $dados['id'] . "'>Excluir</button>
+                        
                         <button class='btn btn-success' type='submit' id='" . $dados['id'] . "'>Alterar Dados</button></td>";
                         echo "</tr>";
                         echo "</form>";
