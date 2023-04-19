@@ -209,3 +209,6 @@
    .button_pet:hover::before {
     width: 100%;
    }
+   .botao_acoes{
+    margin-left: 3px;
+   }

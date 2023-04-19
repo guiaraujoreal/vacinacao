@@ -82,12 +82,17 @@ include('functions/funcoes.php');
                         echo '<td><input type="text" class="campo_form" value="' . $dados['email'] . '" name="email"></td>';
                         echo '<td> '. $dados['data_criacao'] . '</td>';
                         echo '<td><input type="text" value="' . $dados['telefone'] . '" name="telefone"></td>';
-                        
-                        echo "<td><button class='btn btn-danger' formaction='functions/excluir_dados_home.php' id='" . $dados['id'] . "'>Excluir</button>
-                        
-                        <button class='btn btn-success' type='submit' id='" . $dados['id'] . "'>Alterar Dados</button></td>";
+                        echo "<td class=' d-flex align-items-center'>
+
+                        <button class='btn btn-success botao_acoes' type='submit' id='" . $dados['id'] . "'>Alterar Dados</button>
+                        </form>
+                        <form action='functions/excluir_dados_home.php' method='post'>
+                        <button class='btn btn-danger botao_acoes'  id='" . $dados['id'] . "'>Excluir</button>
+                        </form>
+                        <form action=register_pets.php method='post'>
+                        <button class='btn btn-primary botao_acoes' id='botao_adicionar'>Adicionar Animal</button>
+                        </form></td>";
                         echo "</tr>";
-                        echo "</form>";
                     }
                     ?>
                 </tbody>
@@ -103,16 +108,20 @@ include('functions/funcoes.php');
             <p>&copy; 2023 Meu Site</p>
         </footer>
 
+        <script>
+        function logout() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "functions/funcoes.php", true);
+            xhr.send();
+            window.location = "index.php";
+        }
+        </script>
+        <script>
+            var meuBotao = document.getElementById("botao_adicionar");
+
+            meuBotao.addEventListener("click", function() {
+                window.location.href = "register_pets.php";
+        });
+        </script>
 </body>
-<script>
-   function logout() {
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", "functions/funcoes.php", true);
-      xhr.send();
-      window.location = "index.php";
-   }
-</script>
-
-
-
 </html>
