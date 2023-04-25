@@ -87,7 +87,8 @@ include('functions/funcoes.php');
                         <button class='btn btn-success botao_acoes' type='submit' id='" . $dados['id'] . "'>Alterar Dados</button>
                         </form>
                         <form action='functions/excluir_dados_home.php' method='post'>
-                        <button class='btn btn-danger botao_acoes'  id='" . $dados['id'] . "'>Excluir</button>
+                        <input type='hidden' class='campo_form' value='" . $dados['id'] . "' name='id'>
+                        <button type='submit' class='btn btn-danger botao_acoes'>Excluir</button>
                         </form>
                         <form action=register_pets.php method='post'>";
                         echo "<input type='hidden' class='campo_form' value='" . $dados['cpf'] . "' name='cpf'>";
@@ -108,14 +109,7 @@ include('functions/funcoes.php');
             <p>&copy; 2023 Meu Site</p>
         </footer>
 
-        <script>
-        function logout() {
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "functions/funcoes.php", true);
-            xhr.send();
-            window.location = "index.php";
-        }
-        </script>
+        <script src="../../js/logout.js"></script>
         <script>
             var meuBotao = document.getElementById("botao_adicionar");
 
