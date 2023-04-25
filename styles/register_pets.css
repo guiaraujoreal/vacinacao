@@ -211,13 +211,12 @@ body{
     left: 1%;
     width: 500px;
     height: 35px;
-    border: 2px solid #33cccc;
-    border-radius: 10px;
     transition: all 0.3s;
-    cursor: pointer;
-    background-color: #bdf8de;
     font-size: 1.2em;
     font-family: 'Montserrat', sans-serif;
+}
+.print_dono{
+    color: red;
 }
 .text_seletor01{
     font-size: 23px;

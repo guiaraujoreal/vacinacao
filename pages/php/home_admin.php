@@ -89,8 +89,9 @@ include('functions/funcoes.php');
                         <form action='functions/excluir_dados_home.php' method='post'>
                         <button class='btn btn-danger botao_acoes'  id='" . $dados['id'] . "'>Excluir</button>
                         </form>
-                        <form action=register_pets.php method='post'>
-                        <button class='btn btn-primary botao_acoes' id='botao_adicionar'>Adicionar Animal</button>
+                        <form action=register_pets.php method='post'>";
+                        echo "<input type='hidden' class='campo_form' value='" . $dados['cpf'] . "' name='cpf'>";
+                        echo "<button class='btn btn-primary botao_acoes' id='botao_adicionar'>Adicionar Animal</button>
                         </form></td>";
                         echo "</tr>";
                     }
@@ -100,8 +101,7 @@ include('functions/funcoes.php');
         </div>
 
         <div class="inf_box">
-            <button class="button_user" onclick="window.location.href='register_users.php'"> Adicionar usuário</button>
-            <button class="button_pet" onclick="window.location.href='register_pets.php'"> Adicionar animal</button>       
+            <button class="button_user" onclick="window.location.href='register_users.php'"> Adicionar usuário</button>       
         </div>
 
         <footer>

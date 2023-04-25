@@ -93,8 +93,21 @@ if (esta_logado()==1) {
                     <option value="femea">Fêmea</option>
                 </select>
 
-                <p class="text_seletor01">Selecione o cliente/dono:</p>
-                
+                <p class="text_seletor01">Dono selecionado:</p>
+                <div name="dono" class="seletor01">
+                <?php 
+                $cpf_duo = $_POST['cpf'];
+                $mysqli = query_db();
+                $sql = "SELECT nome FROM plogin WHERE cpf = '". $cpf_duo . "'" ;
+                $query = $mysqli->query($sql);
+                while ($dados = mysqli_fetch_assoc($query)){
+                    $out = $dados["nome"];
+                    echo '<p class="print_dono"><b>' . $out . '</b></p>';
+                }
+                echo "<input type='hidden' class='campo_form' value='" . $out . "' name='dono'>";
+                ?>
+
+                </div>
 
                 <button type="submit" class="botao_register">Enviar Dados</button>
                 <p><button class="botao_pularss" onclick="window.location.href='info_users.php'">Pular sessão</button></p>
