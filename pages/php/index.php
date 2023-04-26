@@ -37,7 +37,7 @@ if (esta_logado()==1) {
                 <form action="functions/efetuar_login.php" method="post">
                     <p class="titulo_form"><b>Faça o Login</b></p>
                     <p class="text_cpf_main"><b>Digite seu CPF:</b></p> 
-                    <input type="text" name="cpf" class="box_cpf_main" placeholder="Somente os números" maxlength="14" OnKeyPress="formatar('###.###.###-##',this)" required/> 
+                    <input type="text" name="cpf" class="box_cpf_main" placeholder="Somente os números" minlength="11" maxlength="11"  required/> 
                     <p class="text_senha_main"><b>Digite sua senha:</b></p>
                     <input type="password" name="senha" class="box_senha_main" placeholder="Sua senha possui de 3 a 8 caracteres" minlength="3" maxlength="8" required/>
                     <button type="submit" class="botao_login">Entrar</button>
@@ -51,16 +51,4 @@ if (esta_logado()==1) {
             <p>&copy; 2023 Meu Site</p>
         </footer>
     </bory>
-    <script>  
-        function formatar(mascara, documento) {
-          let i = documento.value.length;
-          let saida = '#';
-          let texto = mascara.substring(i);
-          while (texto.substring(0, 1) != saida && texto.length ) {
-            documento.value += texto.substring(0, 1);
-            i++;
-            texto = mascara.substring(i);
-          }
-        }
-    </script>
 </html>

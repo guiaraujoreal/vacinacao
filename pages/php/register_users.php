@@ -71,7 +71,7 @@ if (isset($_SESSION["mensagem_erro"])) {
                 <input type="text" name="nome" class="box_nome_register" placeholder="Ex: Heitor Miguel dos Santos" required/>
 
                 <p class="text_cpf_register">CPF:</p>
-                <input type="text" name="cpf" class="box_cpf_register" placeholder="Ex: 12345678900" maxlength="14" OnKeyPress="formatar('###.###.###-##',this)" required/>
+                <input type="text" name="cpf" class="box_cpf_register" placeholder="Ex: 12345678900" minlength="11" maxlength="11" required/>
 
                 <p class="text_senha_register">Crie uma senha:</p> 
                 <input type="password" name="senha" class="box_senha_register" minlength="3" maxlength="8" placeholder="Senha entre 3 a 8 caract." required/>
@@ -132,18 +132,7 @@ if (isset($_SESSION["mensagem_erro"])) {
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script>  
-        function formatar(mascara, documento) {
-          let i = documento.value.length;
-          let saida = '#';
-          let texto = mascara.substring(i);
-          while (texto.substring(0, 1) != saida && texto.length ) {
-            documento.value += texto.substring(0, 1);
-            i++;
-            texto = mascara.substring(i);
-          }
-        }
-    </script>
+
     <script>
         function logout() {
             var xhr = new XMLHttpRequest();

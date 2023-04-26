@@ -64,6 +64,7 @@ include('functions/funcoes.php');
                         <th scope="col">Email</th>
                         <th scope="col">Data/Hora de Inscrição</th>
                         <th scope="col">Telefone de Contato</th>
+                        <th scope="col">Qnt. Animais</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
@@ -71,9 +72,14 @@ include('functions/funcoes.php');
                     <?php
                     $id_user = id_atribute();
                     $mysqli = query_db();
+
                     $sql = "SELECT id,nome,cpf,email,data_criacao,telefone FROM plogin WHERE id != '". $id_user . "' order by nome" ;
                     $query = $mysqli->query($sql);
                     while ($dados = mysqli_fetch_assoc($query)){
+
+                        $sql2 = "SELECT * FROM pets WHERE cpf_dono ='" .$dados['cpf']."'";
+                        $query2 = $mysqli->query($sql2);
+
                         echo "<form action='functions/alterar_dados.php' method='post'>";
                         echo "<tr>";
                         echo '<td><input type="text" class="campo_form" value="' . $dados['nome'] . '" name="nome"></td>';
@@ -82,6 +88,7 @@ include('functions/funcoes.php');
                         echo '<td><input type="text" class="campo_form" value="' . $dados['email'] . '" name="email"></td>';
                         echo '<td> '. $dados['data_criacao'] . '</td>';
                         echo '<td><input type="text" value="' . $dados['telefone'] . '" name="telefone"></td>';
+                        echo '<td>' . $query2->num_rows . '</td>';
                         echo "<td class=' d-flex align-items-center'>
 
                         <button class='btn btn-success botao_acoes' type='submit' id='" . $dados['id'] . "'>Alterar Dados</button>
@@ -92,7 +99,7 @@ include('functions/funcoes.php');
                         </form>
                         <form action=register_pets.php method='post'>";
                         echo "<input type='hidden' class='campo_form' value='" . $dados['cpf'] . "' name='cpf'>";
-                        echo "<button class='btn btn-primary botao_acoes' id='botao_adicionar'>Adicionar Animal</button>
+                        echo "<button class='btn btn-primary botao_acoes' id='botao_adicionar'>Animais Registrados</button>
                         </form></td>";
                         echo "</tr>";
                     }

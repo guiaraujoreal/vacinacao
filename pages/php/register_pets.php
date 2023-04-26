@@ -79,7 +79,7 @@ if (esta_logado()==1) {
 
                 <p class="text_seletor03">Estimativa de idade:</p>
                 <select name="idade" class="seletor03">
-                    <option>Slecione</option>
+                    <option>Selecione</option>
                     <option value="menor_1">menor que 1 ano</option>
                     <option value="1e3">entre 1 e 3 anos</option>
                     <option value="3e5">entre 3 e 5 anos</option>
@@ -101,10 +101,10 @@ if (esta_logado()==1) {
                 $sql = "SELECT nome FROM plogin WHERE cpf = '". $cpf_duo . "'" ;
                 $query = $mysqli->query($sql);
                 while ($dados = mysqli_fetch_assoc($query)){
-                    $out = $dados["nome"];
-                    echo '<p class="print_dono"><b>' . $out . '</b></p>';
+                    $name_out = $dados["nome"];
+                    echo '<p class="print_dono"><b>' . $name_out . '</b></p>';
                 }
-                echo "<input type='hidden' class='campo_form' value='" . $out . "' name='dono'>";
+                echo "<input type='hidden' class='campo_form' value='" . $cpf_duo . "' name='cpf_dono'>";
                 ?>
 
                 </div>
