@@ -26,7 +26,7 @@ $consulta = $mysqli->query($sql);
 		}
 			$cat = categoria_user();
 			if($cat==0){
-				header("location:../home_admin.php");
+				header("location:../admin/home_admin.php");
 			}
 			else{
 				echo "Ainda não há um página para clientes";

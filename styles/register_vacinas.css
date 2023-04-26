@@ -1,0 +1,263 @@
+body{
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+
+}
+#table_users{
+  overflow: auto;
+}
+.table_cabec{
+    text-align: center;
+}
+.inf_box{
+    text-align: center;
+    background-color: rgb(181, 218, 251);
+    width: 90%;
+    height: 15%;
+    position: absolute;
+    top: 82%;
+    left: 5%;
+    border-radius: 5px;
+}
+
+
+#form_register{
+    background-color: #f0daf8;
+    position: absolute;
+    top: 22%;
+    right: 2%;
+    border-radius: 12px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #9c6cfb;
+    width: 600px;
+    height: 550px;
+    white-space: nowrap;
+}
+.titulo_register{
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    color: white;
+    background-color: #ba97ff;
+    width: 100%;
+    height: 8%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.text_vacina_register{
+    font-size: 23px;
+    position: absolute;
+    top: 60px;
+    left:5px;
+    color: black
+}
+.box_vacina_register{
+    font-size: 18px;
+    position: absolute;
+    top: 100px;
+    left:5px;
+    width: 550px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #9c6cfb;
+    background-color: #d4beff;
+}
+.text_cpf_register{
+    font-size: 23px;
+    position: absolute;
+    top: 160px;
+    left:5px;
+    color: black
+}
+.text_lab{
+    font-size: 23px;
+    position: absolute;
+    top: 170px;
+    left:5px;
+    color: black
+}
+.lab{
+    font-size: 18px;
+    position: absolute;
+    top: 210px;
+    left:5px;
+    width: 400px;
+    height: 30px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #9c6cfb;
+    background-color: #d4beff;
+}
+.text_validade{
+    font-size: 23px;
+    position: absolute;
+    top: 260px;
+    left:5px;
+    color: black
+}
+.validade{
+    font-size: 18px;
+    position: absolute;
+    top: 300px;
+    left:5px;
+    width: 200px;
+    height: 30px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: #9c6cfb;
+    background-color: #d4beff;
+}
+.text_qntd{
+    font-size: 23px;
+    position: absolute;
+    top: 260px;
+    left:300px;
+    color: black
+}
+.qntd{
+    font-size: 18px;
+    position: absolute;
+    top: 300px;
+    left:300px;
+    width: 200px;
+    height: 30px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: #9c6cfb;
+    background-color: #d4beff;
+}
+.text_lote{
+    font-size: 23px;
+    position: absolute;
+    top: 360px;
+    left:5px;
+    color: black
+}
+.box_lote{
+    font-size: 18px;
+    position: absolute;
+    top: 400px;
+    left:5px;
+    width: 270px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #9c6cfb;
+    background-color: #d4beff;
+}
+
+.botao_register {
+    position: absolute;
+    top: 83%;
+    left: 35%;
+    width: 170px;
+    height: 45px;
+    border: solid #33cccc;
+    border-radius: 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 1.2em;
+    font-weight: 550;
+    font-family: 'Montserrat', sans-serif;
+}  
+.botao_register:hover{
+    background: #33cccc;
+    color: black;
+    font-size: 1.5em;
+}
+.botao_pularss{
+  position: absolute;
+  top: 90%;
+  left: 5%;
+  width: 110px;
+  height: 35px;
+  border: solid #2e85dc;
+  border-radius: 10px;
+  transition: all 0.3s;
+  cursor: pointer;
+  background: white;
+  font-size: 15px;
+  font-weight: 550;
+  font-family: 'Montserrat', sans-serif;
+}
+.botao_pularss:hover{
+  background: #2e85dc;
+  color: white;
+  font-size: 17px;
+}
+#comentarios{
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+#coment01{
+    font-size: 50px;
+    position: absolute;
+    top: 25% ;
+    left: 2%;
+    text-align: left;
+}
+.seletor01{
+    position: absolute;
+    top: 200px;
+    left: 1%;
+    width: 500px;
+    height: 35px;
+    transition: all 0.3s;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+}
+.print_dono{
+    color: red;
+}
+.text_seletor01{
+    font-size: 23px;
+    position: absolute;
+    top: 150px;
+    left:1%;
+    color: black
+}
+.text_seletor04{
+  font-size: 23px;
+  position: absolute;
+  top: 360px;
+  left:300px;
+  color: black
+}
+.seletor04{
+  font-size: 18px;
+  position: absolute;
+  top: 400px;
+  left:300px;
+  width: 200px;
+  height: 30px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #33cccc;
+  background-color: #bdf8de;
+}
+#animation{
+    position: absolute;
+    top: 40%;
+    left: 10%;
+}
+.text_email{
+    font-size: 17px;
+    position: absolute;
+    top: 520px;
+    right:50px;
+    color: black
+}
+.bt_email{
+    position: absolute;
+    top: 523px;
+    left:360px;
+}

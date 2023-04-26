@@ -30,7 +30,7 @@ else{
 	// b: para 'blob'
 
 if($stmt->execute()){
-	header('location:../home_admin.php');
+	header('location:../admin/home_admin.php');
 }
 }
 ?>

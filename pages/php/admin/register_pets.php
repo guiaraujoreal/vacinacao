@@ -1,5 +1,5 @@
 <?php
-include('functions/funcoes.php');
+include('../functions/funcoes.php');
 if (esta_logado()==1) {
 	header("location:register.php");
 }
@@ -10,8 +10,8 @@ if (esta_logado()==1) {
 <html>
     <head>
         <meta charset="utf-8" lang="pt">
-        <link rel="stylesheet" type="text/css" href="../../styles/register_pets.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="../../styles/cabecalho_e_rodape.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../styles/register_pets.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../styles/cabecalho_e_rodape.css" media="screen" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
@@ -19,13 +19,13 @@ if (esta_logado()==1) {
         <title>
             VacinaCão - Registro
         </title>
-        <link rel="icon" type="image/png" href="../../icons/logo.png"/>
+        <link rel="icon" type="image/png" href="../../../icons/logo.png"/>
     </head>
     <bory>
         
         <div id="cabecalho">
-            <a href="index.php"><img src="../../icons/logo.png" class="logotipo"></a>
-            <img src="../../icons/text_logo.png" class="texto_logo">
+            <a href="index.php"><img src="../../../icons/logo.png" class="logotipo"></a>
+            <img src="'../../../icons/text_logo.png" class="texto_logo">
             <div id="user_menu">
                  <h1 class="user">
                     <?php user_cabec() ?> </h1>
@@ -55,7 +55,7 @@ if (esta_logado()==1) {
             </button>
         </div>
         <div id="form_register" class="animate__animated animate__bounceInRight">
-            <form action="functions/query_register_pets.php" method="post">
+            <form action="../functions/query_register_pets.php" method="post">
 
                 <p class="titulo_register"><b>Cadastrar Animal(Pet)</b></p>
 
@@ -110,7 +110,7 @@ if (esta_logado()==1) {
                 </div>
 
                 <button type="submit" class="botao_register">Enviar Dados</button>
-                <p><button class="botao_pularss" onclick="window.location.href='info_users.php'">Pular sessão</button></p>
+                <p><button class="botao_pularss" onclick="window.location.href='../info_users.php'">Pular sessão</button></p>
             </form>
         </div>
         <div id="comentarios"><h1 id="coment01" class="animate__animated animate__bounceInLeft"><b>Vamos adicionar algumas <br>

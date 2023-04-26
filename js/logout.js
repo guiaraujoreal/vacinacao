@@ -1,6 +1,6 @@
 function logout() {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "functions/funcoes.php", true);
+    xhr.open("GET", "../pages/php/functions/funcoes.php", true);
     xhr.send();
-    window.location = "index.php";
+    window.location = "../pages/php/index.php";
 }

@@ -1,5 +1,5 @@
 <?php
-include('functions/funcoes.php');
+include('../functions/funcoes.php');
 if (esta_logado()==1) {
 	header("location:register.php");
 }
@@ -20,8 +20,8 @@ if (isset($_SESSION["mensagem_erro"])) {
 <html>
     <head>
         <meta charset="utf-8" lang="pt">
-        <link rel="stylesheet" type="text/css" href="../../styles/register_users.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="../../styles/cabecalho_e_rodape.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../styles/register_users.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../styles/cabecalho_e_rodape.css" media="screen" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
@@ -30,13 +30,13 @@ if (isset($_SESSION["mensagem_erro"])) {
         <title>
             VacinaCão - Registro
         </title>
-        <link rel="icon" type="image/png" href="../../icons/logo.png"/>
+        <link rel="icon" type="image/png" href="../../../icons/logo.png"/>
     </head>
     <bory>
         
         <div id="cabecalho">
-            <a href="index.php"><img src="../../icons/logo.png" class="logotipo"></a>
-            <img src="../../icons/text_logo.png" class="texto_logo">
+            <a href="index.php"><img src="../../../icons/logo.png" class="logotipo"></a>
+            <img src="../../../icons/text_logo.png" class="texto_logo">
             <div id="user_menu">
                  <h1 class="user">
                     <?php 
@@ -63,7 +63,7 @@ if (isset($_SESSION["mensagem_erro"])) {
             </button>
         </div>
         <div id="form_register" class="animate__animated animate__bounceInLeft">
-            <form action="functions/query_register_user.php" method="post">
+            <form action="../functions/query_register_user.php" method="post">
 
                 <p class="titulo_register"><b>Cadastrar Usuário</b></p>
 
@@ -97,7 +97,7 @@ if (isset($_SESSION["mensagem_erro"])) {
                     <option value="0" >Administrador</option>
                 </select>
 
-                <p><button type="submit" class="botao_register" onclick="window.location.href='functions/send_email_page.php'">Enviar Dados</button></p>
+                <p><button type="submit" class="botao_register" onclick="window.location.href='../functions/send_email_page.php'">Enviar Dados</button></p>
             </form>
         </div>
         <div id="comentarios"><h1 id="coment01" class="animate__animated animate__bounceInRight"><b>Vamos criar uma conta!</b></h1> </div>

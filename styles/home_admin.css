@@ -168,7 +168,7 @@
     width: 100%;
    }
 
-   .button_pet {
+   .button_vacinas-painel {
     padding: 10px 10px;
     border: solid;
     border-width: 1px;
@@ -187,7 +187,7 @@
     cursor: pointer;
    }
    
-   .button_pet::before {
+   .button_vacinas-painel::before {
     content: "";
     position: absolute;
     top: 0;
@@ -195,18 +195,18 @@
     height: 100%;
     width: 0;
     border-radius: 15px;
-    background-color: rgba(0,255,183);
+    background-color: rgb(178, 189, 251);
     z-index: -1;
     -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
     box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
     transition: all 250ms
    }
    
-   .button_pet:hover {
+   .button_vacinas-painel:hover {
     color: #0060de;
    }
    
-   .button_pet:hover::before {
+   .button_vacinas-painel:hover::before {
     width: 100%;
    }
    .botao_acoes{

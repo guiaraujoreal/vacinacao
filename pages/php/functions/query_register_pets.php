@@ -15,7 +15,7 @@ $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("ssssss",$cpf, $nome, $raca, $tipagem, $idade, $genero);
 
 if($stmt->execute()){
-    header('location:../home_admin.php');
+    header('location:../admin/home_admin.php');
 }
 
 ?>
