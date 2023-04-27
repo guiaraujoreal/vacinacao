@@ -12,10 +12,6 @@ $ativo = $_POST['seletor01'];
 $e_cliente = $_POST['seletor02'];
 $confirmsenha = $_POST['confirmsenha'];
 
-$sql = 'INSERT INTO plogin (cpf,nome,senha1,telefone,email,ativo,e_cliente) values (?,?,?,?,?,?,?)';
-$stmt = $mysqli->prepare($sql);
-$stmt->bind_param("sssssii",$cpf, $nome, $senha1,$telefone,$email,$ativo,$e_cliente);
-
 if($senha1 != $confirmsenha){
 	echo "As senhas não correspondem";
 }
