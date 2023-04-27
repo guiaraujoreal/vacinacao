@@ -37,7 +37,7 @@ if (esta_logado()==1) {
                             <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_vewnyqdu.json"  background="transparent"  speed="1"  style="width: 450px; height: 450px;"  loop  autoplay></lottie-player>
                         </div>
                 </div>
-                <div class="col d-flex justify-content-end">
+                <div class="col d-flex justify-content-center">
                     <div id="form_register" class="animate__animated animate__bounceInRight">
                         <form action="../functions/query_register_vacinas.php" method="post">
 
