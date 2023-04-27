@@ -6,10 +6,10 @@ if (isset($_POST["id"])) {
     $id = $_POST["id"];
     
     // Executa a consulta SQL para excluir o usuário com o ID fornecido
-    $sql = "DELETE FROM plogin WHERE id = $id";
+    $sql = "DELETE FROM vacina_reg WHERE id = $id";
     
     if ($mysqli->query($sql) === TRUE) {
-      header('location:../admin/home_admin.php');
+      header('location:../admin/painel_vacinas.php');
     } else {
       echo "Erro ao excluir usuário: " . $mysqli->error;
     }

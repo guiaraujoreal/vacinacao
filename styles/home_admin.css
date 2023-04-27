@@ -1,3 +1,11 @@
+.container{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.cosl{
+  border: yellow 2px solid;
+}
 #user_menu{
     position: absolute;
     top: 5%;
@@ -20,14 +28,16 @@
 .campo_form{
   width: 300px;
 }
+
+#section02{
+  margin-top: 20px;
+  margin-bottom: 30px;
+  width: 90%;
+}
 .inf_box{
     text-align: center;
     background-color: rgb(181, 218, 251);
-    width: 90%;
-    height: 15%;
-    position: absolute;
-    top: 82%;
-    left: 5%;
+    height: 20vh;
     border-radius: 5px;
 }
 
@@ -43,9 +53,6 @@
     position: relative;
     padding-bottom: 2em;
     cursor: pointer;
-    position: absolute;
-    top: 5%;
-    left: 8%;
   }
   
   #botao_logout > div,#botao_logout > svg {
@@ -128,6 +135,7 @@
   /* botao registro user */
 .button_user {
     padding: 10px 10px;
+    margin-top: 10%;
     border: solid;
     border-width: 1px;
     border-radius: 15px;
@@ -139,9 +147,6 @@
     font-size: 15px;
     transition: all 250ms;
     overflow: hidden;
-    position: absolute;
-    top: 30%;
-    left: 20%;
     cursor: pointer;
    }
    
@@ -170,6 +175,7 @@
 
    .button_vacinas-painel {
     padding: 10px 10px;
+    margin-top: 10%;
     border: solid;
     border-width: 1px;
     border-radius: 15px;
@@ -181,9 +187,6 @@
     font-size: 15px;
     transition: all 250ms;
     overflow: hidden;
-    position: absolute;
-    top: 30%;
-    left: 50%;
     cursor: pointer;
    }
    
@@ -212,3 +215,11 @@
    .botao_acoes{
     margin-left: 3px;
    }
+.icon_info{
+  width: 30px;
+  height: auto;
+  margin-left: 15px;
+}
+.icon_info:hover{
+  cursor: pointer;
+}
