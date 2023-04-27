@@ -40,7 +40,7 @@ if (esta_logado()==1) {
                 echo $cat;
                 ?></h2> 
             </div>
-            <button id="botao_logout" onclick="logout()">
+            <button id="botao_logout" onclick="window.location.href='../index.php'">
                 <div class="text">
                     <span>Log</span>
                     <span>Out</span>

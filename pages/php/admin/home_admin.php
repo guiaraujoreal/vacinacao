@@ -25,7 +25,7 @@ include('../functions/funcoes.php');
 
         <div id="cabecalho">    
             <img src="../../../icons/logo.png" class="logotipo">
-            <img src="'../../../icons/text_logo.png" class="texto_logo">
+            <img src="../../../icons/text_logo.png" class="texto_logo">
             <div id="user_menu">
                  <h1 class="user"> <?php user_cabec() ?> </h1>
                 <h2 class="category_a">
@@ -41,7 +41,7 @@ include('../functions/funcoes.php');
                 ?>
                 </h2> 
             </div>
-            <button id="botao_logout" onclick="logout()">
+            <button id="botao_logout" onclick="window.location.href='../index.php'">
                 <div class="text">
                     <span>Log</span>
                     <span>Out</span>
@@ -77,10 +77,10 @@ include('../functions/funcoes.php');
                     $query = $mysqli->query($sql);
                     while ($dados = mysqli_fetch_assoc($query)){
 
-                        $sql2 = "SELECT * FROM pets WHERE cpf_dono ='" .$dados['cpf']."'";
+                        $sql2 = "SELECT * FROM pets WHERE id_dono ='" .$dados['id']."'";
                         $query2 = $mysqli->query($sql2);
 
-                        echo "<form action='../functions/alterar_dados.php' method='post'>";
+                        echo "<form action='../functions/alterar_dados_home_admin.php' method='post'>";
                         echo "<tr>";
                         echo '<td><input type="text" class="campo_form" value="' . $dados['nome'] . '" name="nome"></td>';
                         echo '<input type="hidden" class="campo_form" value="' . $dados['id'] . '" name="id">';
@@ -93,12 +93,13 @@ include('../functions/funcoes.php');
 
                         <button class='btn btn-success botao_acoes' type='submit' id='" . $dados['id'] . "'>Alterar Dados</button>
                         </form>
-                        <form action='../functions/excluir_dados_home.php' method='post'>
+                        <form action='../functions/excluir_dados_home_admin.php' method='post'>
                         <input type='hidden' class='campo_form' value='" . $dados['id'] . "' name='id'>
                         <button type='submit' class='btn btn-danger botao_acoes'>Excluir</button>
                         </form>
-                        <form action='../register_pets.php' method='post'>";
+                        <form action='register_pets.php' method='post'>";
                         echo "<input type='hidden' class='campo_form' value='" . $dados['cpf'] . "' name='cpf'>";
+                        echo "<input type='hidden' class='campo_form' value='" . $dados['id'] . "' name='id_dono'>";
                         echo "<button class='btn btn-primary botao_acoes' id='botao_adicionar'>Animais Registrados</button>
                         </form></td>";
                         echo "</tr>";

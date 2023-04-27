@@ -48,7 +48,7 @@ if (isset($_SESSION["mensagem_erro"])) {
                     echo "Olá " . $_SESSION['user_fname'] . "!" ?> </h1>
                 <h2 class="category_a">Adminstrador</h2> 
             </div>
-            <button id="botao_logout" onclick="logout()">
+            <button id="botao_logout" onclick="window.location.href='../index.php'">
                 <div class="text">
                     <span>Log</span>
                     <span>Out</span>

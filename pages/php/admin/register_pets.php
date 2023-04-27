@@ -40,7 +40,7 @@ if (esta_logado()==1) {
                 echo $cat;
                 ?></h2> 
             </div>
-            <button id="botao_logout" onclick="logout()">
+            <button id="botao_logout" onclick="window.location.href='../index.php'">
                 <div class="text">
                     <span>Log</span>
                     <span>Out</span>
@@ -97,6 +97,7 @@ if (esta_logado()==1) {
                 <div name="dono" class="seletor01">
                 <?php 
                 $cpf_duo = $_POST['cpf'];
+                $id_dono = $_POST['id_dono'];
                 $mysqli = query_db();
                 $sql = "SELECT nome FROM plogin WHERE cpf = '". $cpf_duo . "'" ;
                 $query = $mysqli->query($sql);
@@ -105,6 +106,7 @@ if (esta_logado()==1) {
                     echo '<p class="print_dono"><b>' . $name_out . '</b></p>';
                 }
                 echo "<input type='hidden' class='campo_form' value='" . $cpf_duo . "' name='cpf_dono'>";
+                echo "<input type='hidden' class='campo_form' value='" . $id_dono . "' name='id_do_dono'>";
                 ?>
 
                 </div>

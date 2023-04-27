@@ -41,7 +41,7 @@ include('../functions/funcoes.php');
                 ?>
                 </h2> 
             </div>
-            <button id="botao_logout" onclick="logout()">
+            <button id="botao_logout" onclick="window.location.href='../index.php'">
                 <div class="text">
                     <span>Log</span>
                     <span>Out</span>
@@ -75,7 +75,7 @@ include('../functions/funcoes.php');
                     $query = $mysqli->query($sql);
                     while ($dados = mysqli_fetch_assoc($query)){
 
-                        echo "<form action='../functions/alterar_dados.php' method='post'>";
+                        echo "<form action='../functions/alterar_dados_register_vacinas.php' method='post'>";
                         echo "<tr>";
                         echo '<input type="hidden" class="campo_form" value="' . $dados['id'] . '" name="id">';
                         echo '<td><input type="text" class="campo_form" value="' . $dados['nome_vacina'] . '" name="nome_vacina"></td>';
