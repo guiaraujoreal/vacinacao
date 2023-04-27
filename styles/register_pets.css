@@ -5,6 +5,10 @@ body{
     background: linear-gradient(90deg, rgba(0,255,183,1) 0%, rgba(0,98,215,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffb7",endColorstr="#0062d7",GradientType=1);
 }
+#section01{
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
 #table_users{
   overflow: auto;
 }
@@ -25,9 +29,6 @@ body{
 
 #form_register{
     background-color: #caf3f3;
-    position: absolute;
-    top: 22%;
-    right: 2%;
     border-radius: 12px;
     border-style: solid;
     border-width: 2px;
@@ -201,7 +202,7 @@ body{
 #coment01{
     font-size: 50px;
     position: absolute;
-    top: 25% ;
+    top: 15% ;
     left: 2%;
     text-align: left;
 }
@@ -247,7 +248,7 @@ body{
 }
 #animation{
     position: absolute;
-    top: 40%;
+    top: 35%;
     left: 10%;
 }
 .text_email{

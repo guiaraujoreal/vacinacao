@@ -5,6 +5,10 @@ body{
   background: linear-gradient(90deg, rgba(169,95,255,1) 0%, rgba(255,182,244,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a95fff",endColorstr="#ffb6f4",GradientType=1);
 }
+#section01{
+  margin-top: 40px;
+  margin-bottom: 70px;
+}
 #user_menu{
     position: absolute;
     top: 5%;
@@ -132,9 +136,6 @@ body{
 }
 #form_register{
     background-color: #ebcaf3;
-    position: absolute;
-    top: 22%;
-    left: 2%;
     border-radius: 12px;
     border-style: solid;
     border-width: 2px;

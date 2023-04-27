@@ -13,7 +13,7 @@ include('../functions/funcoes.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../../../styles/home_admin.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../../styles/painel_vacinas.css" media="screen" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
@@ -25,8 +25,9 @@ include('../functions/funcoes.php');
         <?php include('../includes/cabecalho.php') ?>
     </header>
     <main>
-        <div id="table_users">
-            <table class="table table-bordered table-hover table-striped ">
+        <section id="section01" class="container-fluid">
+        <div id="table_users" class="d-flex justify-content-center">
+            <table class="table table-bordered table-hover table-striped table-responsive">
                 <thead class="thead-dark">
                     <tr class="table_cabec">
                         <th scope="col">Vacina</th>
@@ -52,7 +53,7 @@ include('../functions/funcoes.php');
                         echo '<td><input type="text" value="' . $dados['lote'] . '" name="lote"></td>';
                         echo '<td><input type="text" class="campo_form" value="' . $dados['laboratorio'] . '" name="lab"></td>';
                         echo '<td><input type="text" class="campo_form" value="' . $dados['validade'] . '" name="validade"></td>';
-                        echo '<td><input type="text" value="' . $dados['quantidade'] . '" name="qntd"></td>';
+                        echo '<td>' . $dados['quantidade'] . '</td>';
                         echo "<td class=' d-flex align-items-center'>
 
                         <button class='btn btn-success botao_acoes' type='submit' id='" . $dados['id'] . "'>Alterar Dados</button>
@@ -71,10 +72,15 @@ include('../functions/funcoes.php');
                 </tbody>
             </table>
         </div>
+        </section>
 
-        <div class="inf_box">
-            <button class="button_user" onclick="window.location.href='register_vacinas.php'">Registrar Vacina</button>    
-        </div>
+        <section id="section02" class="container-fluid">
+            <div class="row">
+                <div class="inf_box col d-flex justify-content-around">
+                    <button class="button_register_vacinas" onclick="window.location.href='register_vacinas.php'">Registrar Vacina</button>    
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>

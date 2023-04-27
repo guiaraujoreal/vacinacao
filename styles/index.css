@@ -3,11 +3,12 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+#section01{
+    margin-top: 15vh;
+    margin-bottom: 20vh;
+}
 .form_main{
     backdrop-filter: blur(20px);
-    position: absolute;
-    top: 30%;
-    left:70%;
     width: 350px;
     height: 400px;
     white-space: nowrap;
@@ -128,5 +129,5 @@ body{
 .coment01{
     font-size: 60px;
     position: absolute;
-    top: 50% ;
+    top: 30% ;
 }

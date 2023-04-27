@@ -1,21 +1,17 @@
-
-#section01{
-    margin-bottom: 20vh;
-}
 #section02{
+    margin-top: 70px;
+    margin-bottom: 60px;
     width: 90%;
-    margin-bottom: 50px;
-    
-}
+  }
 .inf_box{
     text-align: center;
     background-color: rgb(181, 218, 251);
-    width: 90%;
-    height: 20vh;
     border-radius: 5px;
+    height: 20vh;
 }
-.button_register_pets {
+.button_register_vacinas {
     padding: 10px 10px;
+    margin-top: 3%;
     border: solid;
     border-width: 1px;
     border-radius: 15px;
@@ -28,10 +24,10 @@
     transition: all 250ms;
     overflow: hidden;
     cursor: pointer;
-    margin-top: 4%;
+    height: 60px;
    }
 
-   .button_register_pets::before {
+   .button_register_vacinas::before {
     content: "";
     position: absolute;
     top: 0;
@@ -46,10 +42,10 @@
     transition: all 250ms
    }
    
-   .button_register_pets:hover {
+   .button_register_vacinas:hover {
     color: rgb(128, 58, 208);
    }
    
-   .button_register_pets:hover::before {
+   .button_register_vacinas:hover::before {
     width: 100%;
    }

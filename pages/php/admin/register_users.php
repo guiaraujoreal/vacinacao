@@ -35,70 +35,60 @@ if (isset($_SESSION["mensagem_erro"])) {
     <header>
         <?php include('../includes/cabecalho.php') ?>
     </header>
+
     <main>
-        <div id="form_register" class="animate__animated animate__bounceInLeft">
-            <form action="../functions/query_register_user.php" method="post">
+        <section id="section01" class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div id="form_register" class="animate__animated animate__bounceInLeft">
+                        <form action="../functions/query_register_user.php" method="post">
 
-                <p class="titulo_register"><b>Cadastrar Usuário</b></p>
+                            <p class="titulo_register"><b>Cadastrar Usuário</b></p>
 
-                <p class="text_nome_register">Nome completo:</p> 
-                <input type="text" name="nome" class="box_nome_register" placeholder="Ex: Heitor Miguel dos Santos" required/>
+                            <p class="text_nome_register">Nome completo:</p> 
+                            <input type="text" name="nome" class="box_nome_register" placeholder="Ex: Heitor Miguel dos Santos" required/>
 
-                <p class="text_cpf_register">CPF:</p>
-                <input type="text" name="cpf" class="box_cpf_register" placeholder="Ex: 12345678900" minlength="11" maxlength="11" required/>
+                            <p class="text_cpf_register">CPF:</p>
+                            <input type="text" name="cpf" class="box_cpf_register" placeholder="Ex: 12345678900" minlength="11" maxlength="11" required/>
 
-                <p class="text_senha_register">Crie uma senha:</p> 
-                <input type="password" name="senha" class="box_senha_register" minlength="3" maxlength="8" placeholder="Senha entre 3 a 8 caract." required/>
+                            <p class="text_senha_register">Crie uma senha:</p> 
+                            <input type="password" name="senha" class="box_senha_register" minlength="3" maxlength="8" placeholder="Senha entre 3 a 8 caract." required/>
 
-                <p class="text_confirmsenha_register">Confirme a senha: </p>
-                <input type="password" name="confirmsenha" class="box_confirmsenha_register" placeholder="Confirme sua senha"/>
+                            <p class="text_confirmsenha_register">Confirme a senha: </p>
+                            <input type="password" name="confirmsenha" class="box_confirmsenha_register" placeholder="Confirme sua senha"/>
 
-                <p class="text_telefone_register">Telefone/Celular:</p>
-                <input type="tel" name="telefone" class="box_telefone_register" placeholder="Ex: 38999999999" minlength="13" maxlength="14" OnKeyPress="formatar('(##)#####-####',this)" required/>
+                            <p class="text_telefone_register">Telefone/Celular:</p>
+                            <input type="tel" name="telefone" class="box_telefone_register" placeholder="Ex: 38999999999" minlength="13" maxlength="14" OnKeyPress="formatar('(##)#####-####',this)" required/>
 
-                <p class="text_email_register">Email: </p>
-                <input type="email" name="email" class="box_email_register" placeholder="Ex: heitor@dominio.com" required/>
+                            <p class="text_email_register">Email: </p>
+                            <input type="email" name="email" class="box_email_register" placeholder="Ex: heitor@dominio.com" required/>
 
-                <p class="text_seletor01">Status:</p>
-                <select class="seletor01" name="seletor01">
-                    <option value="1" >Ativo</option>
-                    <option value="0" >Inativo</option>
-                </select>
+                            <p class="text_seletor01">Status:</p>
+                            <select class="seletor01" name="seletor01">
+                                <option value="1" >Ativo</option>
+                                <option value="0" >Inativo</option>
+                            </select>
 
-                <p class="text_seletor02">Função:</p>
-                <select class="seletor02" name="seletor02">
-                    <option value="1">Cliente</option>
-                    <option value="0" >Administrador</option>
-                </select>
+                            <p class="text_seletor02">Função:</p>
+                            <select class="seletor02" name="seletor02">
+                                <option value="1">Cliente</option>
+                                <option value="0" >Administrador</option>
+                            </select>
 
-                <p><button type="submit" class="botao_register" onclick="window.location.href='../functions/send_email_page.php'">Enviar Dados</button></p>
-            </form>
-        </div>
-        <div id="comentarios"><h1 id="coment01" class="animate__animated animate__bounceInRight"><b>Vamos criar uma conta!</b></h1> </div>
-
-        <div id="animation">
-            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-            <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_z9ed2jna.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop  autoplay></lottie-player>
-        </div>
-        <div class="modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Título do modal</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
+                            <p><button type="submit" class="botao_register" onclick="window.location.href='../functions/send_email_page.php'">Enviar Dados</button></p>
+                        </form>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <p>Texto do corpo do modal, é aqui.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary">Salvar mudanças</button>
-                </div>
+                <div class="col">
+                    <div id="comentarios"><h1 id="coment01" class="animate__animated animate__bounceInRight"><b>Vamos criar uma conta!</b></h1> </div>
+
+                    <div id="animation">
+                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                        <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_z9ed2jna.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop  autoplay></lottie-player>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
     
     <footer>
@@ -106,8 +96,8 @@ if (isset($_SESSION["mensagem_erro"])) {
     </footer>
     </bory>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
     <script>
         function logout() {

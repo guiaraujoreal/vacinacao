@@ -3,29 +3,18 @@ body{
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
 
 }
+#section01{
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
 #table_users{
   overflow: auto;
 }
 .table_cabec{
     text-align: center;
 }
-.inf_box{
-    text-align: center;
-    background-color: rgb(181, 218, 251);
-    width: 90%;
-    height: 15%;
-    position: absolute;
-    top: 82%;
-    left: 5%;
-    border-radius: 5px;
-}
-
-
 #form_register{
     background-color: #f0daf8;
-    position: absolute;
-    top: 22%;
-    right: 2%;
     border-radius: 12px;
     border-style: solid;
     border-width: 2px;
@@ -246,7 +235,7 @@ body{
 }
 #animation{
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 10%;
 }
 .text_email{
