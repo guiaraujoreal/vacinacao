@@ -34,7 +34,7 @@ include('../functions/funcoes.php');
                         <th scope="col">Lote</th>
                         <th scope="col">Fabricante</th>
                         <th scope="col">Validade</th>
-                        <th scope="col">Quantidade em estoque</th>
+                        <th scope="col">Disponibilidade</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
@@ -45,6 +45,19 @@ include('../functions/funcoes.php');
                     $sql = "SELECT * FROM vacina_reg";
                     $query = $mysqli->query($sql);
                     while ($dados = mysqli_fetch_assoc($query)){
+                        $qntd = $dados['quantidade'];
+                        if($qntd > 10){
+                            $qntd_out = 'Disponível<br>(' . $qntd . ' und. em estoque)';
+                            $style = 'color: rgb(1, 203, 1);';
+                        }
+                        elseif($qntd > 0 or $qntd == 10){
+                            $qntd_out = 'Estoque baixo!<br>(' . $qntd . ' und. em estoque)';
+                            $style = 'color: rgb(255, 109, 25);';
+                        }
+                        else{
+                            $qntd_out = 'Indisponível<br>(estoque zerado)';
+                            $style = 'color: red;';
+                        }
 
                         echo "<form action='../functions/alterar_dados_register_vacinas.php' method='post'>";
                         echo "<tr>";
@@ -53,7 +66,7 @@ include('../functions/funcoes.php');
                         echo '<td><input type="text" value="' . $dados['lote'] . '" name="lote"></td>';
                         echo '<td><input type="text" class="campo_form" value="' . $dados['laboratorio'] . '" name="lab"></td>';
                         echo '<td><input type="text" class="campo_form" value="' . $dados['validade'] . '" name="validade"></td>';
-                        echo '<td>' . $dados['quantidade'] . '</td>';
+                        echo '<td><div style="' . $style .'"><b>' . $qntd_out . '</b></div></td>';
                         echo "<td class=' d-flex align-items-center'>
 
                         <button class='btn btn-success botao_acoes' type='submit' id='" . $dados['id'] . "'>Alterar Dados</button>

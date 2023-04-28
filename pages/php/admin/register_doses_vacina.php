@@ -60,18 +60,18 @@ if (isset($_SESSION["mensagem_erro"])) {
                                 <?php
                                 $mysqli = query_db();
 
-                                $sql2 = "SELECT * FROM vacina_reg order by nome_vacina";
+                                $sql2 = "SELECT * FROM vacina_reg WHERE quantidade > 0 order by nome_vacina";
                                 $result = $mysqli->query($sql2);
 
                                     while($row = $result->fetch_assoc()) {
                                         $id_vacina = $row['id']; 
                                         $nome_vac = $row['nome_vacina'];
-                                        $lote = $row['lote'];?>
-                                        <option value="<?php echo $id_vacina; ?>"><?php echo $nome_vac . " - lote[" . $lote . "]"; ?></option>
-                                    <?php
+                                        $lote = $row['lote'];
+                                        echo '<option value="' . $id_vacina . '">'. $nome_vac .   "-lote[" . $lote . "]</option>'";
                                 }
                                 ?>
                             </select>
+                            <input type="hidden" value="<?php echo $estoque ?>" name="estoque">
 
                             <p class="text_dose">Dose:</p> 
                             <select name="dose" class="box_dose" required>
@@ -91,7 +91,7 @@ if (isset($_SESSION["mensagem_erro"])) {
 
                     <div id="animation">
                         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                        <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_z9ed2jna.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop  autoplay></lottie-player>
+                        <lottie-player src="https://assets7.lottiefiles.com/private_files/lf30_gsmgfd2i.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
                     </div>
                 </div>
             </div>
