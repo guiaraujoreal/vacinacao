@@ -9,7 +9,10 @@ if (isset($_POST["id"])) {
     $sql = "DELETE FROM plogin WHERE id = $id";
     
     if ($mysqli->query($sql) === TRUE) {
-      header('location:../admin/home_admin.php');
+      $sql2 = "DELETE FROM pets WHERE id_dono = $id";
+      if($mysqli->query($sql2) === TRUE){
+        header('location:../admin/home_admin.php');
+      }
     } else {
       echo "Erro ao excluir usuário: " . $mysqli->error;
     }

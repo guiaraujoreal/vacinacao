@@ -27,13 +27,16 @@ if (esta_logado()==1) {
     <main>
 
         <section id="section01" class="container-fluid">
+            <?php 
+            $mysqli = query_db();
+            $nome_dono = $_POST['nome'];
+            ?>
 
             <div id="table_add_doses">
             <table class="table table-bordered table-hover table-striped table-responsive">
-            <caption>Lista de Animais</caption>
+            <caption>Animais de <?php echo $nome_dono ?></caption>
                 <thead class="thead-dark">
                     <tr class="table_cabec">
-                        <th scope="col">Responsável/Dono</th>
                         <th scope="col">Nome do Animal</th>
                         <th scope="col">Idade Estimada</th>
                         <th scope="col">Raça</th>
@@ -47,7 +50,6 @@ if (esta_logado()==1) {
                     $mysqli = query_db();
 
                     $id_dono = $_POST['id_dono'];
-                    $nome_dono = $_POST['nome'];
                     $cpf_dono = $_POST['cpf'];
                     $sql = "SELECT * FROM pets WHERE id_dono = '". $id_dono . "' order by nome" ;
                     $query = $mysqli->query($sql);
@@ -71,7 +73,6 @@ if (esta_logado()==1) {
                         echo "<form action='../functions/alterar_dados_home_admin.php' method='post'>";
                         echo "<tr>";
                         echo '<input type="hidden" class="campo_form" value="' . $dados['id'] . '" name="id">';
-                        echo '<td><input type="text" class="campo_form" value="' . $nome_dono . '" name="nome_dono"></td>';
                         echo '<td><input type="text" class="campo_form" value="' . $dados['nome'] . '" name="nome_pet"></td>';
                         echo '<td><input type="text" value="' . $idade_est . '" name="idade"></td>';
                         echo '<td><input type="text" value="' . $dados['raca'] . '" name="raca"></td>';
@@ -85,10 +86,10 @@ if (esta_logado()==1) {
                         <input type='hidden' class='campo_form' value='" . $dados['id'] . "' name='id'>
                         <button type='submit' class='btn btn-danger botao_acoes'>Excluir</button>
                         </form>
-                        <form action='register_pets.php' method='post'>";
-                        echo "<input type='hidden' class='campo_form' value='" . $cpf_dono . "' name='cpf'>";
-                        echo "<input type='hidden' class='campo_form' value='" . $id_dono . "' name='id_dono'>";
-                        echo "<button type='submit' class='btn btn-primary botao_acoes' id='botao_adicionar'>Animais Registrados</button>
+                        <form action='register_doses_vacina.php' method='post'>";
+                        echo "<input type='hidden' class='campo_form' value='" . $dados['nome'] . "' name='nome_pet'>";
+                        echo "<input type='hidden' class='campo_form' value='" . $dados['id'] . "' name='id_pet'>";
+                        echo "<button type='submit' class='btn btn-primary botao_acoes' id='botao_adicionar'>Vacinar este animal</button>
                         </form></td>";
                         echo "</tr>";
                     }
