@@ -48,19 +48,46 @@ if (esta_logado()==1) {
 
                             <p class="text_seletor02">Tipagem animal:</p>
                             <select name="tipagem" class="seletor02">
-                                <option>Selecione</option>
-                                <option value="cachorro">Cachorro</option>
-                                <option value="gato">Gato</option>
-                                <option value="ave">Ave</option>
-                                <option value="reptil">Réptil</option>
-                                <option value="artropode">Artrópode</option>
-                                <option value="d_vertebrados">Demais vertebrados</option>
-                                <option value="d_invertebrados">Demais invertebrados</option>
+                            <?php
+                            $mysqli = query_db();
+                            $sql = "SELECT * FROM categoria_pet";
+                            $query = $mysqli->query($sql);
+                            while ($row = mysqli_fetch_assoc($query)){
+                                $categoria = $row["id"];
+                                echo '<option value="' . $categoria . '">' . $row["categoria"] . '</option>';
+                                if($categoria==1){
+                                    $raca = 1;
+                                }
+                                elseif($categoria==2){
+                                    $raca = 2;
+                                }
+                                elseif($categoria==3){
+                                    $raca = 3;
+                                }
+                                elseif($categoria==4){
+                                    $raca = 4;
+                                }
+                                else{
+                                    $raca = 5;
+                                }
+                            }
+
+                            ?>
                             </select>
 
-                            <p class="text_raca">Raça Espécie: </p>
-                            <input type="text" name="raca" class="box_raca" placeholder="Na dúvida, não preencher." />
 
+                            <p class="text_raca">Raça Espécie: </p>
+                            <select type="text" name="raca" class="box_raca">
+                            <?php
+                            $mysqli = query_db();
+                            $sql = "SELECT * FROM racas INNER JOIN categoria_pet ON racas.id_categoria = categoria_pet.id";
+                            $query = $mysqli->query($sql);
+                            while ($row = mysqli_fetch_assoc($query)){
+                                $id_raca = $row['idracas'];
+                                echo '<option value="' . $id_raca . '">' . $row["racas"] . '</option>';
+                            }
+                            ?>
+                            </select>
                             <p class="text_seletor03">Estimativa de idade:</p>
                             <select name="idade" class="seletor03" required>
                                 <option>Selecione</option>
@@ -83,9 +110,9 @@ if (esta_logado()==1) {
                             $cpf_duo = $_POST['cpf'];
                             $id_dono = $_POST['id_dono'];
                             $mysqli = query_db();
-                            $sql = "SELECT nome FROM plogin WHERE cpf = '". $cpf_duo . "'" ;
-                            $query = $mysqli->query($sql);
-                            while ($dados = mysqli_fetch_assoc($query)){
+                            $sql2 = "SELECT nome FROM plogin WHERE cpf = '". $cpf_duo . "'" ;
+                            $query2 = $mysqli->query($sql2);
+                            while ($dados = mysqli_fetch_assoc($query2)){
                                 $name_out = $dados["nome"];
                                 echo '<p class="print_dono"><b>' . $name_out . '</b></p>';
                             }
