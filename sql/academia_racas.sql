@@ -27,7 +27,7 @@ CREATE TABLE `racas` (
   `id_categoria` int NOT NULL,
   `racas` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idracas`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `racas` (
 
 LOCK TABLES `racas` WRITE;
 /*!40000 ALTER TABLE `racas` DISABLE KEYS */;
-INSERT INTO `racas` VALUES (1,1,'Akita'),(2,1,'Beagle'),(3,1,'Buldogue'),(4,1,'Chihuahua'),(5,1,'Chow Chow'),(6,1,'Dálmata'),(7,1,'Doberman'),(8,1,'Dogue Alemão'),(9,1,'Fila Brasileiro'),(10,1,'Golden Retriever'),(11,1,'Husky Siberiano'),(12,1,'Jack Russell Terrier'),(13,1,'Labrador Retriever'),(14,1,'Lulu da Pomerânia'),(15,1,'Maltês'),(16,1,'Mastim Tibetano'),(17,1,'Pastor Alemão'),(18,1,'Pastor australiano'),(19,1,'Pequinês'),(20,1,'Pinscher'),(21,1,'Pit bull'),(22,1,'Poodle'),(23,1,'Pug'),(24,1,'Rottweiler'),(25,1,'Shiba'),(26,1,'Shih tzu'),(27,1,'Yorkshire');
+INSERT INTO `racas` VALUES (1,1,'Akita'),(2,1,'Beagle'),(3,1,'Buldogue'),(4,1,'Chihuahua'),(5,1,'Chow Chow'),(6,1,'Dálmata'),(7,1,'Doberman'),(8,1,'Dogue Alemão'),(9,1,'Fila Brasileiro'),(10,1,'Golden Retriever'),(11,1,'Husky Siberiano'),(12,1,'Jack Russell Terrier'),(13,1,'Labrador Retriever'),(14,1,'Lulu da Pomerânia'),(15,1,'Maltês'),(16,1,'Mastim Tibetano'),(17,1,'Pastor Alemão'),(18,1,'Pastor australiano'),(19,1,'Pequinês'),(20,1,'Pinscher'),(21,1,'Pit bull'),(22,1,'Poodle'),(23,1,'Pug'),(24,1,'Rottweiler'),(25,1,'Shiba'),(26,1,'Shih tzu'),(27,1,'Yorkshire'),(28,2,'SRD'),(29,2,'Siamês'),(30,2,'Maine Coon'),(31,2,'Angorá'),(32,2,'Persa'),(33,2,'Sphynx'),(34,2,'Ragdoll'),(35,2,'Ashera'),(36,2,'American Shorthair'),(37,2,'Exótico'),(38,3,'Galinha'),(39,3,'Papagaio'),(40,3,'Pato'),(41,3,'Canário'),(42,3,'Periquito'),(43,3,'Maritaca'),(44,3,'Demais Aves'),(45,4,'Piton'),(46,4,'Cascavel'),(47,4,'Demais Cobras'),(48,5,'Demais Vertebrados'),(49,5,'Demais Invertebrados');
 /*!40000 ALTER TABLE `racas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-26 21:25:03
+-- Dump completed on 2023-04-28 21:54:13
