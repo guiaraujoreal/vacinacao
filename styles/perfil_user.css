@@ -1,0 +1,28 @@
+#section01{
+    border-bottom: solid rgb(203, 203, 203) 1px;
+}
+
+.text_top{
+    font-size: 2.5em;
+    position: relative;
+    top: 7px;
+}
+
+#section02{
+    width: 95%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.form-box{
+    border: solid 1px rgb(203, 203, 203);
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(203, 203, 203, 0.303);
+}
+.container_text{
+    border-bottom: solid 1px rgb(203, 203, 203);
+    text-align: center;
+}
+.title-form{
+    font-size: 1.5em;
+}

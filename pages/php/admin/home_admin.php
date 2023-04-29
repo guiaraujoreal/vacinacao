@@ -57,17 +57,26 @@ include('../functions/funcoes.php');
                         else{
                             $status = 'Ativo';
                         }
-                        echo "<form action='../functions/alterar_dados_home_admin.php' method='post'>";
+                        echo "<form action='perfil_user.php' method='post'>";
                         echo "<tr>";
-                        echo '<td><input type="text" class="campo_form" value="' . $dados['nome'] . '" name="nome"></td>';
+
                         echo '<input type="hidden" class="campo_form" value="' . $dados['id'] . '" name="id">';
-                        echo '<td><input type="text" value="' . $dados['cpf'] . '" name="cpf"></td>';
-                        echo '<td><input type="text" class="campo_form" value="' . $dados['email'] . '" name="email"></td>';
+                        echo '<input type="hidden" class="campo_form" value="' . $dados['ativo'] . '" name="status">';
+                        echo '<input type="hidden" class="campo_form" value="' . $dados['id'] . '" name="id">';
+                        echo '<input type="hidden" class="campo_form" value="' . $dados['telefone'] . '" name="telefone">';
+                        echo '<input type="hidden" class="campo_form" value="' . $dados['nome'] . '" name="nome">';
+                        echo '<input type="hidden" value="' . $dados['cpf'] . '" name="cpf">';
+                        echo '<input type="hidden" class="campo_form" value="' . $dados['email'] . '" name="email">';
+
+                        echo '<td>' . $dados['nome'] . '</td>';
+                        echo '<td>' . $dados['cpf'] . '</td>';
+                        echo '<td>' . $dados['email'] . '</td>';
                         echo '<td>' . $status . '</td>';
                         echo '<td>' . $query2->num_rows . '</td>';
+
                         echo "<td class=' d-flex align-items-center'>
 
-                        <button class='btn btn-success botao_acoes' type='submit' id='" . $dados['id'] . "'>Alterar Dados</button>
+                        <button class='btn btn-success botao_acoes' type='submit' id='" . $dados['id'] . "'>Informações deste usuário</button>
                         </form>
                         <form action='../functions/excluir_dados_home_admin.php' method='post'>
                         <input type='hidden' class='campo_form' value='" . $dados['id'] . "' name='id'>
@@ -78,8 +87,7 @@ include('../functions/funcoes.php');
                         echo "<input type='hidden' class='campo_form' value='" . $dados['cpf'] . "' name='cpf'>";
                         echo "<input type='hidden' class='campo_form' value='" . $dados['id'] . "' name='id_dono'>";
                         echo "<button class='btn btn-primary botao_acoes' id='botao_adicionar'>Animais Registrados</button>
-                        </form>
-                        <a href='#'><img class='icon_info' src='../../../icons/info_icone.png'></a></td>";
+                        </form></td>";
                         echo "</tr>";
                     }
                     ?>
