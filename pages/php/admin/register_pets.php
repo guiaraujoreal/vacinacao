@@ -38,7 +38,7 @@ if (esta_logado()==1) {
                         </div>
                 </div>
                 <div class="col d-flex justify-content-end">
-                    <div id="form_register" class="animate__animated animate__bounceInRight">
+                    <div id="form_register" class="animate__animated animate__bounceInLeft">
                         <form action="../functions/query_register_pets.php" method="post">
 
                             <p class="titulo_register"><b>Cadastrar Animal(Pet)</b></p>
@@ -76,7 +76,7 @@ if (esta_logado()==1) {
                             </select>
 
 
-                            <p class="text_raca">Raça Espécie: </p>
+                            <p class="text_raca">Raça: </p>
                             <select type="text" name="raca" class="box_raca">
                             <?php
                             $mysqli = query_db();
@@ -88,20 +88,14 @@ if (esta_logado()==1) {
                             }
                             ?>
                             </select>
-                            <p class="text_seletor03">Estimativa de idade:</p>
-                            <select name="idade" class="seletor03" required>
-                                <option>Selecione</option>
-                                <option value="1">menor que 1 ano</option>
-                                <option value="2">entre 1 e 3 anos</option>
-                                <option value="3">entre 3 e 5 anos</option>
-                                <option value="4">Maior que 5 anos</option>
-                            </select>
+                            <p class="text_seletor03">Ano de nascimento:</p>
+                            <input type="text" name="idade" class="seletor03" minlength="4" maxlength="4" required>
 
                             <p class="text_seletor04">Gênero:</p>
                             <select name="genero" class="seletor04">
-                                <option name="n_definido">Não definido</option>
-                                <option value="macho">Macho</option>
-                                <option value="femea">Fêmea</option>
+                                <option value="Nao Definido">Não definido</option>
+                                <option value="Macho">Macho</option>
+                                <option value="Femea">Fêmea</option>
                             </select>
 
                             <p class="text_seletor01">Dono selecionado:</p>

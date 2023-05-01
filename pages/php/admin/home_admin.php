@@ -25,7 +25,7 @@ include('../functions/funcoes.php');
         <?php include('../includes/cabecalho.php') ?>
     </header>
     <main>
-        <section class="container-fluid">
+        <section id="section01" class="container-fluid">
         <div id="table_users">
             <table class="table table-bordered table-hover table-striped ">
                 <thead class="thead-dark">
@@ -49,7 +49,14 @@ include('../functions/funcoes.php');
 
                         $sql2 = "SELECT * FROM pets WHERE id_dono ='" .$dados['id']."'";
                         $query2 = $mysqli->query($sql2);
+                        if($query2->num_rows==0){
+                            $rows = 'Nenhum';
+                        }
+                        else{
+                            $rows = $query2->num_rows;
+                        }
 
+                        
                         $ativo = $dados['ativo'];
                         if($ativo==0){
                             $status = 'Inativo';
@@ -67,23 +74,23 @@ include('../functions/funcoes.php');
                         echo '<input type="hidden" class="campo_form" value="' . $dados['nome'] . '" name="nome">';
                         echo '<input type="hidden" value="' . $dados['cpf'] . '" name="cpf">';
                         echo '<input type="hidden" class="campo_form" value="' . $dados['email'] . '" name="email">';
+                        echo '<input type="hidden" class="campo_form" value="' . $dados['e_cliente'] . '" name="posicao">';
+                        echo '<input type="hidden" class="campo_form" value="' . $dados['data_criacao'] . '" name="data">';
+                        echo '<input type="hidden" class="campo_form" value="' . $dados['senha1'] . '" name="senha">';
 
                         echo '<td>' . $dados['nome'] . '</td>';
                         echo '<td>' . $dados['cpf'] . '</td>';
                         echo '<td>' . $dados['email'] . '</td>';
-                        echo '<td>' . $status . '</td>';
-                        echo '<td>' . $query2->num_rows . '</td>';
+                        echo '<td class="align_text">' . $status . '</td>';
+                        echo '<td class="align_text">' . $rows . '</td>';
 
-                        echo "<td class=' d-flex align-items-center'>
+                        echo "<td class='d-flex align-items-center justify-content-around'>
 
-                        <button class='btn btn-success botao_acoes' type='submit' id='" . $dados['id'] . "'>Informações deste usuário</button>
+                        <button class='btn btn-dark botao_acoes' type='submit' id='" . $dados['id'] . "'>Mais Informações</button>
                         </form>
-                        <form action='../functions/excluir_dados_home_admin.php' method='post'>
-                        <input type='hidden' class='campo_form' value='" . $dados['id'] . "' name='id'>
-                        <button type='submit' class='btn btn-danger botao_acoes'>Excluir</button>
-                        </form>
+
                         <form action='painel_pets.php' method='post'>";
-                        echo "<input type='hidden' class='campo_form' value='" . $dados['nome'] . "' name='nome'>";
+                        echo "<input type='hidden' class='campo_form' value='" . $dados['nome'] . "' name='nome_pet'>";
                         echo "<input type='hidden' class='campo_form' value='" . $dados['cpf'] . "' name='cpf'>";
                         echo "<input type='hidden' class='campo_form' value='" . $dados['id'] . "' name='id_dono'>";
                         echo "<button class='btn btn-primary botao_acoes' id='botao_adicionar'>Animais Registrados</button>
@@ -108,6 +115,7 @@ include('../functions/funcoes.php');
             </div>
             </div>
         </section>
+        
     </main>
         <footer>
             <?php include('../includes/rodape.php') ?>

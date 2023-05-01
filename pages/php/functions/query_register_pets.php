@@ -7,13 +7,13 @@ $cpf = $_POST['cpf_dono'];
 $nome = $_POST['nome'];
 $raca = $_POST['raca'];
 $tipagem = $_POST['tipagem'];
-$idade = $_POST['idade'];
+$ano = $_POST['idade'];
 $genero = $_POST['genero'];
 $id = $_POST['id_do_dono'];
 
-$sql = 'INSERT INTO pets (cpf_dono,id_dono,nome,raca,tipagem,idade_est,genero) values (?,?,?,?,?,?,?)';
+$sql = 'INSERT INTO pets (cpf_dono,id_dono,nome,raca,tipagem,ano_nasc,genero) values (?,?,?,?,?,?,?)';
 $stmt = $mysqli->prepare($sql);
-$stmt->bind_param("sisssss",$cpf, $id, $nome, $raca, $tipagem, $idade, $genero);
+$stmt->bind_param("sisssis",$cpf, $id, $nome, $raca, $tipagem, $ano, $genero);
 
 if($stmt->execute()){
     header('location:../admin/home_admin.php');

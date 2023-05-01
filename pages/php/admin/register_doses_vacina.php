@@ -78,16 +78,17 @@ if (isset($_SESSION["mensagem_erro"])) {
                                 <option value="1">1ª Dose</option>
                                 <option value="2">2ª Dose</option>
                                 <option value="3">Reforço</option>
-                                <option value="1">Dose Única</option>
+                                <option value="4">Dose Única</option>
                             </select>
 
 
                             <p><button type="submit" class="botao_register" onclick="window.location.href='../functions/send_email_page.php'">Enviar Dados</button></p>
+                            <p><button class="botao_pularss" onclick="window.location.href='home_admin.php'">Ir para Home</button></p>
                         </form>
                     </div>
                 </div>
                 <div class="col">
-                    <div id="comentarios"><h1 id="coment01" class="animate__animated animate__bounceInRight"><b>Vamos criar uma conta!</b></h1> </div>
+                    <div id="comentarios"><h1 id="coment01" class="animate__animated animate__bounceInRight"><b>Hora de vacinar!</b></h1> </div>
 
                     <div id="animation">
                         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>

@@ -38,13 +38,13 @@ if (esta_logado()==1) {
                         </div>
                 </div>
                 <div class="col d-flex justify-content-center">
-                    <div id="form_register" class="animate__animated animate__bounceInRight">
+                    <div id="form_register" class="animate__animated animate__bounceInLeft">
                         <form action="../functions/query_register_vacinas.php" method="post">
 
                             <p class="titulo_register"><b>Registrar Vacina</b></p>
 
                             <p class="text_vacina_register">Vacina:</p> 
-                            <input type="text" name="vacina" class="box_vacina_register" placeholder="Identificação da vacina" required>
+                            <input type="text" name="vacina" class="box_vacina_register" placeholder="Siga o padrão de nomes" required>
 
                             <p class="text_lab">Laboratório:</p>
                             <input name="lab" class="lab" placeholder="Informe o nome da fabricante da vacina" required>

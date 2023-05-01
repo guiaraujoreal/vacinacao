@@ -7,12 +7,16 @@ include('../functions/funcoes.php');
 
 $mysqli = query_db();
 
+$id_user = $_POST['id'];
 $nome = $_POST['nome'];
 $cpf = $_POST['cpf'];
 $email = $_POST['email'];
 $nome = $_POST['nome'];
 $status = $_POST['status'];
 $telefone = $_POST['telefone'];
+$posicao = $_POST['posicao'];
+$data_insc = $_POST['data'];
+$senha = $_POST['senha'];
 
 ?>
 
@@ -45,46 +49,102 @@ $telefone = $_POST['telefone'];
                 <div class="col_text_top col">
                     <p class="text_top "><b> Informações deste usuário </b></p>
                 </div>
+                <div class="col_text_top col-2 d-flex align-items-center">
+                    <form action="../functions/excluir_dados_perfil_user.php" method="post">
+                        <input type="hidden" value="<?php echo $id_user ?>" name="id">
+                        <button class="btn btn-danger">Excluir Usuário</button>
+                    </form>
+                </div>
             </div>
         </section>
 
         <section id="section02" class="container-fluid">
             <div class="row">
                 <div class="col">
-                <form class="form-box">
+                <form action="../functions/alterar_dados_perfil_user.php" method="post" class="form-box" id="form_user">
                     <div class="container_text container-fluid">
                         <label class="title-form">Usuário</label>
+                        <input type="hidden" value="<?php echo $id_user ?>" name="id">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nome:</label>
-                        <input type="text" class="form-control" value="<?php echo $nome ?>">
+                        <input type="text" class="form-control" value="<?php echo $nome ?>" name="nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">CPF:</label>
+                        <input type="text" class="form-control" value="<?php echo $cpf ?>" name="cpf">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Email:</label>
-                        <input type="text" class="form-control"  value="<?php echo $email ?>">
+                        <input type="text" class="form-control"  value="<?php echo $email ?>" name="email">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Telefone:</label>
-                        <input type="text" class="form-control" value="<?php echo $telefone ?>">
+                        <input type="text" class="form-control" value="<?php echo $telefone ?>" name="telefone">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Status:</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                        <select class="form-control" name="status">
+                            <?php
+                            if($status==0){
+                                echo '<option value="0" >Inativo</option>
+                                <option value="1" >Ativo</option>';
+                            }
+                            else{
+                                echo '<option value="1" >Ativo</option>
+                                <option value="0" >Inativo</option>';
+                            }
+                            ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Posição:</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                        <select type="text" class="form-control" id="exampleInputPassword1" name="posicao">
+                        <?php
+                            if($posicao==0){
+                                echo '<option value="0" >Administrador</option>
+                                <option value="1" >Cliente</option>';
+                            }
+                            else{
+                                echo '<option value="1" >Cliente</option>
+                                <option value="0" >Administrador</option>';
+                            }
+                        ?>
+                        </select>
+                    </div> 
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Senha:</label>
+                        <input type="text" class="form-control" value="<?php echo $senha ?>" name="senha">
                     </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Data/Hora de registro:</label>
+
+                        <?php
+                        $timestamp = $data_insc;
+                        $dt = DateTime::createFromFormat('Y-m-d H:i:s', $timestamp);
+                        if ($dt !== false) {
+                            setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
+                            $data_format = strftime('%d de %B de %Y', $dt->getTimestamp());
+                            $hora_format = $dt->format('H:i:s');
+                        }
+                        
+                        ?>
+                        <input type="text" class="form-control" value="<?php echo $data_format ?> às <?php echo $hora_format ?>" name="reg" readonly>
+                    </div> 
+                    <div class="row">
+                        <div class="col d-flex justify-content-end">
+                            <button type="submit" id="salvar_alt" class="btn btn-success" data-toggle="modal" data-target="#modalExemplo">Salvar Alterações</button>
+                        </div>
+                    </div>
                     </form>
                 </div>
             </div>
         </section>
+        
     </main>
 
     <footer>
         <?php include('../includes/rodape.php') ?>
     </footer>
     
-</body>
 </html>

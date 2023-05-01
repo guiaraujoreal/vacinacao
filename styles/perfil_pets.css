@@ -1,0 +1,57 @@
+#section01{
+    border-bottom: solid rgb(203, 203, 203) 1px;
+}
+
+.text_top{
+    font-size: 2.5em;
+    position: relative;
+    top: 7px;
+}
+
+#section02,#section03{
+    width: 95%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.form-box{
+    border: solid 1px rgb(203, 203, 203);
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(203, 203, 203, 0.303);
+}
+.container_text{
+    border-bottom: solid 1px rgb(203, 203, 203);
+    text-align: center;
+}
+.title-form{
+    font-size: 1.5em;
+}
+.col-row{
+    margin-top: 10px;
+    border: rgb(163, 163, 163) 1px solid;
+    border-radius: 10px;
+    width: 97%;
+}
+.icon_hst{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 10px;
+}
+#section02{
+    margin-top: 10px;
+}
+.box{
+    width: 97%;
+}
+.text_hist{
+    font-size: 20px;
+    position: relative;
+    top: 7px;
+}
+.button_return{
+    background-color: white;
+    border: 0;
+    cursor: pointer;
+}

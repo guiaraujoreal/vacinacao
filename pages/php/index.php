@@ -34,7 +34,7 @@ if (esta_logado()==1) {
             <section id="section01" class="container-fluid">
                 <div class="row">
                     <div class="col">
-                        <div id="comentarios"><h1 class="coment01">Proteja quem o <br> protege e está sempre <br> com você.</h1></div>
+                        <div id="comentarios"><h1 class="coment01">Proteja quem o <br> ama e está sempre <br> com você.</h1></div>
                     </div>
                     <div class="col  d-flex justify-content-end">
                         <div class="form_main">
@@ -43,7 +43,7 @@ if (esta_logado()==1) {
                                 <p class="text_cpf_main"><b>Digite seu CPF:</b></p> 
                                 <input type="text" name="cpf" class="box_cpf_main" placeholder="Somente os números" minlength="11" maxlength="11"  required/> 
                                 <p class="text_senha_main"><b>Digite sua senha:</b></p>
-                                <input type="password" name="senha" class="box_senha_main" placeholder="Sua senha possui de 3 a 8 caracteres" minlength="3" maxlength="8" required/>
+                                <input type="password" name="senha" class="box_senha_main" placeholder="Sua senha possui de 3 a 8 caract." minlength="3" maxlength="8" required/>
                                 <button type="submit" class="botao_login">Entrar</button>
                             </form>
                         </div>

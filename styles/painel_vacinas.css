@@ -1,3 +1,14 @@
+#section0{
+  border-bottom: solid rgb(203, 203, 203) 1px;
+}
+.text_top{
+  font-size: 2.5em;
+  position: relative;
+  top: 7px;
+}
+th{
+  text-align: center;
+}
 #section02{
     margin-top: 70px;
     margin-bottom: 60px;
@@ -49,3 +60,10 @@
    .button_register_vacinas:hover::before {
     width: 100%;
    }
+
+.campo_form{
+  width: 170px;
+}
+.align_text{
+  text-align: center;
+}

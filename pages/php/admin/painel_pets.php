@@ -3,6 +3,8 @@ include('../functions/funcoes.php');
 if (esta_logado()==1) {
 	header("location:register.php");
 }
+$mysqli = query_db();
+$nome_dono = $_POST['nome_pet'];
 ?>
 
 <!DOCTYPE html>
@@ -26,20 +28,25 @@ if (esta_logado()==1) {
 
     <main>
 
+    <section id="section0" class="container-fluid">
+            <div class="row">
+                <div class="col-1 d-flex align-items-center justify-content-center">
+                    <a href="home_admin.php"> <img src="../../../icons/arrow_back-google.png"></a>
+                </div>
+                <div class="col_text_top col">
+                    <p class="text_top "><b> Animais de <?php echo $nome_dono ?> </b></p>
+                </div>
+            </div>
+        </section>
+
         <section id="section01" class="container-fluid">
-            <?php 
-            $mysqli = query_db();
-            $nome_dono = $_POST['nome'];
-            ?>
 
             <div id="table_add_doses">
-            <table class="table table-bordered table-hover table-striped table-responsive">
-            <caption>Animais de <?php echo $nome_dono ?></caption>
+            <table class="table table-bordered table-hover table-striped">
                 <thead class="thead-dark">
                     <tr class="table_cabec">
                         <th scope="col">Nome do Animal</th>
-                        <th scope="col">Idade Estimada</th>
-                        <th scope="col">Raça</th>
+                        <th scope="col">Idade Aprox.</th>
                         <th scope="col">Tipagem Animal</th>
                         <th scope="col">Gênero</th>
                         <th scope="col">Ações</th>
@@ -47,6 +54,7 @@ if (esta_logado()==1) {
                 </thead>
                 <tbody>
                     <?php
+
                     $mysqli = query_db();
 
                     $id_dono = $_POST['id_dono'];
@@ -56,41 +64,53 @@ if (esta_logado()==1) {
                     while ($dados = mysqli_fetch_assoc($query)){
 
 
-                        $idade = $dados['idade_est'];
-                        if($idade=='1'){
-                            $idade_est = 'Até 1 ano';
-                        }
-                        elseif($idade=='2'){
-                            $idade_est = 'Entre 1 a 3 anos';
-                        }
-                        elseif($idade=='3'){
-                            $idade_est = 'Entre 3 a 5 anos';
-                        }
-                        else{
-                            $idade_est = 'Acima de 5 anos';
+                        $ano = $dados['ano_nasc'];
+                        $dt_nascimento = DateTime::createFromFormat('Y-m-d', $ano . '-01-01');
+                        if ($dt_nascimento !== false) {
+                            $dt_atual = new DateTime();
+                            $intervalo = $dt_atual->diff($dt_nascimento);
+                            $idade = $intervalo->y;
+                            if($idade==1){
+                                $idade_out=$idade . ' ano';
+                            }
+                            else{
+                                $idade_out=$idade . ' anos';
+                            }
                         }
 
-                        echo "<form action='../functions/alterar_dados_home_admin.php' method='post'>";
+
+
+
+                        echo "<form action='perfil_pets.php' method='post'>";
                         echo "<tr>";
                         echo '<input type="hidden" class="campo_form" value="' . $dados['id'] . '" name="id">';
-                        echo '<td><input type="text" class="campo_form" value="' . $dados['nome'] . '" name="nome_pet"></td>';
-                        echo '<td><input type="text" value="' . $idade_est . '" name="idade"></td>';
-                        echo '<td><input type="text" value="' . $dados['raca'] . '" name="raca"></td>';
-                        echo '<td><input type="text" value="' . $dados['tipagem'] . '" name="tipagem"></td>';
-                        echo '<td><input type="text" value="' . $dados['genero'] . '" name="genero"></td>';
-                        echo "<td class=' d-flex align-items-center'>
+                        echo '<input type="hidden" class="campo_form" value="' . $dados['nome'] . '" name="nome_pet">';
+                        echo '<input type="hidden" value="' . $idade . '" name="idade">';
+                        echo '<input type="hidden" value="' . $ano . '" name="ano_nasc">';
+                        echo '<input type="hidden" value="' . $dados['tipagem'] . '" name="tipagem">';
+                        echo '<input type="hidden" value="' . $dados['genero'] . '" name="genero">';
+                        echo '<input type="hidden" value="' . $nome_dono . '" name="nome_dono">';
+                        echo '<input type="hidden" value="' . $dados['raca'] . '" name="raca">';
+                        echo '<input type="hidden" value="' . $dados['data_reg'] . '" name="data_reg">';
+                        echo '<input type="hidden" value="' . $dados['genero'] . '" name="genero">';
+                        echo '<input type="hidden" value="' . $id_dono . '" name="id_dono">';
+                        echo '<input type="hidden" value="' . $cpf_dono . '" name="cpf_dono">';
 
-                        <button class='btn btn-success botao_acoes' type='submit' id='" . $dados['id'] . "'>Alterar Dados</button>
+                        echo '<td>' . $dados['nome'] . '</td>';
+                        echo '<td class="align_text">' . $idade_out . '</td>';
+                        echo '<td class="align_text">' . $dados['tipagem'] . '</td>';
+                        echo '<td class="align_text">' . $dados['genero'] . '</td>';
+                        echo "<td class='col d-flex align-items-center justify-content-around'>
+
+                        <button class='btn btn-dark botao_acoes' type='submit' >Mais Informações</button>
                         </form>
-                        <form action='../functions/excluir_dados_home_admin.php' method='post'>
-                        <input type='hidden' class='campo_form' value='" . $dados['id'] . "' name='id'>
-                        <button type='submit' class='btn btn-danger botao_acoes'>Excluir</button>
-                        </form>
+
                         <form action='register_doses_vacina.php' method='post'>";
                         echo "<input type='hidden' class='campo_form' value='" . $dados['nome'] . "' name='nome_pet'>";
                         echo "<input type='hidden' class='campo_form' value='" . $dados['id'] . "' name='id_pet'>";
                         echo "<button type='submit' class='btn btn-primary botao_acoes' id='botao_adicionar'>Vacinar este animal</button>
-                        </form></td>";
+                        </form>
+                        </td>";
                         echo "</tr>";
                     }
                     ?>

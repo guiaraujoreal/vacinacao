@@ -48,6 +48,9 @@ body{
     background-color: #bdf8de;
     
 }
+.box_cpf_main::placeholder, .box_senha_main::placeholder{
+    font-size: 15px;
+}
 
 .text_senha_main{
     position: absolute;

@@ -1,12 +1,17 @@
 
-#section01{
-    margin-bottom: 20vh;
+#section0{
+    border-bottom: solid rgb(203, 203, 203) 1px;
+}
+.text_top{
+    font-size: 2.5em;
+    position: relative;
+    top: 7px;
 }
 #section02{
     width: 90%;
     margin-bottom: 50px;
-    
 }
+
 .inf_box{
     text-align: center;
     background-color: rgb(181, 218, 251);
@@ -53,3 +58,10 @@
    .button_register_pets:hover::before {
     width: 100%;
    }
+
+th{
+    text-align: center;
+}
+.align_text{
+    text-align: center;
+  }

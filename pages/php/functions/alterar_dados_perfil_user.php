@@ -7,8 +7,11 @@ $nome = $_POST['nome'];
 $cpf = $_POST['cpf'];
 $email = $_POST['email'];
 $telefone = $_POST['telefone'];
+$status = $_POST['status'];
+$posicao = $_POST['posicao'];
+$senha = $_POST['senha'];
 
-$sql = "UPDATE plogin SET nome = '".$nome."', cpf = '".$cpf."', email = '".$email."', telefone = '".$telefone."' WHERE id = '".$id."'"; 
+$sql = "UPDATE plogin SET nome = '".$nome."', cpf = '".$cpf."', email = '".$email."', telefone = '".$telefone."', ativo = '".$status."', e_cliente = '".$posicao."', senha1 = '".$senha."'  WHERE id = '".$id."'"; 
 if(mysqli_query($mysqli, $sql)) {
   $sql2 = "UPDATE pets SET cpf_dono = '".$cpf."'";
   if(mysqli_query($mysqli, $sql2)) {

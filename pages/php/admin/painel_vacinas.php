@@ -25,9 +25,20 @@ include('../functions/funcoes.php');
         <?php include('../includes/cabecalho.php') ?>
     </header>
     <main>
+    <section id="section0" class="container-fluid">
+            <div class="row">
+                <div class="col-1 d-flex align-items-center justify-content-center">
+                    <a href="home_admin.php"> <img src="../../../icons/arrow_back-google.png"></a>
+                </div>
+                <div class="col_text_top col">
+                    <p class="text_top "><b>Panilha de Vacinas</b></p>
+                </div>
+            </div>
+        </section>
+
         <section id="section01" class="container-fluid">
         <div id="table_users" class="d-flex justify-content-center">
-            <table class="table table-bordered table-hover table-striped table-responsive">
+            <table class="table table-bordered table-hover table-striped">
                 <thead class="thead-dark">
                     <tr class="table_cabec">
                         <th scope="col">Vacina</th>
@@ -42,7 +53,7 @@ include('../functions/funcoes.php');
                     <?php
                     $mysqli = query_db();
 
-                    $sql = "SELECT * FROM vacina_reg";
+                    $sql = "SELECT * FROM vacina_reg ORDER BY quantidade DESC";
                     $query = $mysqli->query($sql);
                     while ($dados = mysqli_fetch_assoc($query)){
                         $qntd = $dados['quantidade'];
@@ -66,14 +77,10 @@ include('../functions/funcoes.php');
                         echo '<td><input type="text" value="' . $dados['lote'] . '" name="lote"></td>';
                         echo '<td><input type="text" class="campo_form" value="' . $dados['laboratorio'] . '" name="lab"></td>';
                         echo '<td><input type="text" class="campo_form" value="' . $dados['validade'] . '" name="validade"></td>';
-                        echo '<td><div style="' . $style .'"><b>' . $qntd_out . '</b></div></td>';
-                        echo "<td class=' d-flex align-items-center'>
+                        echo '<td class="align_text"><div style="' . $style .'"><b>' . $qntd_out . '</b></div></td>';
+                        echo "<td class=' d-flex align-items-center justify-content-around'>
 
                         <button class='btn btn-success botao_acoes' type='submit' id='" . $dados['id'] . "'>Alterar Dados</button>
-                        </form>
-                        <form action='../functions/excluir_dados_register_vacinas.php' method='post'>
-                        <input type='hidden' class='campo_form' value='" . $dados['id'] . "' name='id'>
-                        <button type='submit' class='btn btn-danger botao_acoes'>Excluir</button>
                         </form>
                         <form action='../register_pets.php' method='post'>";
                         echo "<input type='hidden' class='campo_form' value='" . $dados['id'] . "' name='id'>";
