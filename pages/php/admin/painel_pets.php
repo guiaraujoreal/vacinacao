@@ -1,8 +1,10 @@
 <?php
+//verificar se o usuário está logado
 include('../functions/funcoes.php');
 if (esta_logado()==1) {
 	header("location:register.php");
 }
+//atribuir a função 'query_db' paraconexão ao banco de dados
 $mysqli = query_db();
 $nome_dono = $_POST['nome_pet'];
 ?>
@@ -23,11 +25,12 @@ $nome_dono = $_POST['nome_pet'];
 </head>
 <body>
     <header>
+	    <!-- adicionar cabecalho geral do site-->
         <?php include('../includes/cabecalho.php') ?>
     </header>
 
     <main>
-
+	    <!--seção para subtitulo da página-->
     <section id="section0" class="container-fluid">
             <div class="row">
                 <div class="col-1 d-flex align-items-center justify-content-center">
@@ -38,7 +41,8 @@ $nome_dono = $_POST['nome_pet'];
                 </div>
             </div>
         </section>
-
+	    
+	    <!--formulario para mostrar animais acadastrados na tela-->
         <section id="section01" class="container-fluid">
 
             <div id="table_add_doses">
@@ -54,7 +58,8 @@ $nome_dono = $_POST['nome_pet'];
                 </thead>
                 <tbody>
                     <?php
-
+	
+	//selecionar animais acadastrados de acordo com a id do dono
                     $mysqli = query_db();
 
                     $id_dono = $_POST['id_dono'];
@@ -63,7 +68,7 @@ $nome_dono = $_POST['nome_pet'];
                     $query = $mysqli->query($sql);
                     while ($dados = mysqli_fetch_assoc($query)){
 
-
+			    //calcular idade do animal
                         $ano = $dados['ano_nasc'];
                         $dt_nascimento = DateTime::createFromFormat('Y-m-d', $ano . '-01-01');
                         if ($dt_nascimento !== false) {
@@ -80,7 +85,7 @@ $nome_dono = $_POST['nome_pet'];
 
 
 
-
+			    //formulário do tipo 'hidden' apenas para enviar dados a próxima página
                         echo "<form action='perfil_pets.php' method='post'>";
                         echo "<tr>";
                         echo '<input type="hidden" class="campo_form" value="' . $dados['id'] . '" name="id">';
@@ -95,7 +100,8 @@ $nome_dono = $_POST['nome_pet'];
                         echo '<input type="hidden" value="' . $dados['genero'] . '" name="genero">';
                         echo '<input type="hidden" value="' . $id_dono . '" name="id_dono">';
                         echo '<input type="hidden" value="' . $cpf_dono . '" name="cpf_dono">';
-
+			    
+			    //mostrar dados na tela
                         echo '<td>' . $dados['nome'] . '</td>';
                         echo '<td class="align_text">' . $idade_out . '</td>';
                         echo '<td class="align_text">' . $dados['tipagem'] . '</td>';
@@ -104,7 +110,8 @@ $nome_dono = $_POST['nome_pet'];
 
                         <button class='btn btn-dark botao_acoes' type='submit' >Mais Informações</button>
                         </form>
-
+			
+			//formulario para enviar dados a pagina 'Vacinar este animal'
                         <form action='register_doses_vacina.php' method='post'>";
                         echo "<input type='hidden' class='campo_form' value='" . $dados['nome'] . "' name='nome_pet'>";
                         echo "<input type='hidden' class='campo_form' value='" . $dados['id'] . "' name='id_pet'>";
@@ -118,7 +125,8 @@ $nome_dono = $_POST['nome_pet'];
             </table>
         </div>
         </section>
-
+	    
+	    <!--Seção para enviar dados a página 'Cadastrar Animal'-->
         <section id="section02" class="container-fluid">
             <div class="row">
                 <div class="inf_box col">
@@ -132,10 +140,12 @@ $nome_dono = $_POST['nome_pet'];
         </section>
 
     </main>
+	<!--importar scripts JavaScript -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     
+	<!--incluir arquivo de rodapé universal do site-->
     <footer>
         <?php include('../includes/rodape.php') ?>
     </footer>
