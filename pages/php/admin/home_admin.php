@@ -1,4 +1,5 @@
 <?php
+//verificar se o usuário está logado
 include('../functions/funcoes.php');
 	if (esta_logado()==1) {
 		header("location:home_admin.php");
@@ -22,9 +23,11 @@ include('../functions/funcoes.php');
 </head>
 <body>
     <header>
+	    <!-- adicionar cabecalho geral do site-->
         <?php include('../includes/cabecalho.php') ?>
     </header>
     <main>
+	    <!--seção para criar formulário mostrar usuários cadastrados-->
         <section id="section01" class="container-fluid">
         <div id="table_users">
             <table class="table table-bordered table-hover table-striped ">
@@ -39,6 +42,7 @@ include('../functions/funcoes.php');
                     </tr>
                 </thead>
                 <tbody>
+			<!--selecionar usuários cadastrados no sistema, exceto o admin. em atividade-->
                     <?php
                     $id_user = id_atribute();
                     $mysqli = query_db();
@@ -64,9 +68,11 @@ include('../functions/funcoes.php');
                         else{
                             $status = 'Ativo';
                         }
+			    //mostrar na tela os usuários cadastrados 
                         echo "<form action='perfil_user.php' method='post'>";
                         echo "<tr>";
-
+			    
+			    //dados dos tipo 'hidden' para apenas enviar dados e não serem mostrados na tela
                         echo '<input type="hidden" class="campo_form" value="' . $dados['id'] . '" name="id">';
                         echo '<input type="hidden" class="campo_form" value="' . $dados['ativo'] . '" name="status">';
                         echo '<input type="hidden" class="campo_form" value="' . $dados['id'] . '" name="id">';
@@ -77,7 +83,8 @@ include('../functions/funcoes.php');
                         echo '<input type="hidden" class="campo_form" value="' . $dados['e_cliente'] . '" name="posicao">';
                         echo '<input type="hidden" class="campo_form" value="' . $dados['data_criacao'] . '" name="data">';
                         echo '<input type="hidden" class="campo_form" value="' . $dados['senha1'] . '" name="senha">';
-
+			    
+			    //dados a serem mostrados na tela
                         echo '<td>' . $dados['nome'] . '</td>';
                         echo '<td>' . $dados['cpf'] . '</td>';
                         echo '<td>' . $dados['email'] . '</td>';
@@ -88,7 +95,8 @@ include('../functions/funcoes.php');
 
                         <button class='btn btn-dark botao_acoes' type='submit' id='" . $dados['id'] . "'>Mais Informações</button>
                         </form>
-
+			
+			//botao do tipo 'form' para enviar dados a próxima página
                         <form action='painel_pets.php' method='post'>";
                         echo "<input type='hidden' class='campo_form' value='" . $dados['nome'] . "' name='nome_pet'>";
                         echo "<input type='hidden' class='campo_form' value='" . $dados['cpf'] . "' name='cpf'>";
@@ -103,6 +111,7 @@ include('../functions/funcoes.php');
         </div>
         </section>
         
+	    <!--seção para encaminhar dados para a página 'Adicionar Usuário-->
         <section id="section02" class="container-fluid">
             <div class="row">
             <div class="inf_box col d-flex justify-content-around">
@@ -117,6 +126,7 @@ include('../functions/funcoes.php');
         </section>
         
     </main>
+	<!--incluir arquivo de rodapé universal do site-->
         <footer>
             <?php include('../includes/rodape.php') ?>
         </footer>
