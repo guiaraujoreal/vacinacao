@@ -1,4 +1,5 @@
 <?php
+//inicia a sessao do php
 session_start();
 
 //valida se a pagina anterior enviou alguma informação com o methodo post

@@ -1,4 +1,6 @@
 <?php
+
+//funcao para verificar se está logado
 function esta_logado() {
 	if (!isset($_SESSION)) {
 		session_start();
@@ -14,6 +16,7 @@ function esta_logado() {
 	}
 }
 
+//funcao para conectar ao banco de dados
 function query_db(){
 	$usuario = 'noite01';
 	$password = 'Noite123456';
@@ -25,6 +28,7 @@ function query_db(){
 	return $mysqli;
 }
 
+//funcao para realizar logout (desabilitada)
 function logout(){
    session_start();
    session_destroy();
@@ -32,6 +36,7 @@ function logout(){
 
 }
 
+//funcao para mostrar apenas o primeiro nome do usuario na saudacao no canto direito do cabecalho
 function user_cabec(){
 	$user = $_SESSION['user'];
     $primeiro_nome = explode(' ', $user);
@@ -41,6 +46,7 @@ function user_cabec(){
     echo "Olá " . $_SESSION['user_fname'] . "!";
 }
 
+//funcao para definir a posicao/categoria do usuario no canto direito do cabecalho
 function categoria_user(){
 	esta_logado();
 	$mysqli = query_db();
@@ -53,6 +59,7 @@ function categoria_user(){
 	return $cat_user;
 }
 
+//funcao qu retorna o email do usuario
 function send_email(){
 	esta_logado();
 	$mysqli = query_db();
@@ -65,10 +72,13 @@ function send_email(){
 	return $email;
 }
 
+//funcao de atributo do email do usuário
 function atributte_value_emailUser(){
 	$id = 0;
 	return $id;
 }
+
+//funcao que atribui o id do usuario logado
 function id_atribute(){
 	esta_logado();
 	$mysqli = query_db();

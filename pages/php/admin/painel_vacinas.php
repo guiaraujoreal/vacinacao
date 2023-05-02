@@ -1,4 +1,5 @@
 <?php
+//verificar se o usuário está logado
 include('../functions/funcoes.php');
 	if (esta_logado()==1) {
 		header("location:home_admin.php");
@@ -25,17 +26,19 @@ include('../functions/funcoes.php');
         <?php include('../includes/cabecalho.php') ?>
     </header>
     <main>
+        <!--seção do menu atual correspondente a página -->
     <section id="section0" class="container-fluid">
             <div class="row">
                 <div class="col-1 d-flex align-items-center justify-content-center">
                     <a href="home_admin.php"> <img src="../../../icons/arrow_back-google.png"></a>
                 </div>
                 <div class="col_text_top col">
-                    <p class="text_top "><b>Panilha de Vacinas</b></p>
+                    <p class="text_top "><b>Planilha de Vacinas</b></p>
                 </div>
             </div>
         </section>
 
+        <!--tabela que mostra vacinas cadastradas no sistema-->
         <section id="section01" class="container-fluid">
         <div id="table_users" class="d-flex justify-content-center">
             <table class="table table-bordered table-hover table-striped">
@@ -44,6 +47,7 @@ include('../functions/funcoes.php');
                         <th scope="col">Vacina</th>
                         <th scope="col">Lote</th>
                         <th scope="col">Fabricante</th>
+                        <th scope="col">Entre doses</th>
                         <th scope="col">Validade</th>
                         <th scope="col">Disponibilidade</th>
                         <th scope="col">Ações</th>
@@ -53,10 +57,12 @@ include('../functions/funcoes.php');
                     <?php
                     $mysqli = query_db();
 
+                    //selecionar as vacinas cadastradas no sistema
                     $sql = "SELECT * FROM vacina_reg ORDER BY quantidade DESC";
                     $query = $mysqli->query($sql);
                     while ($dados = mysqli_fetch_assoc($query)){
                         $qntd = $dados['quantidade'];
+                        //status e estilo do estoque de acordo com o valor do retorno do banco
                         if($qntd > 10){
                             $qntd_out = 'Disponível<br>(' . $qntd . ' und. em estoque)';
                             $style = 'color: rgb(1, 203, 1);';
@@ -70,23 +76,28 @@ include('../functions/funcoes.php');
                             $style = 'color: red;';
                         }
 
+                        //formulario do tipo 'hidden' apenas para enviar dados exigidos na p'roxima página
                         echo "<form action='../functions/alterar_dados_register_vacinas.php' method='post'>";
                         echo "<tr>";
                         echo '<input type="hidden" class="campo_form" value="' . $dados['id'] . '" name="id">';
                         echo '<td><input type="text" class="campo_form" value="' . $dados['nome_vacina'] . '" name="nome_vacina"></td>';
-                        echo '<td><input type="text" value="' . $dados['lote'] . '" name="lote"></td>';
+                        echo '<input type="hidden" value="' . $dados['lote'] . '" name="lote">';
+                        echo '<td>' . $dados['lote'] . '</td>';
                         echo '<td><input type="text" class="campo_form" value="' . $dados['laboratorio'] . '" name="lab"></td>';
+                        echo '<td><input type="text" class="campo_form" value="' . $dados['int_doses'] . '" name="int_dose"></td>';
                         echo '<td><input type="text" class="campo_form" value="' . $dados['validade'] . '" name="validade"></td>';
                         echo '<td class="align_text"><div style="' . $style .'"><b>' . $qntd_out . '</b></div></td>';
+                        echo '<input type="hidden" value="'.$qntd.'" name="qntd">';
                         echo "<td class=' d-flex align-items-center justify-content-around'>
 
                         <button class='btn btn-success botao_acoes' type='submit' id='" . $dados['id'] . "'>Alterar Dados</button>
                         </form>
-                        <form action='../register_pets.php' method='post'>";
+                        <form action='../functions/excluir_dados_register_vacinas.php' method='post'>";
                         echo "<input type='hidden' class='campo_form' value='" . $dados['id'] . "' name='id'>";
-                        echo "<button class='btn btn-primary botao_acoes' id='botao_adicionar'>Animais Registrados</button>
+                        echo "<button class='btn btn-danger botao_acoes' id='botao_adicionar'>Excluir</button>
                         </form></td>";
                         echo "</tr>";
+                        //formulario que envia os dados necessarios na página Animais Registrados
                     }
                     ?>
                 </tbody>
@@ -94,6 +105,7 @@ include('../functions/funcoes.php');
         </div>
         </section>
 
+        <!--seção do infobox que possui botões de redirecionamento a outras páginas-->
         <section id="section02" class="container-fluid">
             <div class="row">
                 <div class="inf_box col d-flex justify-content-around">
@@ -103,17 +115,10 @@ include('../functions/funcoes.php');
         </section>
     </main>
 
+    <!--inclusão do rodapé em um arquivo diferente-->
     <footer>
         <?php include('../includes/rodape.php') ?>
     </footer>
 
-        <script src="../../../js/logout.js"></script>
-        <script>
-            var meuBotao = document.getElementById("botao_adicionar");
-
-            meuBotao.addEventListener("click", function() {
-                window.location.href = "register_pets.php";
-        });
-        </script>
 </body>
 </html>

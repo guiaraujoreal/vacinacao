@@ -144,7 +144,25 @@ body{
     border-color: #9c6cfb;
     background-color: #d4beff;
 }
-
+.text_int_dose{
+    font-size: 23px;
+    position: absolute;
+    top: 360px;
+    left:300px;
+    color: black
+}
+.box_int_dose{
+    font-size: 18px;
+    position: absolute;
+    top: 400px;
+    left:300px;
+    width: 270px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #9c6cfb;
+    background-color: #d4beff;
+}
 .botao_register {
     position: absolute;
     top: 83%;

@@ -1,11 +1,14 @@
 <?php
+//inclui as funcoes do arquivo funcoes.php
 include('functions/funcoes.php');
+//verifica se o usuario realmente esta logado
 if (esta_logado()==1) {
 	header("location:home_admin.php");
 }
+//verifica se o login esta ou nao correto
+if(isset($_GET['login']) && $_GET['login'] == 'incorreto'): 
 ?>
-<?php if(isset($_GET['login']) && $_GET['login'] == 'incorreto'): ?>
-    <p>Login incorreto. Tente novamente.</p>
+    <p class='login_inc'>⚠️Login incorreto. Tente novamente.</p>
 <?php endif; ?>
 
 <!DOCTYPE html>
@@ -22,6 +25,7 @@ if (esta_logado()==1) {
         <link rel="icon" type="image/png" href="../../icons/logo.png"/>
     </head>
     <bory>
+        <!--cabecalho unico da tela de login-->
         <header>
             <div id="cabecalho">
                 <img src="../../icons/logo.png" class="logotipo">
@@ -31,11 +35,13 @@ if (esta_logado()==1) {
             </div>
         </header>
         <main>
+            <!--Texto principal da pagina-->
             <section id="section01" class="container-fluid">
                 <div class="row">
                     <div class="col">
                         <div id="comentarios"><h1 class="coment01">Proteja quem o <br> ama e está sempre <br> com você.</h1></div>
                     </div>
+                    <!--Formulario de acesso ao sistema-->
                     <div class="col  d-flex justify-content-end">
                         <div class="form_main">
                             <form action="functions/efetuar_login.php" method="post">
@@ -52,7 +58,7 @@ if (esta_logado()==1) {
             </section>
         </main>
         <footer>
-            <p>&copy; 2023 Meu Site</p>
+            <?php include('includes/rodape.php') ?>
         </footer>
     </bory>
 </html>

@@ -6,7 +6,7 @@ if (esta_logado()==1) {
 }
 //atribuir a função 'query_db' paraconexão ao banco de dados
 $mysqli = query_db();
-$nome_dono = $_POST['nome_pet'];
+$nome_dono = $_POST['nome'];
 ?>
 
 <!DOCTYPE html>
@@ -82,6 +82,23 @@ $nome_dono = $_POST['nome_pet'];
                                 $idade_out=$idade . ' anos';
                             }
                         }
+                //transcrever tipagem de acordo com os valores do banco
+                $tip = $dados['tipagem'];
+                if($tip==1){
+                    $tipagem = 'Cachorro';
+                }
+                elseif($tip==2){
+                    $tipagem = 'Gato';
+                }
+                elseif($tip==3){
+                    $tipagem = 'Ave';
+                }
+                elseif($tip==2){
+                    $tipagem = 'Répteis';
+                }
+                else{
+                    $tipagem = 'Demais Tipagens';
+                }
 
 
 
@@ -104,14 +121,14 @@ $nome_dono = $_POST['nome_pet'];
 			    //mostrar dados na tela
                         echo '<td>' . $dados['nome'] . '</td>';
                         echo '<td class="align_text">' . $idade_out . '</td>';
-                        echo '<td class="align_text">' . $dados['tipagem'] . '</td>';
+                        echo '<td class="align_text">' . $tipagem . '</td>';
                         echo '<td class="align_text">' . $dados['genero'] . '</td>';
                         echo "<td class='col d-flex align-items-center justify-content-around'>
 
                         <button class='btn btn-dark botao_acoes' type='submit' >Mais Informações</button>
                         </form>
 			
-			//formulario para enviar dados a pagina 'Vacinar este animal'
+			
                         <form action='register_doses_vacina.php' method='post'>";
                         echo "<input type='hidden' class='campo_form' value='" . $dados['nome'] . "' name='nome_pet'>";
                         echo "<input type='hidden' class='campo_form' value='" . $dados['id'] . "' name='id_pet'>";
@@ -119,6 +136,7 @@ $nome_dono = $_POST['nome_pet'];
                         </form>
                         </td>";
                         echo "</tr>";
+                        //formulario para enviar dados a pagina 'Vacinar este animal'
                     }
                     ?>
                 </tbody>

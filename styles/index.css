@@ -3,6 +3,11 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+.login_inc{
+    color: black;
+    background-color: white;
+    text-align: center;
+}
 #section01{
     margin-top: 15vh;
     margin-bottom: 20vh;

@@ -1,12 +1,15 @@
 <?php
+//verificar se o usuário está logado
 include('../functions/funcoes.php');
 	if (esta_logado()==1) {
 		header("location:home_admin.php");
         exit();
 	}
 
+//importar a funcao query_db que possui a conexao do banco de dados
 $mysqli = query_db();
 
+//instanciar as variaveis necessárias para essa página vindas de outra
 $id_user = $_POST['id'];
 $nome = $_POST['nome'];
 $cpf = $_POST['cpf'];
@@ -17,7 +20,10 @@ $telefone = $_POST['telefone'];
 $posicao = $_POST['posicao'];
 $data_insc = $_POST['data'];
 $senha = $_POST['senha'];
-
+$rua = $_POST['rua'];
+$bairro = $_POST['bairro'];
+$cidade = $_POST['cidade'];
+$estado = $_POST['estado'];
 ?>
 
 
@@ -41,6 +47,7 @@ $senha = $_POST['senha'];
     </header>
 
     <main>
+        <!--seção do menu atual correspondente a página, além de excluir o usuario e retornar a página atual -->
         <section id="section01" class="container-fluid">
             <div class="row">
                 <div class="col-1 d-flex align-items-center justify-content-center">
@@ -57,7 +64,7 @@ $senha = $_POST['senha'];
                 </div>
             </div>
         </section>
-
+        <!--formulário responsável por mostrar e atualizar dados no banco-->
         <section id="section02" class="container-fluid">
             <div class="row">
                 <div class="col">
@@ -67,22 +74,57 @@ $senha = $_POST['senha'];
                         <input type="hidden" value="<?php echo $id_user ?>" name="id">
                     </div>
                     <div class="form-group">
+                        <!-- Mostrar o nome do usuario-->
                         <label for="exampleInputEmail1">Nome:</label>
-                        <input type="text" class="form-control" value="<?php echo $nome ?>" name="nome">
+                        <input type="text" class="form-control" value="<?php echo $nome ?>" name="nome" maxlength="45" required>
                     </div>
                     <div class="form-group">
+                        <!-- Mostrar o cpf do usuario, sem a possivel alteracao-->
                         <label for="exampleInputEmail1">CPF:</label>
-                        <input type="text" class="form-control" value="<?php echo $cpf ?>" name="cpf">
+                        <input type="text" class="form-control" value="<?php echo $cpf ?>" name="cpf" minlength="11" maxlength="11" readonly>
                     </div>
                     <div class="form-group">
+                        <!-- Mostrar o email do usuario-->
                         <label for="exampleInputPassword1">Email:</label>
-                        <input type="text" class="form-control"  value="<?php echo $email ?>" name="email">
+                        <input type="text" class="form-control"  value="<?php echo $email ?>" name="email" maxlength="100" required>
                     </div>
                     <div class="form-group">
+                        <!-- Mostrar o telefone do usuario-->
                         <label for="exampleInputPassword1">Telefone:</label>
-                        <input type="text" class="form-control" value="<?php echo $telefone ?>" name="telefone">
+                        <input type="text" class="form-control" value="<?php echo $telefone ?>" name="telefone" minlength="10" maxlength="11" required>
                     </div>
                     <div class="form-group">
+                        <!-- Mostrar a rua do usuario-->
+                        <label for="exampleInputPassword1">Rua/N°:</label>
+                        <input type="text" class="form-control" value="<?php echo $rua ?>" name="rua" maxlength="100" required>
+                    </div>
+                    <div class="form-group">
+                        <!-- Mostrar o bairro do usuario-->
+                        <label for="exampleInputPassword1">Bairro:</label>
+                        <input type="text" class="form-control" value="<?php echo $bairro ?>" name="bairro" maxlength="45" required>
+                    </div>
+                    <div class="form-group">
+                        <!-- Mostrar a cidade do usuario-->
+                        <label for="exampleInputPassword1">Cidade:</label>
+                        <input type="text" class="form-control" value="<?php echo $cidade ?>" name="cidade" maxlength="45" required>
+                    </div>
+                    <div class="form-group">
+                        <!-- Mostrar o estado do usuario-->
+                        <label for="exampleInputPassword1">Estado:</label>
+                        <select type="text" class="form-control" name="estado" required>
+                        <?php
+                            //obtendo a tipagem/especie de acordo com os dados do banco, colocando em ordem crescente, porém com o valor já registrado como primeiro/prioridade
+                            $sql = "SELECT * FROM estado ORDER BY FIELD(nome,'". $estado ."')DESC, nome ASC";
+                                $query = $mysqli->query($sql);
+                                //instacia a variavel $categoria para determinar o estado de acordo com o valor retornado do banco
+                                while ($row = mysqli_fetch_assoc($query)){
+                                    echo '<option value="' . $row['nome'] . '">' . $row["nome"] . '</option>';
+                                }
+                                ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <!-- Mostrar se o usuario e ativo ou nao do usuario-->
                         <label for="exampleInputPassword1">Status:</label>
                         <select class="form-control" name="status">
                             <?php
@@ -98,6 +140,7 @@ $senha = $_POST['senha'];
                         </select>
                     </div>
                     <div class="form-group">
+                        <!-- Mostrar se o usuario e cliente ou admin-->
                         <label for="exampleInputPassword1">Posição:</label>
                         <select type="text" class="form-control" id="exampleInputPassword1" name="posicao">
                         <?php
@@ -113,13 +156,16 @@ $senha = $_POST['senha'];
                         </select>
                     </div> 
                     <div class="form-group">
+                        <!-- Mostrar e/ou alterar senha-->
                         <label for="exampleInputEmail1">Senha:</label>
-                        <input type="text" class="form-control" value="<?php echo $senha ?>" name="senha">
+                        <input type="text" class="form-control" value="<?php echo $senha ?>" name="senha" minlength="3" maxlength="8">
                     </div>
                     <div class="form-group">
+                        <!--Data e hora em que o usuario foi registrado-->
                         <label for="exampleInputPassword1">Data/Hora de registro:</label>
 
                         <?php
+                        //formatando a data e hora para o brasieleiro/pt
                         $timestamp = $data_insc;
                         $dt = DateTime::createFromFormat('Y-m-d H:i:s', $timestamp);
                         if ($dt !== false) {
@@ -143,6 +189,7 @@ $senha = $_POST['senha'];
         
     </main>
 
+    <!--incluir rodape-->
     <footer>
         <?php include('../includes/rodape.php') ?>
     </footer>

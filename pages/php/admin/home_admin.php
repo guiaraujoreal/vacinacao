@@ -60,7 +60,7 @@ include('../functions/funcoes.php');
                             $rows = $query2->num_rows;
                         }
 
-                        
+                        //instancia a variavel $ativo com relacao ao valor retornado do banco
                         $ativo = $dados['ativo'];
                         if($ativo==0){
                             $status = 'Inativo';
@@ -75,7 +75,6 @@ include('../functions/funcoes.php');
 			    //dados dos tipo 'hidden' para apenas enviar dados e não serem mostrados na tela
                         echo '<input type="hidden" class="campo_form" value="' . $dados['id'] . '" name="id">';
                         echo '<input type="hidden" class="campo_form" value="' . $dados['ativo'] . '" name="status">';
-                        echo '<input type="hidden" class="campo_form" value="' . $dados['id'] . '" name="id">';
                         echo '<input type="hidden" class="campo_form" value="' . $dados['telefone'] . '" name="telefone">';
                         echo '<input type="hidden" class="campo_form" value="' . $dados['nome'] . '" name="nome">';
                         echo '<input type="hidden" value="' . $dados['cpf'] . '" name="cpf">';
@@ -83,6 +82,10 @@ include('../functions/funcoes.php');
                         echo '<input type="hidden" class="campo_form" value="' . $dados['e_cliente'] . '" name="posicao">';
                         echo '<input type="hidden" class="campo_form" value="' . $dados['data_criacao'] . '" name="data">';
                         echo '<input type="hidden" class="campo_form" value="' . $dados['senha1'] . '" name="senha">';
+                        echo '<input type="hidden" class="campo_form" value="' . $dados['rua'] . '" name="rua">';
+                        echo '<input type="hidden" class="campo_form" value="' . $dados['bairro'] . '" name="bairro">';
+                        echo '<input type="hidden" class="campo_form" value="' . $dados['cidades'] . '" name="cidade">';
+                        echo '<input type="hidden" class="campo_form" value="' . $dados['estado'] . '" name="estado">';
 			    
 			    //dados a serem mostrados na tela
                         echo '<td>' . $dados['nome'] . '</td>';
@@ -96,14 +99,15 @@ include('../functions/funcoes.php');
                         <button class='btn btn-dark botao_acoes' type='submit' id='" . $dados['id'] . "'>Mais Informações</button>
                         </form>
 			
-			//botao do tipo 'form' para enviar dados a próxima página
+			
                         <form action='painel_pets.php' method='post'>";
-                        echo "<input type='hidden' class='campo_form' value='" . $dados['nome'] . "' name='nome_pet'>";
+                        echo "<input type='hidden' class='campo_form' value='" . $dados['nome'] . "' name='nome'>";
                         echo "<input type='hidden' class='campo_form' value='" . $dados['cpf'] . "' name='cpf'>";
                         echo "<input type='hidden' class='campo_form' value='" . $dados['id'] . "' name='id_dono'>";
                         echo "<button class='btn btn-primary botao_acoes' id='botao_adicionar'>Animais Registrados</button>
                         </form></td>";
                         echo "</tr>";
+                        //botao do tipo'form' para enviar os dados para a próxima página
                     }
                     ?>
                 </tbody>
@@ -131,13 +135,5 @@ include('../functions/funcoes.php');
             <?php include('../includes/rodape.php') ?>
         </footer>
 
-        <script src="../../../js/logout.js"></script>
-        <script>
-            var meuBotao = document.getElementById("botao_adicionar");
-
-            meuBotao.addEventListener("click", function() {
-                window.location.href = "register_pets.php";
-        });
-        </script>
 </body>
 </html>

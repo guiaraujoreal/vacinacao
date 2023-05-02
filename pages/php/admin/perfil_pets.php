@@ -1,12 +1,15 @@
 <?php
+//verificar se o usuário está logado
 include('../functions/funcoes.php');
 	if (esta_logado()==1) {
 		header("location:home_admin.php");
         exit();
 	}
 
+//importar a funcao query_db que possui a conexao do banco de dados
 $mysqli = query_db();
 
+//instanciar as variaveis necessárias para essa página vindas de outra
 $id_pet = $_POST['id'];
 $nome_pet = $_POST['nome_pet'];
 $idade= $_POST['idade'];
@@ -41,13 +44,15 @@ $cpf_dono = $_POST['cpf_dono']
     </header>
 
     <main>
+        <!--seção do menu atual correspondente a página, além de excluir o animal e retornar a página atual -->
         <section id="section01" class="container-fluid">
             <div class="row">
                 <div class="col-1 d-flex align-items-center justify-content-center">
                     <form action="painel_pets.php" method="post">
                     <button class="button_return" type="submit"> <img src="../../../icons/arrow_back-google.png"></button>
+                    <!-- input do tipo 'hidden' apenas para armazenar e enviar a variáveis para a próxima pagina-->
                         <input type="hidden" value="<?php echo $id_dono ?>" name="id_dono">
-                        <input type="hidden" value="<?php echo $nome_pet ?>" name="nome_pet">
+                        <input type="hidden" value="<?php echo $nome_dono ?>" name="nome">
                         <input type="hidden" value="<?php echo $cpf_dono ?>" name="cpf">
                     </form>
                 </div>
@@ -56,6 +61,7 @@ $cpf_dono = $_POST['cpf_dono']
                 </div>
                 <div class="col_text_top col-2 d-flex align-items-center">
                     <form action="../functions/excluir_dados_perfil_pets.php" method="post">
+                        <!-- input do tipo 'hidden' apenas para armazenar e enviar a variável $id_pet-->
                         <input type="hidden" value="<?php echo $id_pet ?>" name="id">
                         <button class="btn btn-danger">Excluir Animal</button>
                     </form>
@@ -63,6 +69,7 @@ $cpf_dono = $_POST['cpf_dono']
             </div>
         </section>
 
+        <!--formulário responsável por mostrar e atualizar dados no banco-->
         <section id="section02" class="container-fluid">
             <div class="row">
                 <div class="col">
@@ -72,17 +79,21 @@ $cpf_dono = $_POST['cpf_dono']
                         <input type="hidden" value="<?php echo $id_pet ?>" name="id">
                     </div>
                     <div class="form-group">
+                        <!-- Mostrar o nome do animal-->
                         <label for="exampleInputEmail1">Nome do animal:</label>
-                        <input type="text" class="form-control" value="<?php echo $nome_pet ?>" name="nome">
+                        <input type="text" class="form-control" value="<?php echo $nome_pet ?>" name="nome" maxlength="4" required>
                     </div>
                     <div class="form-group">
+                        <!-- Mostrar o dono do animal-->
                         <label for="exampleInputEmail1">Dono:</label>
                         <input type="text" class="form-control" value="<?php echo $nome_dono ?>" name="nome_dono" readonly>
                     </div>
                     <div class="form-group">
+                        <!-- Mostrar o genero do animal-->
                         <label for="exampleInputEmail1">Gênero:</label>
-                        <select class="form-control" name="genero">
+                        <select class="form-control" name="genero" required>
                             <?php
+                            //mostrando o genero do animal escolhido antes da alteração, como sendo a primeira opção
                             if($genero=='Macho'){
                                 echo '<option value="Macho">Macho</option>
                                 <option value="Femea">Fêmea</option>
@@ -103,10 +114,12 @@ $cpf_dono = $_POST['cpf_dono']
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Tipagem:</label>
-                        <select class="form-control" name="tipagem">
+                        <select class="form-control" name="tipagem" required>
                             <?php
+                            //obtendo a tipagem/especie de acordo com os dados do banco, colocando em ordem crescente, porém com o valor já registrado como primeiro/prioridade
                             $sql = "SELECT * FROM categoria_pet ORDER BY FIELD(id,'". $tipagem ."')DESC, id ASC";
                                 $query = $mysqli->query($sql);
+                                //instacia a variavel $categoria para determinara raca de acordo com o valor retornado do banco
                                 while ($row = mysqli_fetch_assoc($query)){
                                     $categoria = $row["id"];
                                     echo '<option value="' . $categoria . '">' . $row["categoria"] . '</option>';
@@ -131,10 +144,11 @@ $cpf_dono = $_POST['cpf_dono']
                         </select>
                     </div>
                     <div class="form-group">
+                        <!-- Mostrar o raca do animal-->
                         <label for="exampleInputPassword1">Raça:</label>
-                        <select type="text" class="form-control" id="exampleInputPassword1" name="raca">
+                        <select type="text" class="form-control" id="exampleInputPassword1" name="raca" required>
                         <?php
-                            $mysqli = query_db();
+                            //realizando uma busca no banco para recuperar e correlacionar duas tabelas com informacoes dependentes uma da outra
                             $sql = "SELECT * FROM racas INNER JOIN categoria_pet ON racas.id_categoria = categoria_pet.id ORDER BY FIELD(racas.idracas, '" . $id_racas . "') DESC, racas.idracas ASC";
                             $query = $mysqli->query($sql);
                             while ($row = mysqli_fetch_assoc($query)){
@@ -146,19 +160,23 @@ $cpf_dono = $_POST['cpf_dono']
                     </div>
                     <div class="form-group">
                         <?php
+                        //instanciando a idade de acordo com a quantidade de anos, adequando a palavra 'ano' a quantidade
                         if($idade==1){
                             $idade_out=$idade . ' ano';
                         }
                         else{
                             $idade_out=$idade . ' anos';
                         } ?>
+                        <!-- Mostrar a idade e o ano de nascimento do animal-->
                         <label for="exampleInputPassword1">Ano de nascimento (<?php echo $idade_out ?>):</label>
-                        <input type="text" class="form-control" value="<?php echo $ano_nasc ?>" name="ano_nasc">
+                        <input type="text" class="form-control" value="<?php echo $ano_nasc ?>" name="ano_nasc" minlength="4" maxlength="4" required>
                     </div> 
                     <div class="form-group">
+                        <!-- Mostrar o horário em que o animal foi resgitrado no sistema-->
                         <label for="exampleInputPassword1">Data/Hora de registro:</label>
 
                         <?php
+                        //formatando a data e hora do banco para o formato brasileiro
                         $timestamp = $data_reg;
                         $dt = DateTime::createFromFormat('Y-m-d H:i:s', $timestamp);
                         if ($dt !== false) {
@@ -181,6 +199,7 @@ $cpf_dono = $_POST['cpf_dono']
             </div>
         </section>
 
+        <!--Mostrar o historico de vacinacao de acordo com o id do animalk-->
         <section id="section03" class="container-fluid">
             <div class="row">
                 <div class="col">
@@ -189,6 +208,7 @@ $cpf_dono = $_POST['cpf_dono']
                         <label class="title-form">Histórico de Vacinação</label>
                     </div>
                     <?php
+                    //buscando o historico de vascinas baseado nos id's em ordem decrescente
                     $sql = "SELECT * FROM historico_vacinas WHERE id_pet = '".$id_pet."' ORDER BY data DESC";
                     $query=$mysqli->query($sql);
                     if($query->num_rows == 0){
@@ -197,6 +217,7 @@ $cpf_dono = $_POST['cpf_dono']
                     else{
                         while ($row = mysqli_fetch_assoc($query)){
                             $id_vac = $row['id_vacina'];
+                            //instanciando as doses ao texto correto
                             $dose = $row['dose'];
                                 if($dose==1){
                                     $dose_out='a 1ª dose';
@@ -211,6 +232,7 @@ $cpf_dono = $_POST['cpf_dono']
                                     $dose_out='a dose única';
                                 }
 
+                                //formatando a data e hora para o formato brasileiro
                                 $timestamp2 = $row['data'];
                                 $dt = DateTime::createFromFormat('Y-m-d H:i:s', $timestamp2);
                                     if ($dt !== false) {
@@ -218,7 +240,8 @@ $cpf_dono = $_POST['cpf_dono']
                                         $data_format2 = strftime('%d de %B de %Y', $dt->getTimestamp());
                                         $hora_format2 = $dt->format('H:i:s');
                                     }
-
+                                    
+                                    //selecionando as vacinas com base do id
                                 $sql2 = "SELECT nome_vacina,lote FROM vacina_reg WHERE id = '".$id_vac."'";
                                 $query2 = $mysqli->query($sql2);
                                 while ($row2 = mysqli_fetch_assoc($query2)) {
@@ -246,6 +269,7 @@ $cpf_dono = $_POST['cpf_dono']
         
     </main>
 
+    <!--incluindo rodapé-->
     <footer>
         <?php include('../includes/rodape.php') ?>
     </footer>

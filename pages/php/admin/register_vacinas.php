@@ -1,4 +1,5 @@
 <?php
+//verificar se o usuário está logado
 include('../functions/funcoes.php');
 if (esta_logado()==1) {
 	header("location:register.php");
@@ -22,11 +23,13 @@ if (esta_logado()==1) {
         <link rel="icon" type="image/png" href="../../../icons/logo.png"/>
     </head>
     <bory>
+        <!--incluir cabecalho-->
     <header>
         <?php include('../includes/cabecalho.php') ?>
     </header>
 
     <main>
+        <!--Animacao e titulo da pagina-->
         <section id="section01" class="container-fluid">
             <div class="row">
             <div class="col d-flex justify-content-center">
@@ -37,27 +40,38 @@ if (esta_logado()==1) {
                             <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_vewnyqdu.json"  background="transparent"  speed="1"  style="width: 450px; height: 450px;"  loop  autoplay></lottie-player>
                         </div>
                 </div>
+                <!-- Formulário para registrar as vacinas no banco-->
                 <div class="col d-flex justify-content-center">
                     <div id="form_register" class="animate__animated animate__bounceInLeft">
                         <form action="../functions/query_register_vacinas.php" method="post">
 
                             <p class="titulo_register"><b>Registrar Vacina</b></p>
 
+                            <!--Registrar no nome da vacina-->
                             <p class="text_vacina_register">Vacina:</p> 
                             <input type="text" name="vacina" class="box_vacina_register" placeholder="Siga o padrão de nomes" required>
 
+                            <!--Registrar o laboratorio de producao-->
                             <p class="text_lab">Laboratório:</p>
                             <input name="lab" class="lab" placeholder="Informe o nome da fabricante da vacina" required>
 
+                            <!--Registrar a identificacao do lote-->
                             <p class="text_lote">ID Lote: </p>
                             <input type="text" name="lote" class="box_lote" placeholder="Insira o ID do lote." required>
 
+                            <!--Registrar a intervalo de doses(em dias)-->
+                            <p class="text_int_dose">Intervalo entre doses: </p>
+                            <input type="text" name="int_dose" class="box_int_dose" placeholder="Número de dias" required>
+
+                            <!--Registrar a validade da vacina-->
                             <p class="text_validade">Validade:</p>
                             <input name="validade" class="validade" placeholder="Formato: ANO-MES-DIA" required>
 
+                            <!--Quantia de ampolas/seringas recebidas-->
                             <p class="text_qntd">Quantia recebida(unid.):</p>
                             <input name="qntd" class="qntd" placeholder="Estoque recebido" required>
 
+                            <!--botoes de acao do formulario-->
                             <button type="submit" class="botao_register">Enviar Dados</button>
                             <p><button class="botao_pularss" onclick="window.location.href='home_admin.php'">Ir para Home</button></p>
                         </form>
@@ -67,7 +81,7 @@ if (esta_logado()==1) {
             </div>
         </section>
     </main>
-    
+    <!--incluir rodape-->
     <footer>
         <?php include('../includes/rodape.php') ?>
     </footer>
