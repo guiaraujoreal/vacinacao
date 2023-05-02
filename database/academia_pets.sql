@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `academia` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `academia`;
 -- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: academia
@@ -25,14 +27,16 @@ DROP TABLE IF EXISTS `pets`;
 CREATE TABLE `pets` (
   `id` int NOT NULL AUTO_INCREMENT,
   `cpf_dono` varchar(15) NOT NULL,
+  `id_dono` int DEFAULT NULL,
   `nome` varchar(45) DEFAULT NULL,
   `raca` varchar(20) DEFAULT 'n_atribuido',
-  `idade_est` varchar(20) DEFAULT NULL,
+  `ano_nasc` int DEFAULT NULL,
   `tipagem` varchar(45) DEFAULT NULL,
   `foto` varchar(45) DEFAULT NULL,
-  `genero` varchar(8) DEFAULT NULL,
+  `genero` varchar(15) DEFAULT NULL,
+  `data_reg` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +45,6 @@ CREATE TABLE `pets` (
 
 LOCK TABLES `pets` WRITE;
 /*!40000 ALTER TABLE `pets` DISABLE KEYS */;
-INSERT INTO `pets` VALUES (1,'123','Picanha','Vira Lata','1e3','cachorro',NULL,NULL),(2,'132','rafa','Pincher','menor_1','cachorro',NULL,NULL),(3,'123','Bento','','1e3','cachorro',NULL,'macho'),(4,'123','Bento','','1e3','cachorro',NULL,'macho'),(5,'123','Bento','','1e3','cachorro',NULL,'macho'),(6,'0','Clovis','','1e3','cachorro',NULL,'macho'),(7,'13232312323','Pingo','Poddle','menor_1','cachorro',NULL,'macho');
 /*!40000 ALTER TABLE `pets` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-26 14:58:34
+-- Dump completed on 2023-05-02 16:31:24

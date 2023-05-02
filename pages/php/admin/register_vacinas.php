@@ -49,23 +49,23 @@ if (esta_logado()==1) {
 
                             <!--Registrar no nome da vacina-->
                             <p class="text_vacina_register">Vacina:</p> 
-                            <input type="text" name="vacina" class="box_vacina_register" placeholder="Siga o padrão de nomes" required>
+                            <input type="text" name="vacina" class="box_vacina_register" placeholder="Siga o padrão de nomes" maxlength="45" required>
 
                             <!--Registrar o laboratorio de producao-->
                             <p class="text_lab">Laboratório:</p>
-                            <input name="lab" class="lab" placeholder="Informe o nome da fabricante da vacina" required>
+                            <input name="lab" class="lab" placeholder="Informe o nome da fabricante da vacina" maxlength="45" required>
 
                             <!--Registrar a identificacao do lote-->
                             <p class="text_lote">ID Lote: </p>
-                            <input type="text" name="lote" class="box_lote" placeholder="Insira o ID do lote." required>
+                            <input type="text" name="lote" class="box_lote" placeholder="Insira o ID do lote." maxlength="45" required>
 
                             <!--Registrar a intervalo de doses(em dias)-->
                             <p class="text_int_dose">Intervalo entre doses: </p>
-                            <input type="text" name="int_dose" class="box_int_dose" placeholder="Número de dias" required>
+                            <input type="text" name="int_dose" class="box_int_dose" placeholder="Número de dias" maxlength="3" required>
 
                             <!--Registrar a validade da vacina-->
                             <p class="text_validade">Validade:</p>
-                            <input name="validade" class="validade" placeholder="Formato: ANO-MES-DIA" required>
+                            <input type="date" name="validade" class="validade" placeholder="Formato: ANO-MES-DIA" required>
 
                             <!--Quantia de ampolas/seringas recebidas-->
                             <p class="text_qntd">Quantia recebida(unid.):</p>

@@ -47,7 +47,7 @@ include('../functions/funcoes.php');
                         <th scope="col">Vacina</th>
                         <th scope="col">Lote</th>
                         <th scope="col">Fabricante</th>
-                        <th scope="col">Entre doses</th>
+                        <th scope="col">Entre doses(dias)</th>
                         <th scope="col">Validade</th>
                         <th scope="col">Disponibilidade</th>
                         <th scope="col">Ações</th>

@@ -35,12 +35,18 @@ if (esta_logado()==1) {
 
         <section id="section02" class="conatiner-fluid">
             <div id="msgs_confirm">
-                <p class="msg_confirm01"><b>Confirmação de Cadastro enviada com êxito!</b></p>
-                <p class="msg_confirm02"><b>Uma confirmaçao de cadastro foi enviada ao usuário.<br> Aguarde, estamos redirecionando você...</b></p>
+                <p class="msg_confirm01"><b>Deu certo! Confirmamos sua ação realizada.</b></p>
+                <p class="msg_confirm02"><b>Uma confirmaçao de atividade foi enviada ao usuário.</b></p>
             </div>
-</section>
+        </section>
 
-        
+        <section id="section03" class="container-fluid d-flex justify-content-center">
+            <div class="col_aviso row">
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                <lottie-player   lottie-player src="https://assets4.lottiefiles.com/packages/lf20_Yf29Ko.json"  background="transparent"  speed="1"  style="width: 40px; height: 40px;"  loop  autoplay></lottie-player>
+                <p class="col msg_confirm03 d-flex align-items-center"><b>Aguarde, estamos te redirecionando para a próxima página...</b></p>
+            </div>
+        </section>
         </main>
         <footer id="rodape">
             <?php include('../includes/rodape.php') ?>
@@ -49,7 +55,7 @@ if (esta_logado()==1) {
         <script>
             setTimeout(function() {
             window.location.href = "../admin/home_admin.php";
-            }, 5000); // redireciona para a próxima após 5 segundos (5000 milissegundos)
+            }, 7000); // redireciona para a próxima após  segundos (7000 milissegundos), tempo suficiente para carregar os dados
         </script>
     </body>
 </html>

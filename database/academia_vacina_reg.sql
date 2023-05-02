@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `academia` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `academia`;
 -- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: academia
@@ -29,8 +31,9 @@ CREATE TABLE `vacina_reg` (
   `laboratorio` varchar(45) DEFAULT NULL,
   `validade` date DEFAULT NULL,
   `quantidade` int DEFAULT NULL,
+  `int_doses` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +42,7 @@ CREATE TABLE `vacina_reg` (
 
 LOCK TABLES `vacina_reg` WRITE;
 /*!40000 ALTER TABLE `vacina_reg` DISABLE KEYS */;
-INSERT INTO `vacina_reg` VALUES (1,'Pfizer','7282u27y22','FioCruz','2024-06-29',50),(2,'Astrazenica','7282u27y22','FioCruz','2024-06-29',50),(3,'Raiva','uh37yy739793','Fiat','2030-12-12',50);
+INSERT INTO `vacina_reg` VALUES (14,'Vacina Polivalente (V10)','VC-2810ZI24','Zoetis Indústria de Produtos Veterinários','2024-10-28',200,30),(15,'Antirrábica','AR-1028T24','Tecpar','2024-06-11',300,120),(16,'Gripe Animal','GA-0618ZI55','Zoetis Indústria de Produtos Veterinários','2024-07-18',100,200),(17,'Giárdia','GD-1026ZI24','Zoetis Indústria de Produtos Veterinários','2024-10-26',200,120),(18,'Leishmaniose','LSH-0611ZI24','Zoetis Indústria de Produtos Veterinários','2024-06-11',100,120);
 /*!40000 ALTER TABLE `vacina_reg` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-26 15:46:19
+-- Dump completed on 2023-05-02 16:31:24

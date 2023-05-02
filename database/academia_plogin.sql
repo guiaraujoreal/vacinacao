@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `academia` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `academia`;
 -- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: academia
@@ -29,11 +31,15 @@ CREATE TABLE `plogin` (
   `senha1` varchar(45) DEFAULT NULL,
   `telefone` varchar(15) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
+  `rua` varchar(100) DEFAULT NULL,
+  `bairro` varchar(45) DEFAULT NULL,
+  `cidades` varchar(45) DEFAULT NULL,
+  `estado` varchar(45) DEFAULT NULL,
   `ativo` tinyint DEFAULT '0',
   `e_cliente` tinyint DEFAULT NULL,
   `data_criacao` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +48,7 @@ CREATE TABLE `plogin` (
 
 LOCK TABLES `plogin` WRITE;
 /*!40000 ALTER TABLE `plogin` DISABLE KEYS */;
-INSERT INTO `plogin` VALUES (1,'00987654321','Heitor Miguel Souza','1234','(38)96521-3169','joaoguilhermearaujo1617@gmail.com',1,1,'2023-03-29 19:41:06'),(2,'12345678900','João Guilherme Araújo Viana','1234','(38)99961-2613','joaoguilhermearaujo1617@gmail.com',1,0,'2023-03-20 23:24:58'),(3,'12364646653','Luis Souza Pires','1234','(38)99962-6133','paulinhadesouza157@gmail.com',1,0,'2023-03-29 01:52:14'),(4,'13232312323','Wilton','1234','(38)97999-9777','paulinhadesouza157@gmail.com',1,1,'2023-03-21 22:09:21');
+INSERT INTO `plogin` VALUES (26,'12345678900','Wilton Jackson','1234','31999435944','joaoguilhermearaujo1617@gmail.com','Otaviano Costa, 301','Palmares','Curvelo','Minas Gerais',1,0,'2023-05-02 18:29:09');
 /*!40000 ALTER TABLE `plogin` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-26 14:58:34
+-- Dump completed on 2023-05-02 16:31:25

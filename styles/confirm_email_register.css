@@ -7,11 +7,16 @@ body{
 }
 #section02{
     margin-top: 70px;
+}
+#section03{
     margin-bottom: 150px;
+}
+.col_aviso{
+    background-color: white;
+    border-radius: 10px;
 }
 #msgs_confirm{
     text-align: center;
-    
     color: white;
     text-shadow: 2px 2px 4px #000000;
 }
@@ -20,6 +25,11 @@ body{
 }
 .msg_confirm02{
     font-size: 20px;
+}
+.msg_confirm03{
+    position: relative;
+    top:7px;
+    font-size: 15px;
 }
 .icon_confirm{
     

@@ -8,7 +8,7 @@ $mysqli = query_db();
 $id_pet = $_POST['id_pet'];
 $vacina = $_POST['vacina'];
 $dose = $_POST['dose'];
-
+$ret_email = '2';
 //seleciona apenas os dados de quantidade da tabela vacina_reg
 $sql = 'SELECT quantidade FROM vacina_reg WHERE id= "'. $vacina. '"';
 $result = $mysqli->query($sql);
@@ -23,12 +23,24 @@ $sql2 = 'INSERT INTO historico_vacinas (id_pet, id_vacina, dose) VALUES (?,?,?)'
 $stmt = $mysqli->prepare($sql2);
 $stmt->bind_param("iis",$id_pet,$vacina,$dose);
 
+$sql3 = "SELECT id_dono FROM pets WHERE id = $id_pet";
+$query = $mysqli->query($sql3);
+while ($row = mysqli_fetch_assoc($query)){
+  $id_dono = $row['id_dono'];
+}
+
 //executa a query
 if($stmt->execute()){
   //caso execute, atualiza a quantidade/estoque na tabela
-    $sql3 = "UPDATE vacina_reg SET quantidade = '".$estoque_out."' WHERE id = '".$vacina."'";
-    if(mysqli_query($mysqli, $sql3)) {
-        header('location:../admin/home_admin.php');
+    $sql4 = "UPDATE vacina_reg SET quantidade = '".$estoque_out."' WHERE id = '".$vacina."'";
+    if(mysqli_query($mysqli, $sql4)) {
+      //apos isso, ele selecionará o email do dono para confirmar a vacinacao
+      $sql5 = "SELECT email FROM plogin WHERE id=$id_dono";
+      $query = $mysqli->query($sql5);
+      while ($row = mysqli_fetch_assoc($query)){
+        $email = $row['email'];
+      }
+        header('location:send_email_page.php?ret_email='.urldecode($ret_email). '&email='.urldecode($email));
       }
 }
 

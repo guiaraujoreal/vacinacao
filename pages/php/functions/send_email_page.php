@@ -1,19 +1,34 @@
 <?php
+//incluir arquivo de funcoes
 include_once('funcoes.php');
-$email = send_email();
+//obter as variaveis de retorno da página
+$email = $_GET['email'];
+$ret_email = $_GET['ret_email'];
+
+//verifica o retorno do valor da pagina para especificar o conteudo do email
 if($ret_email==0){
+	//funcao apenas para pegar o primeiro nome do usuario do email
+	$nome = $_GET['nome'];
+    $primeiro_nome = explode(' ', $nome);
+    $user_fname = $primeiro_nome[0];
+
 	$subject = 'VacinaCao - Confirmacao de cadastro de usuario';
-	$body = '<html><meta charset="utf-8"> <font size="9" face="arial"><b>✅👤Você foi cadastrado no nosso sistema! Seu acesso ja está
+	$body = '<html><meta charset="utf-8"> <font size="9" face="arial"><b>✅👤Olá '. $user_fname .'! Você foi cadastrado no nosso sistema! Em breve, seu acesso será
 	liberado no sistema.</b></font></html>';
-	$altbody = 'Você foi cadastrado no nosso sistema! Seu acesso ja está
-	liberado no sistema.';
+	$altbody = 'Você foi cadastrado no nosso sistema! Em breve, seu acesso será liberado no sistema.';
+}
+elseif($ret_email==1){
+	$nome_pet = $_GET['nome_pet'];
+	$subject = 'VacinaCao - Confirmacao de cadastro de animal';
+	$body = '<html><meta charset="utf-8"> <font size="9" face="arial"><b>✅🐶Sucesso! '.$nome_pet.' foi cadastrado no seu registro! 
+	Em breve, você poderá acompanhar seu cartão de vacina no nosso site oficial.</b></font></html>';
+	$altbody = 'Um novo animal foi cadastrado no seu registro! 
+	Em breve, você poderá acompanhar seu cartão de vacina no nosso site oficial.';
 }
 else{
-	$subject = 'VacinaCao - Confirmacao de cadastro de animal';
-	$body = '<html><meta charset="utf-8"> <font size="9" face="arial"><b>✅🐶Um novo animal foi cadastrado no seu registro! 
-	Você pode acompanhar seu cartão de vacina no nosso site oficial.</b></font></html>';
-	$altbody = 'Um novo animal foi cadastrado no seu registro! 
-	Você pode acompanhar seu cartão de vacina no nosso site oficial.';
+	$subject = 'VacinaCao - Animal vacinado';
+	$body = '<html><meta charset="utf-8"> <font size="9" face="arial"><b>✅💉Muito bem! Seu animalzinho foi vacinado hoje. Em breve, você terá acesso as informações mais detalhadas.</b></font></html>';
+	$altbody = 'Muito bem! Seu animalzinho foi vacinado hoje. Em breve, você terá acesso as informações mais detalhadas';
 }
 
 
@@ -44,7 +59,7 @@ try {
 	$mail->AltBody = $altbody;
 
 	if($mail->send()) {
-		echo "<script>window.location.assign('../../php/confirm_email_register.php')</script>";
+		echo "<script>window.location.assign('confirm_email_register.php')</script>";
 	} else {
 		echo 'Email nao enviado';
 	}

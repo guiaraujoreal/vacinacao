@@ -1,0 +1,10 @@
+Olá usuário :)! Para acessar o sistema, use as informações de login abaixo:
+
+-CPF:12345678900
+-Senha:1234
+
+Antenção! Ao adicionar email nos cadastros, por mais que sejam fictícios, adicione emails validos e próprios.
+O sistema realmente envia emails após cada ação de cadastro realizada nele. Um email pessoal foi adicionado
+ao seu login. Você pode alterá-lo em Home>Mais Informações>'Email'.
+
+Bom uso! ;)

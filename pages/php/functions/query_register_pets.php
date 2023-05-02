@@ -12,14 +12,20 @@ $tipagem = $_POST['tipagem'];
 $ano = $_POST['idade'];
 $genero = $_POST['genero'];
 $id = $_POST['id_do_dono'];
-
+$ret_email = '1';
 //registra o novo animal no banco
 $sql = 'INSERT INTO pets (cpf_dono,id_dono,nome,raca,tipagem,ano_nasc,genero) values (?,?,?,?,?,?,?)';
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("sisssis",$cpf, $id, $nome, $raca, $tipagem, $ano, $genero);
 
 if($stmt->execute()){
-    header('location:../admin/home_admin.php');
+    //se a acao executar, recuperará o email do dono no banco para a próxima página
+    $sql2 = "SELECT email FROM plogin WHERE id= $id";
+    $query = $mysqli->query($sql2);
+    while ($dados = mysqli_fetch_assoc($query)){
+        $email_dono = $dados['email'];
+    }
+    header('location:send_email_page.php?ret_email=' .urldecode($ret_email) . '&email=' .urldecode($email_dono) . '&nome_pet=' .urldecode($nome));
 }
 
 ?>

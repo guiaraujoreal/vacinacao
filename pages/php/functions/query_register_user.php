@@ -17,6 +17,7 @@ $rua = $_POST['rua'];
 $bairro = $_POST['bairro'];
 $cidade = $_POST['cidade'];
 $estado = $_POST['estado'];
+$ret_email = '0';
 
 //verifica se a senha digitada coincide com a confirmacao
 if($senha1 != $confirmsenha){
@@ -35,7 +36,8 @@ else{
 	// b: para 'blob'
 
 if($stmt->execute()){
-	header('location:../admin/home_admin.php');
+	//redirecionando para a página de emails e enviando as variáveis via GET(não é muito eficaz, mas dispensa o JavaScript junto ao POST) 
+	header('location:send_email_page.php?email=' . urlencode($email) . '&ret_email=' . urldecode($ret_email) . '&nome='.urldecode($nome));
 }
 }
 ?>

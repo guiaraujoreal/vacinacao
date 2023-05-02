@@ -86,7 +86,7 @@ if (esta_logado()==1) {
                             <?php
                             //correlacionar duas tabelas com dados dependentes entre elas
                             $mysqli = query_db();
-                            $sql = "SELECT * FROM racas INNER JOIN categoria_pet ON racas.id_categoria = categoria_pet.id";
+                            $sql = "SELECT * FROM racas INNER JOIN categoria_pet ON racas.id_categoria = categoria_pet.id ORDER BY racas.racas";
                             $query = $mysqli->query($sql);
                             while ($row = mysqli_fetch_assoc($query)){
                                 $id_raca = $row['idracas'];
