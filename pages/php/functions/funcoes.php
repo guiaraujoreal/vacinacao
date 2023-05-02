@@ -7,7 +7,6 @@ function esta_logado() {
 		return 0;
 	} else {
 		if(isset($_SESSION['user'])) {
-			
 		return 1;
 		} else {
 			session_start();
@@ -38,7 +37,14 @@ function logout(){
 
 //funcao para mostrar apenas o primeiro nome do usuario na saudacao no canto direito do cabecalho
 function user_cabec(){
-	$user = $_SESSION['user'];
+	$mysqli = query_db();
+	$id_user = $_SESSION['id'];
+	$sql = "SELECT nome FROM plogin WHERE id = $id_user";
+	$query = $mysqli->query($sql);
+    	while ($dados = mysqli_fetch_assoc($query)){
+			$user = $dados['nome'];
+		}
+	
     $primeiro_nome = explode(' ', $user);
     //user_fname equilave a "user first name" - primeiro nome do usuário
     $user_fname = $primeiro_nome[0];
@@ -50,8 +56,8 @@ function user_cabec(){
 function categoria_user(){
 	esta_logado();
 	$mysqli = query_db();
-	$user = $_SESSION['user'];
-    $sql = "SELECT e_cliente FROM plogin WHERE nome= '".$user."'";
+	$cpf_user = $_SESSION['cpf'];
+    $sql = "SELECT e_cliente FROM plogin WHERE cpf= '".$cpf_user."'";
     $result = $mysqli->query($sql);
     while($row = $result->fetch_assoc()) {
         $cat_user = $row['e_cliente'];
@@ -82,8 +88,8 @@ function atributte_value_emailUser(){
 function id_atribute(){
 	esta_logado();
 	$mysqli = query_db();
-	$user = $_SESSION['user'];
-    $sql = "SELECT id FROM plogin WHERE nome= '".$user."'";
+	$cpf_user = $_SESSION['cpf'];
+    $sql = "SELECT id FROM plogin WHERE cpf= '".$cpf_user."'";
     $result = $mysqli->query($sql);
     while($row = $result->fetch_assoc()){
         $id = $row['id'];

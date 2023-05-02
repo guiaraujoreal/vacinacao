@@ -11,6 +11,7 @@ $mysqli = query_db();
 
 //instanciar as variaveis necessárias para essa página vindas de outra
 $id_user = $_POST['id'];
+$id_user_sessao = $_POST['id_user_sessao'];
 $nome = $_POST['nome'];
 $cpf = $_POST['cpf'];
 $email = $_POST['email'];
@@ -57,10 +58,27 @@ $estado = $_POST['estado'];
                     <p class="text_top "><b> Informações deste usuário </b></p>
                 </div>
                 <div class="col_text_top col-2 d-flex align-items-center">
-                    <form action="../functions/excluir_dados_perfil_user.php" method="post">
-                        <input type="hidden" value="<?php echo $id_user ?>" name="id">
+                    <!--Condição para desabilitar botao se o usuario a ser editado no momento for o mesmo em sessão no site-->
+                   <?php 
+                   if($id_user==$id_user_sessao){
+                    
+                   echo ' 
+                            <form action="../functions/excluir_dados_perfil_user.php" method="post">
+                            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Não é possivel excluir seu perfil com você logado">
+                                <input type="hidden" value="'. $id_user .'" name="id">
+                                    <button class="btn btn-danger" style="pointer-events: none;" disabled>Excluir Usuário</button>
+                            </span>
+                            </form>';
+                    
+                   }
+                   else{
+                    echo '<form action="../functions/excluir_dados_perfil_user.php" method="post">
+                        <input type="hidden" value="'. $id_user .'" name="id">
                         <button class="btn btn-danger">Excluir Usuário</button>
-                    </form>
+                    </form>';
+                   }
+                   ?>
+                    
                 </div>
             </div>
         </section>
@@ -165,15 +183,12 @@ $estado = $_POST['estado'];
                         <label for="exampleInputPassword1">Data/Hora de registro:</label>
 
                         <?php
-                        //formatando a data e hora para o brasieleiro/pt
+                        //formatando a data e hora do banco para o formato brasileiro
                         $timestamp = $data_insc;
-                        $dt = DateTime::createFromFormat('Y-m-d H:i:s', $timestamp);
-                        if ($dt !== false) {
-                            setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
-                            $data_format = strftime('%d de %B de %Y', $dt->getTimestamp());
-                            $hora_format = $dt->format('H:i:s');
-                        }
-                        
+                        $dt = new DateTime($timestamp);
+                        setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
+                        $data_format = $dt->format('d \d\e F \d\e Y');
+                        $hora_format = $dt->format('H:i:s');
                         ?>
                         <input type="text" class="form-control" value="<?php echo $data_format ?> às <?php echo $hora_format ?>" name="reg" readonly>
                     </div> 

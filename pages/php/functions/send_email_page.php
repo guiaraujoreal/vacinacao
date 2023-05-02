@@ -20,7 +20,7 @@ if($ret_email==0){
 elseif($ret_email==1){
 	$nome_pet = $_GET['nome_pet'];
 	$subject = 'VacinaCao - Confirmacao de cadastro de animal';
-	$body = '<html><meta charset="utf-8"> <font size="9" face="arial"><b>✅🐶Sucesso! '.$nome_pet.' foi cadastrado no seu registro! 
+	$body = '<html><meta charset="utf-8"> <font size="9" face="arial"><b>✅🐶Sucesso! '.$nome_pet.' foi cadastrado(a) no seu registro! 
 	Em breve, você poderá acompanhar seu cartão de vacina no nosso site oficial.</b></font></html>';
 	$altbody = 'Um novo animal foi cadastrado no seu registro! 
 	Em breve, você poderá acompanhar seu cartão de vacina no nosso site oficial.';

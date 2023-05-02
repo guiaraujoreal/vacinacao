@@ -23,6 +23,7 @@ $consulta = $mysqli->query($sql);
 	if ($consulta->num_rows > 0) {
 		while ($user = $consulta->fetch_assoc()) {
 			$_SESSION['user']=$user['nome'];
+			$_SESSION['cpf']=$user['cpf'];
 			$_SESSION['id']=$user['id'];
 		}
 			$cat = categoria_user();

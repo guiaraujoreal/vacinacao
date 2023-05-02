@@ -178,14 +178,12 @@ $cpf_dono = $_POST['cpf_dono']
                         <?php
                         //formatando a data e hora do banco para o formato brasileiro
                         $timestamp = $data_reg;
-                        $dt = DateTime::createFromFormat('Y-m-d H:i:s', $timestamp);
-                        if ($dt !== false) {
-                            setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
-                            $data_format = strftime('%d de %B de %Y', $dt->getTimestamp());
-                            $hora_format = $dt->format('H:i:s');
-                        }
-                        
+                        $dt = new DateTime($timestamp);
+                        setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
+                        $data_format = $dt->format('d \d\e F \d\e Y');
+                        $hora_format = $dt->format('H:i:s');
                         ?>
+
                         <input type="text" class="form-control" value="<?php echo $data_format ?> às <?php echo $hora_format ?>" name="reg" readonly>
                     </div> 
                     
@@ -233,13 +231,11 @@ $cpf_dono = $_POST['cpf_dono']
                                 }
 
                                 //formatando a data e hora para o formato brasileiro
-                                $timestamp2 = $row['data'];
-                                $dt = DateTime::createFromFormat('Y-m-d H:i:s', $timestamp2);
-                                    if ($dt !== false) {
-                                        setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
-                                        $data_format2 = strftime('%d de %B de %Y', $dt->getTimestamp());
-                                        $hora_format2 = $dt->format('H:i:s');
-                                    }
+                                $timestamp = $data_reg;
+                                $dt = new DateTime($timestamp);
+                                setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
+                                $data_format2 = $dt->format('d \d\e F \d\e Y');
+                                $hora_format2 = $dt->format('H:i:s');
                                     
                                     //selecionando as vacinas com base do id
                                 $sql2 = "SELECT nome_vacina,lote FROM vacina_reg WHERE id = '".$id_vac."'";

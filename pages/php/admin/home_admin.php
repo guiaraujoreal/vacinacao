@@ -47,7 +47,7 @@ include('../functions/funcoes.php');
                     $id_user = id_atribute();
                     $mysqli = query_db();
 
-                    $sql = "SELECT * FROM plogin WHERE id != '". $id_user . "' order by nome" ;
+                    $sql = "SELECT * FROM plogin order by nome" ;
                     $query = $mysqli->query($sql);
                     while ($dados = mysqli_fetch_assoc($query)){
 
@@ -73,6 +73,8 @@ include('../functions/funcoes.php');
                         echo "<tr>";
 			    
 			    //dados dos tipo 'hidden' para apenas enviar dados e não serem mostrados na tela
+                        //id do usuario em sessao
+                        echo '<input type="hidden" class="campo_form" value="' . $id_user. '" name="id_user_sessao">';
                         echo '<input type="hidden" class="campo_form" value="' . $dados['id'] . '" name="id">';
                         echo '<input type="hidden" class="campo_form" value="' . $dados['ativo'] . '" name="status">';
                         echo '<input type="hidden" class="campo_form" value="' . $dados['telefone'] . '" name="telefone">';
