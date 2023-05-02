@@ -5,24 +5,13 @@ body{
     background: linear-gradient(90deg, rgba(95,222,255,1) 0%, rgba(255,249,182,0.989233193277311) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5fdeff",endColorstr="#fff9b6",GradientType=1);
 }
-#user_menu{
-    position: absolute;
-    top: 5%;
-    right: 1%;
-    color: white;
-    text-align: center;
-}
-.user{
-    font-size: 25px;
-}
-.category_a{
-    font-size: 15px;
+#section02{
+    margin-top: 70px;
+    margin-bottom: 150px;
 }
 #msgs_confirm{
     text-align: center;
-    position: absolute;
-    top:60%;
-    left: 30%;
+    
     color: white;
     text-shadow: 2px 2px 4px #000000;
 }
@@ -30,18 +19,14 @@ body{
     font-size: 40px;
 }
 .msg_confirm02{
-    position: absolute;
-    top: 170%;
-    left: 5%;
+    font-size: 20px;
 }
 .icon_confirm{
-    position: absolute;
-    left: 45%;
+    
     width: 220px;
     height: auto;
 }
 .animation_email{
-    width: 15px;
-    position: absolute;
+    
     left: 40%;
 }
