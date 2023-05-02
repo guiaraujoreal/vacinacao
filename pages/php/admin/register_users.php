@@ -82,10 +82,10 @@ if (esta_logado()==1) {
                             <input type="text" name="rua" class="box_rua_register" placeholder="Ex: Otaviano Costa, 210" maxlength="100" required/>
 
                             <p class="text_bairro_register">Bairro: </p>
-                            <input type="text" name="bairro" class="box_bairro_register" placeholder="Ex: Palmares" maxlength="45" required/>
+                            <input type="text" name="bairro" class="box_bairro_register" placeholder="Ex: Seu bairro atual" maxlength="45" required/>
 
                             <p class="text_cidade_register">Cidade: </p>
-                            <input type="text" name="cidade" class="box_cidade_register" placeholder="Ex: heitor@dominio.com" maxlength="45" required/>
+                            <input type="text" name="cidade" class="box_cidade_register" placeholder="Ex: Sua cidade atual" maxlength="45" required/>
 
                             <p class="text_estado_register">Estado: </p>
                             <select type="text" name="estado" class="box_estado_register" maxlength="45" required>
