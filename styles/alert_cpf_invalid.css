@@ -1,0 +1,42 @@
+body{
+    background: rgb(238,174,202);
+    background: -moz-linear-gradient(130deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background: -webkit-linear-gradient(130deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background: linear-gradient(130deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeaeca",endColorstr="#94bbe9",GradientType=1);
+}
+#section02{
+    margin-top: 70px;
+}
+#section03{
+    margin-bottom: 150px;
+}
+.col_aviso{
+    background-color: white;
+    border-radius: 10px;
+}
+#msgs_confirm{
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+}
+.msg_confirm01{
+    font-size: 40px;
+}
+.msg_confirm02{
+    font-size: 20px;
+}
+.msg_confirm03{
+    position: relative;
+    top:7px;
+    font-size: 15px;
+}
+.icon_confirm{
+    
+    width: 220px;
+    height: auto;
+}
+.animation_email{
+    
+    left: 40%;
+}

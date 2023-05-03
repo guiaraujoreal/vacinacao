@@ -4,8 +4,6 @@ include('../functions/funcoes.php');
 if (esta_logado()==1) {
 	header("location:register.php");
 }
-
-
 ?>
 
 

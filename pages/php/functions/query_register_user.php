@@ -19,25 +19,34 @@ $cidade = $_POST['cidade'];
 $estado = $_POST['estado'];
 $ret_email = '0';
 
-//verifica se a senha digitada coincide com a confirmacao
-if($senha1 != $confirmsenha){
-	//em caso negativo
-	echo "As senhas não correspondem";
+//verifica se o CPF colocado ja está cadastrado
+$con = 'SELECT cpf 	FROM plogin WHERE cpf = "' .$cpf. '"';
+$query = $mysqli->query($con);
+
+if($query->num_rows > 0){
+	header('location:alert_cpf_invalid.php');
 }
-//em caso positivo, cadastra o novo usuario no banco
 else{
-	$sql = 'INSERT INTO plogin (cpf,nome,senha1,telefone,email,rua,bairro,cidades,estado,ativo,e_cliente) values (?,?,?,?,?,?,?,?,?,?,?)';
-	$stmt = $mysqli->prepare($sql);
-	$stmt->bind_param("sssssssssii",$cpf, $nome, $senha1,$telefone,$email,$rua,$bairro,$cidade,$estado,$ativo,$e_cliente);
+	//verifica se a senha digitada coincide com a confirmacao
+	if($senha1 != $confirmsenha){
+		//em caso negativo
+		echo "As senhas não correspondem";
+	}
+	//em caso positivo, cadastra o novo usuario no banco
+	else{
+		$sql = 'INSERT INTO plogin (cpf,nome,senha1,telefone,email,rua,bairro,cidades,estado,ativo,e_cliente) values (?,?,?,?,?,?,?,?,?,?,?)';
+		$stmt = $mysqli->prepare($sql);
+		$stmt->bind_param("sssssssssii",$cpf, $nome, $senha1,$telefone,$email,$rua,$bairro,$cidade,$estado,$ativo,$e_cliente);
 
-	// s: para 'string'
-	// i: para 'inteiro'
-	// d: para 'double'
-	// b: para 'blob'
+		// s: para 'string'
+		// i: para 'inteiro'
+		// d: para 'double'
+		// b: para 'blob'
 
-if($stmt->execute()){
-	//redirecionando para a página de emails e enviando as variáveis via GET(não é muito eficaz, mas dispensa o JavaScript junto ao POST) 
-	header('location:send_email_page.php?email=' . urlencode($email) . '&ret_email=' . urldecode($ret_email) . '&nome='.urldecode($nome));
-}
+	if($stmt->execute()){
+		//redirecionando para a página de emails e enviando as variáveis via GET(não é muito eficaz, mas dispensa o JavaScript junto ao POST) 
+		header('location:send_email_page.php?email=' . urlencode($email) . '&ret_email=' . urldecode($ret_email) . '&nome='.urldecode($nome));
+	}
+	}
 }
 ?>
