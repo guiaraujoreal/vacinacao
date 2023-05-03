@@ -81,7 +81,7 @@ $cpf_dono = $_POST['cpf_dono']
                     <div class="form-group">
                         <!-- Mostrar o nome do animal-->
                         <label for="exampleInputEmail1">Nome do animal:</label>
-                        <input type="text" class="form-control" value="<?php echo $nome_pet ?>" name="nome" maxlength="4" required>
+                        <input type="text" class="form-control" value="<?php echo $nome_pet ?>" name="nome" maxlength="45" required>
                     </div>
                     <div class="form-group">
                         <!-- Mostrar o dono do animal-->
