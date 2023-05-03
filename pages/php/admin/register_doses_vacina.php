@@ -59,13 +59,11 @@ if (esta_logado()==1) {
                                 $result = $mysqli->query($sql2);
 
                                     while($row = $result->fetch_assoc()) {
-                                        //echo '<input type="hidden" value="'. $id_vacina. '" name="vacina">';
                                         $id_vacina = $row['id']; 
                                         $nome_vac = $row['nome_vacina'];
                                         $lote = $row['lote'];
-                                        echo "<option value='" . $nome_vac . "'>". $nome_vac .   "-lote[" . $lote . "]</option>";
+                                        echo "<option value='" . $id_vacina . "'>". $nome_vac .   "-lote[" . $lote . "]</option>";
                                 }
-                                echo '<input type="hidden" value="'.$id_vacina.'" name="db">';
                                 ?>
                             </select>
                             <!--variavel para armazenar o estoque-->

@@ -64,7 +64,7 @@ $estado = $_POST['estado'];
                     
                    echo ' 
                             <form action="../functions/excluir_dados_perfil_user.php" method="post">
-                            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Não é possivel excluir seu perfil com você logado">
+                            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Não é possivel excluir seu perfil com você logado. Contate outro admin.">
                                 <input type="hidden" value="'. $id_user .'" name="id">
                                     <button class="btn btn-danger" style="pointer-events: none;" disabled>Excluir Usuário</button>
                             </span>
@@ -187,7 +187,7 @@ $estado = $_POST['estado'];
                         $timestamp = $data_insc;
                         $dt = new DateTime($timestamp);
                         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
-                        $data_format = $dt->format('d \d\e F \d\e Y');
+                        $data_format = $dt->format('d/m/Y');
                         $hora_format = $dt->format('H:i:s');
                         ?>
                         <input type="text" class="form-control" value="<?php echo $data_format ?> às <?php echo $hora_format ?>" name="reg" readonly>

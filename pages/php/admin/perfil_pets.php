@@ -25,7 +25,7 @@ $cpf_dono = $_POST['cpf_dono']
 
 
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -180,7 +180,7 @@ $cpf_dono = $_POST['cpf_dono']
                         $timestamp = $data_reg;
                         $dt = new DateTime($timestamp);
                         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
-                        $data_format = $dt->format('d \d\e F \d\e Y');
+                        $data_format = $dt->format('d/m/Y');
                         $hora_format = $dt->format('H:i:s');
                         ?>
 
@@ -214,8 +214,7 @@ $cpf_dono = $_POST['cpf_dono']
                     }
                     else{
                         while ($row = mysqli_fetch_assoc($query)){
-                            $nome_vac = $row['nome_vacina'];
-                            $id_vac = $row['id_vac'];
+                            $id_vac = $row['id_vacina'];
                             //instanciando as doses ao texto correto
                             $dose = $row['dose'];
                                 if($dose==1){
@@ -232,10 +231,10 @@ $cpf_dono = $_POST['cpf_dono']
                                 }
 
                                 //formatando a data e hora para o formato brasileiro
-                                $timestamp = $data_reg;
+                                $timestamp = $row['data'];
                                 $dt = new DateTime($timestamp);
                                 setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
-                                $data_format2 = $dt->format('d \d\e F \d\e Y');
+                                $data_format2 = $dt->format('d/m/Y');
                                 $hora_format2 = $dt->format('H:i:s');
                                     
                                     //selecionando as vacinas com base do id
