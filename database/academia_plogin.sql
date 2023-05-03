@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `academia` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `academia`;
 -- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: academia
@@ -39,7 +37,7 @@ CREATE TABLE `plogin` (
   `e_cliente` tinyint DEFAULT NULL,
   `data_criacao` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,7 +46,7 @@ CREATE TABLE `plogin` (
 
 LOCK TABLES `plogin` WRITE;
 /*!40000 ALTER TABLE `plogin` DISABLE KEYS */;
-INSERT INTO `plogin` VALUES (26,'12345678900','Wilton Jackson','1234','31999435944','joaoguilhermearaujo1617@gmail.com','Otaviano Costa, 301','Palmares','Curvelo','Minas Gerais',1,0,'2023-05-02 18:29:09');
+INSERT INTO `plogin` VALUES (26,'12345678900','Wilton Jackson','1234','31999435944','joaoguilhermearaujo1617@gmail.com','Otaviano Costa, 301','Palmares','Curvelo','Minas Gerais',1,0,'2023-05-02 18:29:09'),(27,'12345678905','Jorge da Cruz','1234','38965213169','joaoguilhermearaujo1617@gmail.com','Otaviano Costa','Palmares','Curvelo','Minas Gerais',1,0,'2023-05-02 21:07:05');
 /*!40000 ALTER TABLE `plogin` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -61,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-02 16:31:25
+-- Dump completed on 2023-05-02 23:52:51
