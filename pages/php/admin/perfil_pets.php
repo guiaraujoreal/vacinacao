@@ -214,7 +214,8 @@ $cpf_dono = $_POST['cpf_dono']
                     }
                     else{
                         while ($row = mysqli_fetch_assoc($query)){
-                            $id_vac = $row['id_vacina'];
+                            $nome_vac = $row['nome_vacina'];
+                            $id_vac = $row['id_vac'];
                             //instanciando as doses ao texto correto
                             $dose = $row['dose'];
                                 if($dose==1){

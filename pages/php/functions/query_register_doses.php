@@ -7,10 +7,11 @@ $mysqli = query_db();
 //atribui os valores recebidos da outra pagina a variaveis
 $id_pet = $_POST['id_pet'];
 $vacina = $_POST['vacina'];
+$db = $_POST['db'];
 $dose = $_POST['dose'];
 $ret_email = '2';
 //seleciona apenas os dados de quantidade da tabela vacina_reg
-$sql = 'SELECT quantidade FROM vacina_reg WHERE id= "'. $vacina. '"';
+$sql = 'SELECT quantidade FROM vacina_reg WHERE id= "'. $db. '"';
 $result = $mysqli->query($sql);
 while($row = $result->fetch_assoc()) {
   $estoque = $row['quantidade'];
@@ -19,9 +20,9 @@ while($row = $result->fetch_assoc()) {
 $estoque_out = intval($estoque) - 1;
 
 //insere os dados da vacinacao na tabela historico_vacinas para gerar um historico
-$sql2 = 'INSERT INTO historico_vacinas (id_pet, id_vacina, dose) VALUES (?,?,?)';
+$sql2 = 'INSERT INTO historico_vacinas (id_pet, id_vac, nome_vacina, dose) VALUES (?,?,?,?)';
 $stmt = $mysqli->prepare($sql2);
-$stmt->bind_param("iis",$id_pet,$vacina,$dose);
+$stmt->bind_param("iiss",$id_pet,$db,$vacina,$dose);
 
 $sql3 = "SELECT id_dono FROM pets WHERE id = $id_pet";
 $query = $mysqli->query($sql3);
@@ -32,7 +33,7 @@ while ($row = mysqli_fetch_assoc($query)){
 //executa a query
 if($stmt->execute()){
   //caso execute, atualiza a quantidade/estoque na tabela
-    $sql4 = "UPDATE vacina_reg SET quantidade = '".$estoque_out."' WHERE id = '".$vacina."'";
+    $sql4 = "UPDATE vacina_reg SET quantidade = '".$estoque_out."' WHERE id = '".$db."'";
     if(mysqli_query($mysqli, $sql4)) {
       //apos isso, ele selecionará o email do dono para confirmar a vacinacao
       $sql5 = "SELECT email FROM plogin WHERE id=$id_dono";
