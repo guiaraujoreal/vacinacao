@@ -40,50 +40,50 @@ if (esta_logado()==1) {
 
                             <!--nome completo do usuario-->
                             <p class="text_nome_register">Nome completo:</p> 
-                            <input type="text" name="nome" class="box_nome_register" maxlength="45" placeholder="Ex: Heitor Miguel dos Santos" required/>
+                            <input type="text" name="nome" class="box_nome_register" maxlength="45" placeholder="Ex: Heitor Miguel dos Santos" required>
                             
                             <!--cpf do usuario-->
                             <p class="text_cpf_register">CPF:</p>
-                            <input type="text" name="cpf" class="box_cpf_register" placeholder="Ex: 12345678900" minlength="11" maxlength="11" required/>
+                            <input type="text" name="cpf" class="box_cpf_register" placeholder="Ex: 12345678900" minlength="11" maxlength="11" required>
 
                             <!--elabora uma senha ao usuario-->
                             <p class="text_senha_register">Crie uma senha:</p> 
-                            <input type="password" name="senha" class="box_senha_register" minlength="3" maxlength="8" placeholder="Senha entre 3 a 8 caract." required/>
+                            <input type="text" name="senha" class="box_senha_register" minlength="3" maxlength="8" placeholder="Senha entre 3 a 8 caract." required>
 
                             <!--confirma a senha acima, sendo equivalentes-->
                             <p class="text_confirmsenha_register">Confirme a senha: </p>
-                            <input type="password" name="confirmsenha" class="box_confirmsenha_register" placeholder="Confirme sua senha"/>
+                            <input type="text" name="confirmsenha" class="box_confirmsenha_register" placeholder="Confirme sua senha" required>
 
                             <!--Telefone ou celular do usuaeio-->
                             <p class="text_telefone_register">Telefone/Celular:</p>
-                            <input type="tel" name="telefone" class="box_telefone_register" placeholder="Ex: 38999999999" minlength="10" maxlength="11" OnKeyPress="formatar('(##)#####-####',this)" required/>
+                            <input type="tel" name="telefone" class="box_telefone_register" placeholder="Ex: 38999999999" minlength="10" maxlength="11" OnKeyPress="formatar('(##)#####-####',this)" required>
 
                             <!--email do usuario-->
                             <p class="text_email_register">Email: </p>
-                            <input type="email" name="email" class="box_email_register" placeholder="Ex: heitor@dominio.com" required/>
+                            <input type="email" name="email" class="box_email_register" placeholder="Ex: heitor@dominio.com" required>
 
                             <!--registrar se o usuario incicialmente e ativo ou nao-->
                             <p class="text_seletor01">Status:</p>
-                            <select class="seletor01" name="seletor01">
+                            <select class="seletor01" name="seletor01" required>
                                 <option value="1" >Ativo</option>
                                 <option value="0" >Inativo</option>
                             </select>
 
                             <!--registrar se o usuario é cliente ou admin-->
                             <p class="text_seletor02">Posição:</p>
-                            <select class="seletor02" name="seletor02">
+                            <select class="seletor02" name="seletor02" required>
                                 <option value="1">Cliente</option>
                                 <option value="0" >Administrador</option>
                             </select>
 
                             <p class="text_rua_register">Rua/n°: </p>
-                            <input type="text" name="rua" class="box_rua_register" placeholder="Ex: Otaviano Costa, 210" maxlength="100" required/>
+                            <input type="text" name="rua" class="box_rua_register" placeholder="Ex: Otaviano Costa, 210" maxlength="100" required>
 
                             <p class="text_bairro_register">Bairro: </p>
-                            <input type="text" name="bairro" class="box_bairro_register" placeholder="Ex: Seu bairro atual" maxlength="45" required/>
+                            <input type="text" name="bairro" class="box_bairro_register" placeholder="Ex: Seu bairro atual" maxlength="45" required>
 
                             <p class="text_cidade_register">Cidade: </p>
-                            <input type="text" name="cidade" class="box_cidade_register" placeholder="Ex: Sua cidade atual" maxlength="45" required/>
+                            <input type="text" name="cidade" class="box_cidade_register" placeholder="Ex: Sua cidade atual" maxlength="45" required>
 
                             <p class="text_estado_register">Estado: </p>
                             <select type="text" name="estado" class="box_estado_register" maxlength="45" required>
@@ -100,7 +100,7 @@ if (esta_logado()==1) {
                                     ?>
                             </select>
 
-                            <p><button type="submit" class="botao_register" onclick="window.location.href='../functions/send_email_page.php'">Enviar Dados</button></p>
+                            <p><button type="submit" class="botao_register" >Enviar Dados</button></p>
                         </form>
                     </div>
                 </div>

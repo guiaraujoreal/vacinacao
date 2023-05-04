@@ -11,12 +11,12 @@ if (esta_logado()==1) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../../../styles/alert_cpf_invalid.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../../styles/no_clients.css" media="screen" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
         <title>
-            Erro de cadastro - CPF existente
+            Erro de cadastro - Página Inexistente
         </title>
         <link rel="icon" type="image/png" href="../../../icons/logo.png"/>
     </head>
@@ -29,14 +29,13 @@ if (esta_logado()==1) {
         <section id="section01" class="container-fluid">
             <div class="animation_email d-flex justify-content-center">
                 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_Tkwjw8.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;" loop   autoplay></lottie-player>
-            </div>
+                <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_d9wImAFTrS.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop  autoplay></lottie-player>
         </section>
 
         <section id="section02" class="conatiner-fluid">
             <div id="msgs_confirm">
-                <p class="msg_confirm01"><b>Este CPF já está cadastrado!</b></p>
-                <p class="msg_confirm02"><b>Este CPF já pertence a alguém. Se isso for um erro, contate a equipe de suporte.</b></p>
+                <p class="msg_confirm01"><b>Ops...você ainda não tem acesso.</b></p>
+                <p class="msg_confirm02"><b>Ainda não há uma página para clientes. Mas calma! Estamos trabalhando nisso :)</b></p>
             </div>
         </section>
 
@@ -54,7 +53,7 @@ if (esta_logado()==1) {
 
         <script>
             setTimeout(function() {
-            window.location.href = "../admin/register_users.php";
+            window.location.href = "../index.php";
             }, 7000); // redireciona para a próxima após  segundos (7000 milissegundos), tempo suficiente para carregar os dados
         </script>
     </body>

@@ -31,7 +31,7 @@ $consulta = $mysqli->query($sql);
 				header("location:../admin/home_admin.php");
 			}
 			else{
-				echo "Ainda não há um página para clientes";
+				header("location:no_clients.php");
 			}
 						
 		} 
