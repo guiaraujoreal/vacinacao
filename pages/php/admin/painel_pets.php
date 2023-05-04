@@ -42,7 +42,7 @@ $nome_dono = $_POST['nome'];
             </div>
         </section>
 	    
-	    <!--formulario para mostrar animais acadastrados na tela-->
+	    <!--formulario para mostrar animais cadastrados na tela-->
         <section id="section01" class="container-fluid">
 
             <div id="table_add_doses">
