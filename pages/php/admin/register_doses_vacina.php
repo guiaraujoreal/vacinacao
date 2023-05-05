@@ -77,8 +77,7 @@ if (esta_logado()==1) {
                             </select>
 
                             <!--botoes de acao do formulario-->
-                            <p><button type="submit" class="botao_register" onclick="window.location.href='../functions/send_email_page.php'">Enviar Dados</button></p>
-                            <p><button class="botao_pularss" onclick="window.location.href='home_admin.php'">Ir para Home</button></p>
+                            <p><button type="submit" class="botao_register">Enviar Dados</button></p>
                         </form>
                     </div>
                 </div>

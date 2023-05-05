@@ -4,7 +4,7 @@ include('../functions/funcoes.php');
 if (esta_logado()==1) {
 	header("location:register.php");
 }
-//atribuir a função 'query_db' paraconexão ao banco de dados
+//atribuir a função 'query_db' para conexão ao banco de dados
 $mysqli = query_db();
 $nome_dono = $_POST['nome'];
 ?>
